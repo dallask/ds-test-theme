@@ -1,0 +1,22 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.dropdown') }}
+{{ attach_library('otsuka_design_system2022/molecules.dropdown-list') }}
+
+{% set img_directory = directory ? '/' ~ directory ~ '/images/' : '/' %}
+
+{% set block_base_class = block_base_class|default('dropdown-list') %}
+
+{% set items = [] %}
+{% for item in menu_items.below %}
+  {% set items = items|merge([{
+    link: item.link,
+    title: '<span class="image-container"><img src="' ~ img_directory ~ item.icon ~ '" alt="icon"></span>' ~ item.title,
+  }]) %}
+{% endfor %}
+
+<div {{ bem(block_base_class) }}>
+  {% include "@bootstrap/components/dropdown/dropdown.twig" with {
+    "variant": "secondary",
+    "content": '<span class="image-container"><img src="' ~ img_directory ~ menu_items.icon ~ '" alt="icon"></span>' ~ menu_items.title,
+    "sub_items": items
+  } %}
+</div>

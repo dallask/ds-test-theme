@@ -1,0 +1,16 @@
+{% set link_base_class = 'logo-link' %}
+{% set link_url = logo_link__url|default('/') %}
+{% set icon_name = icon_name|default('otuska-logo') %}
+
+{% if not link_attributes %}
+    {% set link_attributes = [] %}
+{% endif %}
+{% set link_attributes = link_attributes|merge({'aria-label': logo_link__label|default('Home')}) %}
+{% extends "@atoms/links/link/link.twig" %}
+  {% block link_content %}
+    {% include "@atoms/images/icons/_icon.twig" with {
+      icon_base_class: "icon",
+      icon_blockname: "logo",
+      icon_name: icon_name,
+    } %}
+  {% endblock %}

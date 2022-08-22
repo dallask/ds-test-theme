@@ -1,0 +1,36 @@
+
+
+.header-b {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px $gray-lighter;
+  padding: space(half-medium) space(half-large) 0;
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+
+  svg {
+    height: 100px;
+    max-width: 150px;
+    padding: space(half-large);
+  }
+
+  .dropdown {
+    display: flex;
+    height: 100px;
+    border: solid 1px $gray-lighter;
+    border-bottom: navajowhite;
+    margin-bottom: space(thick, true);
+    background: clr(background);
+
+    .dropdown-menu {
+      border-top: none;
+      border-radius: 0;
+      margin-top: space(thick, true) !important;
+      margin-left: space(hor-thin, true) !important;
+    }
+  }
+}

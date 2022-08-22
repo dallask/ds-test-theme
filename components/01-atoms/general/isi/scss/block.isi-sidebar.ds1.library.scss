@@ -1,0 +1,120 @@
+
+
+/**
+  Based on https://github.com/OAPI-Commercial-IT/otsk-drupal/blob/drupal9_dev/docroot/themes/custom/otsuka_design_system_theme/assets/src/style/block/block.isi-sidebar.scss
+  Equivalencies (block.isi-sidebar.scss = _block.isi-sidebar.ds1.scss):
+  .inline-isi-wrapper = #inline-isi-wrapper
+  .inline-isi-header = .isi-block-title
+   */
+.ds1 {
+  #inline-isi-wrapper {
+    width: 100%;
+    border: 1px solid clr('background-section');
+    border-top: 6px solid clr('theme-blue');
+    background: clr('background');
+    padding: space(medium) space(extra-large) space(small) space(medium);
+    margin-bottom: 0;
+    //position: -webkit-sticky;
+    //position: -moz-sticky;
+    //position: -ms-sticky;
+    //position: -o-sticky;
+    //position: sticky;
+    height: 100vh;
+    top: 0;
+    bottom: auto;
+    -webkit-transition: all 0.35s linear;
+    -moz-transition: all 0.35s linear;
+    -o-transition: all 0.35s linear;
+    transition: all 0.35s linear;
+
+    @include media-breakpoint-down(sm) {
+      position: initial;
+      height: initial;
+      padding-bottom: space(medium);
+    }
+    //Overrides-------------------------------
+    .isi-inline-title-wrap,
+    .isi-inline-inner-wrap {
+      a {
+        color: unset !important;
+      }
+
+      background-color: unset !important;
+      padding: space(small) space(medium) !important;
+    }
+
+    //----------------------------------------
+    .isi-block {
+      height: calc(100% - 80px);
+      //margin-top: 15px;
+      //padding-bottom: 80px !important;
+    }
+
+    .field-name-field-isi-inline-content {
+      border: none;
+      padding: 0;
+    }
+
+    .isi-block-title {
+      p {
+        font-size: $font-size-base;
+        line-height: fontSize(m);
+        font-weight: 700;
+        color: clr('theme-blue');
+      }
+    }
+
+    .isi-inline-inner-wrap {
+      padding: 0;
+
+      .field--item {
+        margin-bottom: space(medium);
+      }
+
+      ul, ol, dl {
+        padding-left: space(medium);
+      }
+    }
+  }
+
+  .inline-external-scroll-y {
+    &.scroll-scrolly_visible {
+      width: 7px;
+      border: none;
+      z-index: 0;
+    }
+
+    div {
+      height: calc(100% - 80px);
+      top: auto;
+      bottom: 5px;
+    }
+
+    .scroll-bar {
+      background: clr('accent');
+      border-radius: 4px;
+      height: 38px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .inline-external-scroll-y {
+      div {
+        &.scroll-bar {
+          height: 38px;
+        }
+      }
+    }
+  }
+
+  .isi-header {
+    .drawer-title {
+      padding-right: space(extra-large);
+
+      @media all and (min-width: 576px) {
+        padding-right: 112px; //NONSTANDARD VAR
+      }
+    }
+  }
+}
+

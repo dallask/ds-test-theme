@@ -1,0 +1,15 @@
+variant:
+  - primary
+  - secondary
+  - success
+  - danger
+  - warning
+  - info
+  - dark
+  - light
+stripped: true
+animated: true
+aria_valuemin: 0
+aria_valuemax: 100
+aria_valuenow: 75
+classes: [ ]

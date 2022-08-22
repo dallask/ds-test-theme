@@ -1,0 +1,10 @@
+{% set paragraph_base_class = paragraph_base_class|default('video') %}
+
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+{% block content %}
+  {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+  {{ attach_library('otsuka_design_system2022/paragraph.video') }}
+
+  {{ content.field_video }}
+{% endblock %}

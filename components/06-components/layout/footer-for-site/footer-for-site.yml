@@ -1,0 +1,23 @@
+page:
+  footer_logo: '
+  <a href="/" rel="home">
+    <img src="logo_gray.png" alt="Home">
+  </a>
+  '
+  footer_menu: '
+  <ul class="footer nav justify-content-end"><li class="footer__item nav-item"><a href="https://www.linkedin.com/company/otsuka-pharmaceutical-companies/" target="_blank" class="footer__link text-white text-decoration-underline nav-link">LinkedIn</a></li><li class="footer__item nav-item"><a href="https://twitter.com/otsukaus" target="_blank" class="footer__link text-white text-decoration-underline nav-link">Twitter</a></li><li class="footer__item nav-item"><a href="https://www.youtube.com/channel/UCSMEX6Q10v5ehZSKsN-Odwg" target="_blank" class="footer__link text-white text-decoration-underline nav-link">YouTube</a></li></ul>
+  '
+  footer_copyright: '
+  <p>© 2022 Otsuka America Pharmaceutical, Inc<br>
+All rights reserved.</p>
+  '
+  footer_first_middle_fourth: '
+  <div id="block-otsukaprccodeinfo--2" class="block__otsuka-prc-code-info contextual-region otsuka-prc-code">
+    <span class="code-info__code">
+    00US20EUP0004
+    </span>
+    <span class="code-info__date">
+    May 2022
+    </span>
+  </div>
+  '

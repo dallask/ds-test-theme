@@ -1,0 +1,37 @@
+<Meta title="Docs/Tests"/>
+
+# Visual Regression/BDD tests
+
+The system uses cypress and its plugins (`cypress-xpath`, `cypress-image-diff-js`,
+`cypress-cucumber-preprocessor`) for visual regressing testing and creating
+the behavioral tests on this basis.
+
+All tests should be placed in the `./themes/custom/[theme_name]/cypress/integration`
+directory.
+
+You can find the test exaamples for the Bootstrap components there:
+
+`./themes/custom/[theme_name]/cypress/integration/00-bootstrap/*`
+
+After test runs you can find the screenshots in the directory
+`./themes/custom/[theme_name]/cypress-visual-screenshots` and videos in
+the directory `./themes/custom/[theme_name]/cypress/videos`.
+
+## Commands:
+
+- `npx cypress run --spec cypress/integration/**/*.spec.js` - run only visual regression tests
+- `npx cypress run --spec cypress/integration/**/*.feature` - run only BDD tests
+
+## npm scripts:
+
+- `cypress:open` - opens cypress UI
+- `cypress:run` - runs all tests and specs
+- `cypress:visual:approve` - updates components baseline screenshots
+
+## References:
+
+- https://www.cypress.io/
+- https://www.npmjs.com/package/cypress-image-diff-js
+- https://www.npmjs.com/package/cypress-xpath
+- https://www.npmjs.com/package/cypress-cucumber-preprocessor
+- https://github.com/heedrox/cypress-cucumber-example

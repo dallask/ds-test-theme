@@ -1,0 +1,108 @@
+{% embed "@templates/with-sidebar.twig" %}
+  {% block page_header %}
+    {% include "@organisms/header/flexible-header.twig" %}
+  {% endblock %}
+  {% block page_content %}
+    {% include "@atoms/text/headings/_heading.twig" with {
+      heading_level: '2',
+      heading: 'Page Intro',
+    } %}
+    {% include "@atoms/text/text/01-paragraph.twig" with {
+      paragraph_content: 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.',
+    } %}
+    {% include "@atoms/text/headings/_heading.twig" with {
+      "heading_level": 2,
+      "heading": 'EXAMPLE 1: Rows of Teasers (Based on component Paragraph Wrapper Card)',
+    } %}
+    {% include "@organisms/paragraphs/paragraph-wrapper/card/paragraph-wrapper-card.twig" with {
+      layout: {
+        layout: 'layout-1-column',
+        image_position: 'left'
+      },
+      items: {
+        1: {
+          field_otsk_ds_title: 'The McQuade Center for Strategic Research and Development and Eikonizo Therapeutics Enter Agreement to Develop Treatments for Patients with Rare Diseases',
+          field_otsk_ds_text: '<p>The McQuade Center for Strategic Research and Development, LLC (MSRD), a member of the global Otsuka family of pharmaceutical companies, announces it has entered a collaboration agreement with Eikonizo Therapeutics, Inc., a biotechnology company committed to creating life-changing therapies, to develop inhibitors of histone deacetylase-6 (HDAC6)</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        2: {
+          field_otsk_ds_title: 'Nearly half of U.S. workers suffer from mental health issues since Covid-19 pandemic hit, report finds',
+          field_otsk_ds_text: '<p>Nearly half of American workers have been suffering from mental health issues since the Covid-19 pandemic began, at a significant cost to their well-being and potentially to their employer’s bottom line.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        3: {
+          field_otsk_ds_title: 'Otsuka America Pharmaceutical, Inc., Purchases the Assets of Proteus Digital Health, Inc.',
+          field_otsk_ds_text: '<p>Otsuka America Pharmaceutical, Inc., (Otsuka) today announces that it has purchased the assets of Proteus Digital Health, Inc. (Proteus), including assets and intellectual property for its ingestible and wearable sensor technology.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        4: {
+          field_otsk_ds_title: 'Otsuka America Pharmaceutical, Inc., Purchases the Assets of Proteus Digital Health, Inc.',
+          field_otsk_ds_text: '<p>Otsuka America Pharmaceutical, Inc., (Otsuka) today announces that it has purchased the assets of Proteus Digital Health, Inc. (Proteus), including assets and intellectual property for its ingestible and wearable sensor technology.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        5: {
+          field_otsk_ds_title: 'Alzheimer’s Prediction May Be Found in Writing Tests',
+          field_otsk_ds_text: '<p>IBM researchers trained artificial intelligence to pick up hints of changes in language ahead of the onset of neurological diseases.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        }
+      }
+    } %}
+    {% include "@atoms/text/headings/_heading.twig" with {
+      "heading_level": 2,
+      "heading": 'EXAMPLE 2: Grid of Teasers (Based on component Paragraph Wrapper Card)',
+    } %}
+    {% include "@organisms/paragraphs/paragraph-wrapper/card/paragraph-wrapper-card.twig" with {
+      layout: {
+        layout: 'layout-2-columns',
+        image_position: 'left'
+      },
+      items: {
+        1: {
+          field_otsk_ds_title: 'The McQuade Center for Strategic Research and Development and Eikonizo Therapeutics Enter Agreement to Develop Treatments for Patients with Rare Diseases',
+          field_otsk_ds_text: '<p>The McQuade Center for Strategic Research and Development, LLC (MSRD), a member of the global Otsuka family of pharmaceutical companies, announces it has entered a collaboration agreement with Eikonizo Therapeutics, Inc., a biotechnology company committed to creating life-changing therapies, to develop inhibitors of histone deacetylase-6 (HDAC6)</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        2: {
+          field_otsk_ds_title: 'Nearly half of U.S. workers suffer from mental health issues since Covid-19 pandemic hit, report finds',
+          field_otsk_ds_text: '<p>Nearly half of American workers have been suffering from mental health issues since the Covid-19 pandemic began, at a significant cost to their well-being and potentially to their employer’s bottom line.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        3: {
+          field_otsk_ds_title: 'Otsuka America Pharmaceutical, Inc., Purchases the Assets of Proteus Digital Health, Inc.',
+          field_otsk_ds_text: '<p>Otsuka America Pharmaceutical, Inc., (Otsuka) today announces that it has purchased the assets of Proteus Digital Health, Inc. (Proteus), including assets and intellectual property for its ingestible and wearable sensor technology.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        4: {
+          field_otsk_ds_title: 'Otsuka America Pharmaceutical, Inc., Purchases the Assets of Proteus Digital Health, Inc.',
+          field_otsk_ds_text: '<p>Otsuka America Pharmaceutical, Inc., (Otsuka) today announces that it has purchased the assets of Proteus Digital Health, Inc. (Proteus), including assets and intellectual property for its ingestible and wearable sensor technology.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        },
+        5: {
+          field_otsk_ds_title: 'Alzheimer’s Prediction May Be Found in Writing Tests',
+          field_otsk_ds_text: '<p>IBM researchers trained artificial intelligence to pick up hints of changes in language ahead of the onset of neurological diseases.</p>',
+          field_otsk_ds_image: '250x250.png',
+          field_otsk_ds_link: '<a href="#">Go to Story</a>',
+        }
+      }
+    } %}
+    {% include "@molecules/cta/cta.twig" with {
+      cta__heading: 'Here\'s a cool thing!',
+      cta__button_text: 'Click me!',
+    } %}
+  {% endblock %}
+  {% block page_sidebar %}
+    {% include "@molecules/cta/cta.twig" with {
+      cta__heading: 'We have a podcast',
+      cta__button_text: 'Subscribe now!',
+    } %}
+  {% endblock %}
+{% endembed %}

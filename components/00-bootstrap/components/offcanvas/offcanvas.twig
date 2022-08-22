@@ -1,0 +1,45 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.offcanvas') }}
+
+{% set offcanvas_base_class = offcanvas_base_class|default('offcanvas') %}
+
+{% set id = id|default(offcanvas_base_class) %}
+
+  {% set offcanvas_attributes = {
+  class: bem(
+    offcanvas_base_class,
+    offcanvas_modifiers,
+    offcanvas_blockname,
+    [
+      'offcanvas-' ~ position,
+      classes|join(' '),
+    ]
+  ),
+}|merge(offcanvas_attributes|default({
+  id: id,
+  tabindex: '-1',
+  'aria-labelledby': id ~ 'Label',
+  'data-bs-scroll': data_bs_scroll|default('true'),
+  'data-bs-backdrop': data_bs_backdrop|default('true'),
+})) %}
+
+<div {{ add_attributes(offcanvas_attributes) }}>
+  {% block content %}
+    <div {{ bem('header', '', offcanvas_base_class, ['offcanvas-header']) }}>
+      {{ content.header }}
+      {% include "@bootstrap/components/buttons/button.twig" with {
+        button_classes: [
+          'btn-close',
+          'text-reset',
+        ],
+        button_attributes: {
+          'type': 'button',
+          'data-bs-dismiss': offcanvas_base_class,
+          'aria-label': 'Close',
+        }
+      } %}
+    </div>
+    <div {{ bem('body', '', offcanvas_base_class, ['offcanvas-body']) }}>
+      {{ content.body }}
+    </div>
+  {% endblock %}
+</div>

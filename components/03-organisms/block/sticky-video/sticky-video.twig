@@ -1,0 +1,101 @@
+{% set base_class = base_class|default('sticky-video') %}
+
+<div {{ bem('wrapper', [], base_class) }}>
+    <div class="container">
+        <div class="home-title">
+            <h1>Congue quisque egestas<br>dictum varius duis at consectetur lorem</h1>
+        </div>
+        <div class="sticky-video-hero-block row">
+            <div class="text-block text-block-1 col-lg-20">
+                <div>
+                    <h2>
+                        Mi eget mauris pharetra et ultrices neque
+                    </h2>
+                    <p>
+                        Vitae ultricies leo integer malesuada nunc vel risus commodo
+                        viverra.
+                        Ac orci phasellus egestas tellus rutrum tellus pellentesque eu.
+                    </p>
+                    <div class="anchor-button-container">
+                        <a role="button" tabindex="0" href="/"
+                           class="cta-link  analytics--p-cta text-uppercase mt-auto ods-mb-15 btn btn-primary btn-sm btn-rounded"
+                           data-analytics-id="44cc1" target="_self"
+                           data-analytics-position="Body">
+                            Elementum nisi quis eleifend
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>
+                        Ultricies lacus sed turpis tincidunt id
+                    </h2>v
+                    <p>
+                        Quis risus sed vulputate odio ut. Arcu vitae elementum curabitur
+                        vitae
+                        nunc sed. Mauris a diam maecenas sed enim ut sem.
+                    </p>
+                    <div class="anchor-button-container">
+                        <a role="button" tabindex="0" href="/"
+                           class="cta-link  analytics--p-cta text-uppercase mt-auto ods-mb-15 btn btn-primary btn-sm btn-rounded"
+                           data-analytics-id="44cc1" target="_self"
+                           data-analytics-position="Body">
+                            Elementum nisi quis eleifend
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-block col-lg-20">
+                <div class="sticky-video">
+                    <video id="videoBackground" muted preload="auto" autoplay="autoplay"
+                           playsinline
+                           poster="{{ base_path ~ directory }}/assets/build/img/transparent.png">
+                        <source
+                                src="{{ base_path ~ directory }}/video/sh010_intro-kidney_main_720.mp4"
+                                type="video/x-m4v">
+                    </video>
+                    <canvas id="videoBackgroundCanvas"></canvas>
+                    <canvas id="videoBackgroundCanvas2" width="300" height="300"></canvas>
+                </div>
+            </div>
+            <div class="text-block text-block-2 col-lg-20">
+                <div>
+                    <h2>
+                        Ultricies lacus sed turpis tincidunt id
+                    </h2>v
+                    <p>
+                        Quis risus sed vulputate odio ut. Arcu vitae elementum curabitur
+                        vitae
+                        nunc sed. Mauris a diam maecenas sed enim ut sem.
+                    </p>
+                    <div class="anchor-button-container">
+                        <a role="button" tabindex="0" href="/"
+                           class="cta-link  analytics--p-cta text-uppercase mt-auto ods-mb-15 btn btn-primary btn-sm btn-rounded"
+                           data-analytics-id="44cc1" target="_self"
+                           data-analytics-position="Body">
+                            Elementum nisi quis eleifend
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h2>
+                        Mi eget mauris pharetra et ultrices neque
+                    </h2>
+                    <p>
+                        Vitae ultricies leo integer malesuada nunc vel risus commodo
+                        viverra.
+                        Ac orci phasellus egestas tellus rutrum tellus pellentesque eu.
+                    </p>
+                    <div class="anchor-button-container">
+                        <a role="button" tabindex="0" href="/"
+                           class="cta-link  analytics--p-cta text-uppercase mt-auto ods-mb-15 btn btn-primary btn-sm btn-rounded"
+                           data-analytics-id="44cc1" target="_self"
+                           data-analytics-position="Body">
+                            Elementum nisi quis eleifend
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+slides:
+  - item:
+      content: "Slide 1"
+      bg_img: "/bg_carousel/slidebg2.png"
+  - item:
+      content: "Slide 2"
+      bg_img: "/bg_carousel/slidebg1.png"
+  - item:
+      content: "Slide 3"
+      bg_img: "/bg_carousel/slidebg3.png"
+  - item:
+      content: "Slide 4"
+      bg_img: "/bg_carousel/slidebg1.png"
+  - item:
+      content: "Slide 5"
+      bg_img: "/bg_carousel/slidebg2.png"

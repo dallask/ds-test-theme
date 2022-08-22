@@ -1,0 +1,7 @@
+output_image_tag: true
+image_src: 'https://otsuka-us.com/sites/g/files/qhldwo4426/themes/site/themes/otsuka_corp/assets/build/img/logos/desktop-otsuka-logo-full-color.svg'
+image_alt: 'A 16 by 9 image'
+link_url: 'https://github.com/emulsify-ds/emulsify-design-system'
+link_content: 'This is my link text'
+link_attributes:
+  'target': '_blank'

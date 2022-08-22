@@ -1,0 +1,40 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.list-group') }}
+
+{% set list_group_base_class = list_group_base_class|default('list-group') %}
+
+{% set list_group_attributes = {
+  class: bem(
+    list_group_base_class,
+    list_group_modifiers,
+    list_group_blockname,
+    [
+      flush ? 'list-group-flush' : '',
+      classes|join(' '),
+    ]
+  ),
+}|merge(list_group_attributes|default({})) %}
+
+{% set ul_items = [] %}
+{% for item in content %}
+  {% set ul_items = ul_items|merge( [
+    {
+      content: item.content,
+      li_base_class: list_group_base_class ~ '--item',
+      li_extra: [
+      'list-group-item',
+      item.variant ? 'list-group-item-' ~ item.variant : '',
+      item.active ? 'active' : '',
+    ],
+      li_attributes: {
+      'sdfsdg': 'ffffff',
+      'aria-current': item.active ? 'true' : 'false',
+    }|merge(item.disabled ? {'disabled': 'disabled'} : {})
+    }
+  ]) %}
+{% endfor %}
+
+{% include "@atoms/lists/ul.twig" with {
+  ul_base_class: list_group_base_class,
+  ul_items: ul_items,
+  ul_attributes: {}|merge(list_group_attributes|default({}))
+} %}

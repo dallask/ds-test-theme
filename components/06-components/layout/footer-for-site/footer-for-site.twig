@@ -1,0 +1,93 @@
+{% set wrapper_blockname = wrapper_blockname|default('footer-block') %}
+{% set wrapper_base_class = wrapper_base_class|default('footer') %}
+{% set wrapper_container_class = wrapper_container_class|default('container-xxl') %}
+{% set wrapper_variant = wrapper_variant|default('secondary') %}
+{% set wrapper_text_color = wrapper_text_color|default('white') %}
+{% set wrapper_extra = [
+  'bs-footer',
+  'py-3',
+] %}
+
+{% extends "@components/layout/footer/footer.twig" %}
+  {% block footer_content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    <div {{ bem('row', [], wrapper_blockname, ['row']) }}>
+
+      {% if page.footer_logo|render %}
+        <div {{ bem(
+          'logo',
+          [],
+          wrapper_blockname,
+          [
+            'col-60',
+            'col-sm-30',
+            'd-flex',
+            'justify-content-center',
+            'justify-content-sm-start'
+          ]
+        ) }}>
+          {% block footer_logo %}
+            {{ page.footer_logo }}
+          {% endblock %}
+        </div>
+      {% endif %}
+
+      {% if page.footer_menu|render %}
+        <div {{ bem(
+          'menu',
+          [],
+          wrapper_blockname,
+          [
+            'col-60',
+            'col-sm-30',
+            'text-sm-end',
+            'text-center',
+            'd-flex',
+            'justify-content-center',
+            'justify-content-sm-end'
+          ]
+        ) }}>
+          {% block footer_menu %}
+            {{ page.footer_menu }}
+          {% endblock %}
+        </div>
+      {% endif %}
+
+      {% if page.footer_copyright|render %}
+        <div {{ bem(
+          'copyright',
+          [],
+          wrapper_blockname,
+          [
+            'col-60',
+            'text-sm-end',
+            'text-center'
+          ]
+        ) }}>
+          {% block footer_copyright %}
+            {{ page.footer_copyright }}
+          {% endblock %}
+        </div>
+      {% endif %}
+
+      {% if page.footer_prc|render %}
+        <div {{ bem(
+          'prc',
+          [],
+          wrapper_blockname,
+          [
+            'col-60',
+            'text-sm-end',
+            'text-center'
+          ]
+        ) }}>
+          {% block footer_prc %}
+            {{ page.footer_prc }}
+          {% endblock %}
+        </div>
+      {% endif %}
+
+    </div>
+
+  {% endblock %}

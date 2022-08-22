@@ -1,0 +1,10 @@
+{{ attach_library('otsuka_design_system2022/atoms.copyright') }}
+
+{% set footer__base_class = 'footer-a' %}
+
+{% block footer_copyright %}
+  <div {{ bem('copyright', [], footer__base_class) }}>
+    {{ copyright_year }}<br>
+    {{ copyright_rights }}
+  </div>
+{% endblock %}

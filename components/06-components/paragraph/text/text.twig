@@ -1,0 +1,16 @@
+{% set paragraph_base_class = paragraph_base_class|default('text') %}
+
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+{% block content %}
+  {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+  {% if content.field_title_format %}
+    {% block field_title_format %}
+      <div {{ bem(paragraph_base_class ~ '-title', [], paragraph_blockname) }}>
+        {{ content.field_title_format }}
+      </div>
+    {% endblock %}
+  {% endif %}
+
+  {{ content.field_otsk_ds_text }}
+{% endblock %}

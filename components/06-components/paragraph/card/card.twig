@@ -1,0 +1,50 @@
+{% set paragraph_base_class = paragraph_base_class|default('cta') %}
+
+{% extends "@components/paragraph/wrapper/wrapper.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/paragraph.card') }}
+
+    {% if content.field_otsk_ds_wrapper_title %}
+      {% block field_otsk_ds_wrapper_title %}
+        <div {{ bem(paragraph_base_class ~ '-title', [], paragraph_blockname) }}>
+          <h2>
+            {{ content.field_otsk_ds_wrapper_title }}
+          </h2>
+        </div>
+      {% endblock %}
+    {% endif %}
+
+    {% set content_header %}
+      {% if content.field_otsk_ds_paragraphs[0]['#paragraph'].storibook_content %}
+        {{ content.field_otsk_ds_paragraphs[0]['#paragraph'].storibook_content }}
+      {% else %}
+        {{ content.field_otsk_ds_paragraphs[0]|render }}
+      {% endif %}
+    {% endset %}
+
+    {% set content_center %}
+      {% if content.field_otsk_ds_paragraphs[1]['#paragraph'].storibook_content %}
+        {{ content.field_otsk_ds_paragraphs[1]['#paragraph'].storibook_content }}
+      {% else %}
+        {{ content.field_otsk_ds_paragraphs[1]|render }}
+      {% endif %}
+    {% endset %}
+
+    {% set content_footer %}
+      {% if content.field_otsk_ds_paragraphs[2]['#paragraph'].storibook_content %}
+        {{ content.field_otsk_ds_paragraphs[2]['#paragraph'].storibook_content }}
+      {% else %}
+        {{ content.field_otsk_ds_paragraphs[2]|render }}
+      {% endif %}
+    {% endset %}
+
+    {% include "@bootstrap/components/card/card.twig" with {
+      content_header: content_header,
+      content: content_center,
+      content_footer: content_footer,
+      text_alignment: 'center'
+    } %}
+
+  {% endblock %}

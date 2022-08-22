@@ -1,0 +1,15 @@
+{{ attach_library('otsuka_design_system2022/molecules.footer-prc') }}
+
+{% set footer__base_class = 'footer-a' %}
+
+<div {{ bem('product', [], footer__base_class) }}>
+  {% block prc_content %}
+    {% include "@atoms/footer-atoms/prc-date/prc-date.twig" with {
+      prcdate_content: prcdate,
+    } %}
+    {% include "@atoms/footer-atoms/prc-code/prc-code.twig" with {
+      prccode_content: prccode,
+    } %}
+  {% endblock %}
+</div>
+

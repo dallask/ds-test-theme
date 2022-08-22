@@ -1,0 +1,51 @@
+{% set paragraph_blockname = paragraph_blockname|default('tabs') %}
+
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/paragraph.wrapper-tabs') }}
+
+    {% if content.field_title_format %}
+      {% block field_title_format %}
+        <div {{ bem(paragraph_base_class ~ '-title', [], paragraph_blockname) }}>
+          <h2>
+            {{ content.field_title_format }}
+          </h2>
+        </div>
+      {% endblock %}
+    {% endif %}
+
+    {% block field_paragraph %}
+      <ul class="nav nav-tabs mb-3" id="Tab{{ paragraph.id() }}" role="tablist">
+        {% for key, item in content.field_paragraph if key|first != '#' %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link {{ loop.index == 1 ? 'active' : '' }} "
+                    id="{{ content.field_paragraph[key]['#paragraph'].id.value }}-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tabs_item_id{{ content.field_paragraph[key]['#paragraph'].id.value }}"
+                    type="button" role="tab"
+                    aria-controls="tabs_item_id{{ content.field_paragraph[key]['#paragraph'].id.value }}"
+              {{ loop.index == 1 ? 'aria-selected="true"' : '' }} %}>
+              {{ item['#paragraph'].field_title_format.0.value|raw }}
+            </button>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="tab-content" id="TabContent{{ paragraph.id() }}">
+        {% for key, item in content.field_paragraph if key|first != '#' %}
+          <div class="tab-pane fade {{ loop.index == 1 ? 'show active' : '' }} "
+               id="tabs_item_id{{ content.field_paragraph[key]['#paragraph'].id.value }}"
+               role="tabpanel">
+            {% if content.field_paragraph[key]['#paragraph'].field_paragraph.storibook_content %}
+              {{ content.field_paragraph[key]['#paragraph'].field_paragraph.storibook_content }}
+            {% else %}
+              {{ content.field_paragraph[key]|render }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+    {% endblock %}
+  {% endblock %}

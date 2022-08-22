@@ -1,0 +1,22 @@
+{{ attach_library('otsuka_design_system2022/organisms.paragraph-wrapper-card') }}
+
+<div class="paragraph-text-wrapper {{ layout.layout }}">
+    <div class="content">
+        {% block content %}
+            {% for item in items %}
+                {% include '@organisms/paragraphs/paragraph-text/text/paragraph-text.twig' with {
+                    layout: {
+                        layout: 'item-'~layout.layout,
+                        image_position: layout.layout ? 'image-position-'~layout.image_position : '',
+                    },
+                    field_title: item.field_otsk_ds_title,
+                    field_text: item.field_otsk_ds_text,
+                    field_custom_class: item.field_otsk_ds_paragraph_class,
+                    field_image: item.field_otsk_ds_image,
+                    field_image_mobile: item.field_otsk_ds_image_mobile,
+                    field_link: item.field_otsk_ds_link,
+                } %}
+            {% endfor %}
+        {% endblock %}
+    </div>
+</div>

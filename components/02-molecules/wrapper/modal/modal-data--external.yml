@@ -1,0 +1,7 @@
+modal_id: externalModal
+
+# Modal Trigger
+link_exists: false
+
+# Modal
+modal_content: <img src="https://dummyimage.com/1000x565/a6a6a6/fff.png">

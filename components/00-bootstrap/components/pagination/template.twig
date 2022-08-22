@@ -1,0 +1,32 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.pagination') }}
+
+{% set base_class = base_class|default('pagination') %}
+
+{% set attributes = {
+  class: bem(
+    base_class,
+    modifiers,
+    blockname,
+    [
+      base_class ~ '-' ~ size,
+      position ? position : '',
+      classes|join(' '),
+    ]
+  ),
+} %}
+
+<ul {{ add_attributes(attributes) }}>
+  {% block content %}
+    {% for item in content %}
+      <li
+        class="page-item {% if item.disabled %}disabled{% endif %} {% if item.active %}active{% endif %}"
+        {% if item.active %}aria-current="page"{% endif %}>
+        {% if item.active %}
+          <span class="page-link">{{ item.title }}</span>
+        {% else %}
+          <a class="page-link" href="{{ item.link }}">{{ item.title }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  {% endblock %}
+</ul>

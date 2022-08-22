@@ -1,0 +1,27 @@
+{% include '@molecules/wrapper/modal/modal.twig' with {
+  modal_id,
+  modal_content_classes,
+  modal_content,
+} %}
+
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  {# First way: use the Modal Trigger component #}
+  {% include '@molecules/wrapper/modal/modal-trigger.twig' with {
+    modal_id,
+    link_exists: true,
+    link_content: 'Lorem Ipsum has been the industry\'s',
+  } %}
+
+  standard dummy text ever since the 1500s, when an unknown printer took a
+  galley of type and scrambled it to make a type specimen book. It has survived
+  not only five centuries, but also the leap into electronic typesetting,
+  remaining essentially unchanged.
+
+  {# Second way: if you need to trigger the modal in the WYSIWYG #}
+  <a href="#" data-bs-toggle="modal" data-bs-target="#{{ modal_id }}">It was
+    popularised in the 1960s</a>
+
+  with the release of Letraset sheets containing Lorem Ipsum passages, and more
+  recently with desktop publishing software like Aldus PageMaker including
+  versions of Lorem Ipsum.
+</p>

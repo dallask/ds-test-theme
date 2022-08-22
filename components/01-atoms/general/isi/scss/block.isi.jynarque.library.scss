@@ -1,0 +1,248 @@
+
+
+/**
+  Based on https://github.com/OAPI-Commercial-IT/otsk-drupal/blob/drupal9_dev/docroot/themes/custom/otsuka_design_system_theme/assets/src/style/block/block.isi.scss
+  Equivalencies (block.isi.scss = _block.isi.ds1.scss):
+  .inline-isi-wrapper = #inline-isi-wrapper
+   */
+.ds1 {
+  //Overrides-------------------------------
+  #drawer-isi {
+    background-color: white;
+
+    .isi-header {
+      .isi-header-wrap {
+        .drawer-title {
+          color: clr('text-blue');
+
+          a {
+            color: clr('text-blue');
+          }
+        }
+      }
+    }
+  }
+
+  [data-simplebar],
+  .isi-drawer-content.isi-content-wrap {
+    background-color: unset !important;
+  }
+
+  //----------------------------------------
+  #inline-isi-wrapper,
+  .isi-tray {
+    font-family: fontFamily(body);
+
+    p, ul {
+      font-size: fontSize(sm);
+      line-height: fontSize(m);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      li {
+        margin-bottom: 6px;
+      }
+    }
+
+    h6, .h6 {
+      font-weight: 700;
+    }
+
+    .field--item {
+      margin-bottom: 10px;
+
+      ul, ol, dl {
+        padding-left: 15px;
+      }
+    }
+  }
+
+  #inline-isi-wrapper {
+    .field-name-field-isi-inline-content {
+      padding: 25px 20px;
+      border: 1px solid clr('text-inverse');
+
+      @media all and (min-width: 576px) {
+        padding: 30px;
+      }
+    }
+
+    margin-bottom: 60px;
+  }
+
+  .isi-header {
+    background: none !important;
+    border-top: 5px solid clr('theme-blue');
+    padding: 10px 0;
+
+    @media all and (min-width: 576px) {
+      height: 65px;
+
+      .drawer-title {
+        padding-top: 0;
+        padding-right: 125px;
+      }
+    }
+
+    @media all and (min-width: 768px) {
+      height: 60px;
+
+      .drawer-title {
+        padding-top: 8px;
+      }
+    }
+  }
+
+  .drawer-title,
+  .behavior--isi-header {
+    p {
+      font-size: $font-size-base;
+      line-height: fontSize(m);
+      font-weight: 700;
+      color: clr('text-blue');
+      margin-bottom: 18px;
+    }
+  }
+
+  .isi-btn {
+    //Overrides-------------------------------
+    border: 1px solid clr('text-blue') !important;
+    color: clr('text-blue');
+    padding: 15px 20px !important;
+
+    &:hover {
+      color: clr('background');
+      background-color: clr('text-blue') !important;
+    }
+
+    .jsSwapText {
+      background-image: unset;
+      display: none !important;
+    }
+
+    //----------------------------------------
+    &.btn {
+      height: 30px;
+      width: 30px;
+    }
+
+    margin-right: 20px;
+    border-radius: 30px;
+    @media all and (min-width: 576px) {
+      &.btn {
+        height: auto;
+        width: auto;
+      }
+
+      padding: 5px 8px 5px 7px;
+    }
+    @media all and (min-width: 768px) {
+      margin-right: auto;
+      padding: 10px 16px 8px 16px;
+    }
+
+
+    .isi-btn-icon {
+      margin: 0;
+      border: none;
+
+      &::before,
+      &::after {
+
+        @media all and (min-width: 576px) {
+          top: 8px;
+          left: 0;
+        }
+
+        @media all and (min-width: 768px) {
+          top: 7px;
+        }
+
+        //Overrides-------------------------------
+        background-color: clr('accent-high');
+        content: '';
+        height: 2px;
+        left: 35% !important;
+        position: absolute;
+        top: 50% !important;
+        width: 8px;
+      }
+
+      &::after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .isi-open & {
+        background-image: unset;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      //----------------------------------------
+    }
+
+    &:active,
+    &:hover {
+      .isi-btn-icon {
+        &::before,
+        &::after {
+          background-color: clr('background');
+        }
+      }
+    }
+  }
+
+  .isi-content-wrap {
+    .isi-scrollable {
+      .scroll-content {
+        & > div {
+          padding-top: 8px;
+
+          @media all and (min-width: 576px) {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .external-scroll-y {
+    &.scroll-scrolly_visible {
+      width: 7px;
+      border: none;
+    }
+
+    div {
+      height: 90%;
+      top: auto;
+      bottom: 0;
+    }
+
+    .scroll-bar {
+      background: clr(background-section);
+      border-radius: 4px;
+      height: 38px;
+    }
+  }
+
+  .js-swap-text {
+    font-size: fontSize(sm);
+
+    @media all and (min-width: 576px) {
+      display: inline-block;
+      vertical-align: middle;
+
+      &.hide {
+        display: none;
+      }
+    }
+
+    @media all and (min-width: 768px) {
+      font-size: $font-size-base;
+    }
+  }
+}

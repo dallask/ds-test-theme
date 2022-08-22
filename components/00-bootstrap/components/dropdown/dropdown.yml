@@ -1,0 +1,42 @@
+id: 'dropdownId'
+content: 'Button Text'
+sub_items:
+  - title: 'Item 1'
+    link: '#'
+  - title: 'Item 2'
+    link: '#'
+  - title: 'Item 3'
+    link: '#'
+variant:
+  - primary
+  - secondary
+  - success
+  - danger
+  - warning
+  - info
+  - dark
+  - light
+  - link
+  - outline-primary
+  - outline-secondary
+  - outline-success
+  - outline-danger
+  - outline-warning
+  - outline-info
+  - outline-dark
+  - outline-light
+size:
+  - sm
+  - md
+  - lg
+type:
+  - dropdown
+  - dropstart
+  - dropend
+  - dropup
+classes: []
+attributes: {}
+ul_items:
+  - content: '<a class="dropdown-item" href="#" type="button">Item 1</a>'
+  - content: '<a class="dropdown-item" href="#" type="button">Item 2</a>'
+  - content: '<a class="dropdown-item" href="#" type="button">Item 3</a>'

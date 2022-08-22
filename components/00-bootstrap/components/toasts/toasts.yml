@@ -1,0 +1,18 @@
+content:
+  header: '<strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>'
+  body: "And here's some amazing content. It's very engaging. Right?"
+id: 'liveToast'
+position:
+  - 'position-absolute top-0 start-0'
+  - 'position-absolute top-0 start-50 translate-middle-x'
+  - 'position-absolute top-0 end-0'
+  - 'position-absolute top-50 start-0 translate-middle-y'
+  - 'position-absolute top-50 start-50 translate-middle'
+  - 'position-absolute top-50 end-0 translate-middle-y'
+  - 'position-absolute bottom-0 start-0'
+  - 'position-absolute bottom-0 start-50 translate-middle-x'
+  - 'position-absolute bottom-0 end-0'
+classes:
+  - fade
+  - show

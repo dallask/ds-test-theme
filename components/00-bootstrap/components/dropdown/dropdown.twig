@@ -1,0 +1,43 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.dropdown') }}
+
+{% set dropdown_base_class = dropdown_base_class|default('dropdown') %}
+
+{% set dropdown_additional_attributes = {
+  class: bem(
+    dropdown_base_class,
+    dropdown_modifiers,
+    dropdown_blockname,
+    [
+      'btn-group',
+      classes|join(' '),
+      type ? type : '',
+    ]
+  ),
+}|merge(dropdown_additional_attributes|default({})) %}
+
+<div {{ add_attributes(dropdown_additional_attributes) }}>
+  {% block content %}
+    {% include "@bootstrap/components/buttons/button.twig" with {
+      button_content: content,
+      button_classes: [
+        'btn',
+        'dropdown-toggle',
+        variant ? 'btn-' ~ variant : '',
+        size ? 'btn-' ~ size : '',
+      ],
+      button_attributes: {
+        'id': id,
+        'type': 'button',
+        'data-bs-toggle': 'dropdown',
+        'aria-expanded': "false",
+      }
+    } %}
+    {% include "@atoms/lists/ul.twig" with {
+      ul_base_class: 'dropdown-menu',
+      ul_items: ul_items,
+      ul_attributes: {
+        'aria-labelledby': id
+      }
+    } %}
+  {% endblock %}
+</div>

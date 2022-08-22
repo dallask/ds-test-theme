@@ -1,0 +1,5 @@
+link_url: 'https://otsuka-us.ciom'
+link_content: 'Join us'
+link_base_class: 'link join-us-link'
+link_attributes:
+  'target': '_blank2'

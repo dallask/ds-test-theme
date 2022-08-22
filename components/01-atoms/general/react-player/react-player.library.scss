@@ -1,0 +1,69 @@
+
+
+.react-player-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100% !important;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.react-player-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: clr(background-section);
+  text-indent: -10000px;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - variable(play-btn-mobile-size-half));
+    left: calc(50% - variable(play-btn-mobile-size-half));
+    width: variable(play-btn-mobile-size);
+    height: variable(play-btn-mobile-size);
+    background-image: url('#{$images-path}/modal/play_button.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transitionSpeed(normal);
+    opacity: 0.65;
+  }
+
+  &:focus,
+  &:hover {
+    &::after {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  @include large {
+    &::after {
+      top: calc(50% - variable(play-btn-desktop-size-half));
+      left: calc(50% - variable(play-btn-desktop-size-half));
+      width: variable(play-btn-desktop-size);
+      height: variable(play-btn-desktop-size);
+    }
+  }
+}

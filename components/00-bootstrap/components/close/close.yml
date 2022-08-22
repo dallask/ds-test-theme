@@ -1,0 +1,6 @@
+variant:
+  - default
+  - white
+disabled: false
+classes: [ ]
+attributes: {}

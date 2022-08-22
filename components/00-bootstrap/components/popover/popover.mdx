@@ -1,0 +1,49 @@
+## Overview
+Things to know when using the popover plugin:
+
+* Popovers rely on the 3rd party library Popper for positioning. You must include `popper.min.js` before `bootstrap.js` or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper in order for popovers to work!
+* Popovers require the tooltip plugin as a dependency.
+* Popovers are opt-in for performance reasons, so **you must initialize them yourself**.
+
+### Example: Enable popovers everywhere
+One way to initialize all popovers on a page would be to select them by their `data-bs-toggle` attribute::
+```
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+```
+
+## References
+* https://getbootstrap.com/docs/5.1/components/popovers/
+
+## SASS Variables
+
+Should be added to the:
+`components/00-bootstrap/scss/_variables.scss`
+
+```
+$popover-font-size:                 fontSize(sm);
+$popover-bg:                        $white;
+$popover-max-width:                 276px;
+$popover-border-width:              $border-width;
+$popover-border-color:              rgba($black, .2);
+$popover-border-radius:             $border-radius-lg;
+$popover-inner-border-radius:       subtract($popover-border-radius, $popover-border-width);
+$popover-box-shadow:                $box-shadow;
+
+$popover-header-bg:                 shade-color($popover-bg, 6%);
+$popover-header-color:              $headings-color;
+$popover-header-padding-y:          .5rem;
+$popover-header-padding-x:          $spacer;
+
+$popover-body-color:                $body-color;
+$popover-body-padding-y:            $spacer;
+$popover-body-padding-x:            $spacer;
+
+$popover-arrow-width:               1rem;
+$popover-arrow-height:              .5rem;
+$popover-arrow-color:               $popover-bg;
+
+$popover-arrow-outer-color:         fade-in($popover-border-color, .05);
+```

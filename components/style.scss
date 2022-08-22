@@ -1,0 +1,18 @@
+// Bootstrap mixins and functions
+@import '00-bootstrap/scss/_variables.scss';
+@import '00-bootstrap/scss/_mixins_functions.scss';
+
+// External Libraries
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+// Components
+@import '00-base/**/*.scss';
+@import '01-atoms/**/*.scss';
+@import '02-molecules/**/*.scss';
+@import '03-organisms/**/*.scss';
+@import '04-templates/**/*.scss';
+@import '05-pages/**/*.scss';
+@import '06-components/**/*.scss';
+
+@include rootVars();
+

@@ -1,0 +1,20 @@
+
+
+.image-background {
+  &__bg-class {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+    color: clr(secondary);
+    font-size: fontSize(xxl);
+
+    &--full-bleed {
+      min-height: 440px;
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}

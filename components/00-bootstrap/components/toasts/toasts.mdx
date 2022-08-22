@@ -1,0 +1,40 @@
+## Overview
+Things to know when using the toast plugin:
+
+* Toasts are opt-in for performance reasons, so **you must initialize them yourself**.
+* Toasts will automatically hide if you do not specify `autohide: false`.
+
+### Usage
+Initialize toasts via JavaScript::
+```
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl, option)
+})
+```
+
+## References
+* https://getbootstrap.com/docs/5.1/components/toasts/
+
+## SASS Variables
+
+Should be added to the:
+`components/00-bootstrap/scss/_variables.scss`
+
+```
+$toast-max-width:                   350px;
+$toast-padding-x:                   .75rem;
+$toast-padding-y:                   .5rem;
+$toast-font-size:                   .875rem;
+$toast-color:                       null;
+$toast-background-color:            rgba($white, .85);
+$toast-border-width:                1px;
+$toast-border-color:                rgba($black, .1);
+$toast-border-radius:               $border-radius;
+$toast-box-shadow:                  $box-shadow;
+$toast-spacing:                     $container-padding-x;
+
+$toast-header-color:                $gray-600;
+$toast-header-background-color:     rgba($white, .85);
+$toast-header-border-color:         rgba($black, .05);
+```

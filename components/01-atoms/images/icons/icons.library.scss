@@ -1,0 +1,29 @@
+
+
+// Storybook styling
+.icons-demo {
+  display: flex;
+  flex-wrap: wrap;
+
+  .icon {
+    height: 100px;
+    padding: space(medium);
+    width: 100px;
+
+    @media (prefers-color-scheme: dark) {
+      fill: clr(accent-high);
+    }
+  }
+
+  pre {
+    background-color: clr(muted);
+    font-size: fontSize(xs);
+    margin: 0;
+    text-align: center;
+  }
+
+  &__item {
+    border: 1px solid clr(muted);
+    margin: space(half-small);
+  }
+}

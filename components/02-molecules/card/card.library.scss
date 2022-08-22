@@ -1,0 +1,37 @@
+
+
+.card__heading {
+  @include heading-large($font-size: fontSize(lg));
+  @include no-bottom;
+
+  &-link {
+    @include link;
+  }
+}
+
+.card__subheading {
+  @include heading-medium($font-size: $font-size-base);
+  @include no-bottom;
+
+  color: clr(text);
+}
+
+.card__body {
+  margin: space(half-medium) 0 space(medium);
+}
+
+.card__link {
+  @include link;
+}
+
+.card__button {
+  @include button-base;
+  @include button-color-primary;
+  @include button-medium;
+}
+
+/* Variations */
+.card--bg {
+  background-color: clr(highlight-high);
+  padding: space(medium);
+}

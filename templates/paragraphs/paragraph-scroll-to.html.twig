@@ -1,0 +1,16 @@
+{#
+/**
+ * The scroll implemented for all anchor links.
+ * Example:
+ * <a href="#scroll-to-anchor"></a>
+ * But be careful,
+ * if you want to make scroll mechanism to element from another page,
+ * you should use full url path of page (without domain).
+ * Example:
+ * <a href="/full/url/from/front/page#scroll-to-anchor"></a>
+ */
+#}
+
+{% include "@organism/paragraphs/scroll-to/scroll-to-anchor/scroll-to.twig" with {
+    "anchor_id": content.content.field_id.0['#context']['value'],
+} %}

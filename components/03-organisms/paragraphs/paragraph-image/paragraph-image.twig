@@ -1,0 +1,28 @@
+{{ attach_library('otsuka_design_system2022/organisms.paragraph-image') }}
+
+{% set base_class = base_class|default('image') %}
+
+{% set additional_attributes = {
+    class: bem(
+        base_class,
+        modifiers,
+        'paragraph',
+        [
+            field_custom_class,
+        ]
+    )
+} %}
+
+<div {{ add_attributes(additional_attributes) }}">
+<div class="content">
+    {% block title %}
+        <div class="title-wrapper">{{ field_title }}</div>
+    {% endblock %}
+
+    {% block text %}
+        <div class="image-wrapper">
+            <img src="{{ field_image }}" alt="">
+        </div>
+    {% endblock %}
+</div>
+</div>

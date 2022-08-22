@@ -1,0 +1,64 @@
+name: Otsuka Design System 2.0
+type: theme
+description: Theme using Emulsify, Storybook & Atomic Design Principles.
+base theme: stable9
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - drupal:components
+  - drupal:emulsify_twig
+  - drupal:features_ui
+
+libraries:
+  - 'otsuka_design_system2022/global'
+  # - 'emulsify/typekit'
+
+# Libraries override allows you to remove libraries added by other projects.
+libraries-override:
+  pharma_isi/pharma_isi: false
+  pharma_isi/pharma_isi_drawer: false
+  pharma_isi/pharma_isi_fake_drawer: false
+  pharma_isi/pharma_isi_initial_visit: false
+  #  pharma_isi/pharma_isi_stickyfooter: false
+  feature_modal/modal_app:
+    js:
+      js/modal-link.js: components/02-molecules/modal/modal.js # TODO: Replace to dist folder when webpack build will work
+
+# CKEditor stylesheet loads in wysiwyg to give content editors a better experience
+ckeditor_stylesheets:
+  - dist/css/global.css
+
+regions:
+  header_top: 'Header Top'
+  header_logo: 'Header Logo'
+  header_menu: 'Header Menu'
+  header_bottom: 'Header Bottom'
+  content_before: 'Content Before'
+  content: 'Content' # the content region is required
+  content_after: 'Content After'
+  sidebar: 'Sidebar'
+  footer_logo: 'Footer Logo'
+  footer_menu: 'Footer Menu'
+  footer_copyright: 'Footer Copyright'
+  footer_prc: 'Footer PRC'
+  hidden: 'Hidden'
+
+logo: images/logo.png
+components:
+  namespaces:
+    base:
+      - components/00-base
+    bootstrap:
+      - components/00-bootstrap
+    atoms:
+      - components/01-atoms
+    molecules:
+      - components/02-molecules
+    organisms:
+      - components/03-organisms
+    templates:
+      - components/04-templates
+    pages:
+      - components/05-pages
+    components:
+      - components/06-components

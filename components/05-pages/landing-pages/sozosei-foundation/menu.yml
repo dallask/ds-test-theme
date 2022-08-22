@@ -1,0 +1,13 @@
+menu_items:
+  - title: 'WHO WE ARE'
+    url: '#'
+  - title: 'PROGRAM AREAS'
+    url: '#'
+  - title: 'EVENTS'
+    url: '#'
+  - title: 'HOW TO APPLY'
+    url: '#'
+  - title: 'NEWS & RESOURCES'
+    url: '#'
+  - title: 'PODCAST'
+    url: '#'

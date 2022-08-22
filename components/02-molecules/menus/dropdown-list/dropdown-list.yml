@@ -1,0 +1,16 @@
+menu_items:
+  title: 'SHARE'
+  icon: 'icons/share.svg'
+  below:
+    - title: 'Twitter'
+      link: '/#twitter'
+      icon: 'icons/twitter.svg'
+    - title: 'LinkedIn'
+      link: '/#linkedin'
+      icon: 'icons/linkedin.svg'
+    - title: 'Facebook'
+      link: '/#facebook'
+      icon: 'icons/facebook.svg'
+    - title: 'Email'
+      link: '/#email'
+      icon: 'icons/email.svg'

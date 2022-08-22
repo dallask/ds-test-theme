@@ -1,0 +1,13 @@
+content: 'Badge Text'
+variant:
+  - primary
+  - secondary
+  - success
+  - danger
+  - warning
+  - info
+  - dark
+  - light
+pill: false
+classes: [ ]
+attributes: {}

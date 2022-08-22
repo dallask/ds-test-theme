@@ -1,0 +1,17 @@
+
+
+.footer-a {
+  &__product {
+    font-size: fontSize(xs);
+    text-align: center;
+    margin-top: space(half-medium);
+
+    @include medium {
+      text-align: left;
+    }
+
+    span:first-child {
+      margin-right: space(small);
+    }
+  }
+}

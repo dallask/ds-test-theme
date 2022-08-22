@@ -1,0 +1,14 @@
+
+
+.popover-wrapper {
+  .popover-button {
+    margin: 80px 360px; // NONSTANDARD VAR
+  }
+
+  &:last-child {
+    .popover-button {
+      margin-bottom: 160px; // NONSTANDARD VAR
+    }
+  }
+}
+

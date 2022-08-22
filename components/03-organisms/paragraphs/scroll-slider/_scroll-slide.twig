@@ -1,0 +1,12 @@
+{% set slide_attribues = attributes ? attributes.addClass('scroll--slider--slides') : 'class="scroll--slider--slides"' %}
+
+<div {{ slide_attribues }}>
+    {% block slides %}
+        {% for item in items %}
+            {% set item_attribues = item.attributes is iterable ? item.attributes.addClass('scroll--slider--slide') : item.attributes %}
+            <div {{ item_attribues }}>
+                {{ item.content }}
+            </div>
+        {% endfor %}
+    {% endblock %}
+</div>

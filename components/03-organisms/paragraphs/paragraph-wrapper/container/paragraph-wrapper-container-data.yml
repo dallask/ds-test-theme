@@ -1,0 +1,22 @@
+field_otsk_video_background: 'video/space-bg.mp4'
+items:
+  - field_type: paragraph-type-text
+    field_otsk_ds_paragraph_class: green
+    field_otsk_ds_title: 'our mission'
+    field_otsk_ds_text: "<p>It is our mission to create storybook components from which to build websites.</p><p>Components include various content items which can be assembled to provide desired functionality.</p>"
+  - field_type: paragraph-type-image
+    field_otsk_ds_paragraph_class: blue
+    field_otsk_ds_title: 'get involved'
+    field_otsk_ds_text: "<p>Components include various content items which can be assembled to provide desired functionality.</p><p>It is our mission to create storybook components from which to build websites.</p>"
+  - field_type: paragraph-type-text
+    field_otsk_ds_paragraph_class: green
+    field_otsk_ds_title: 'our vision'
+    field_otsk_ds_text: "<p>ALIEN…a very alien-looking alien who speaks in quick chittering bursts, glancing uneasily at Vader’s menacing height.  One of the minions is an INTERPRETER, who listens to the alien speech and then relays the translation to Vader and the other minion, who is recording</p>"
+  - field_type: paragraph-type-text
+    field_otsk_ds_paragraph_class: green
+    field_otsk_ds_title: 'CLOSER ANGLE'
+    field_otsk_ds_text: "<p>A veil of snow blows across the slope…no different from any of the others.  It momentarily obscures Luke and his mount…and suddenly, without warning, a gigantic form explodes out of the snow almost under the feet of the lizard, which screams and rears, throwing Luke.  The monstrous shape…white on white against the snow-cloud, we do not see it clearly except that it is huge and menacing…utters a weird and bestial groaning like rocks boulders grinding together in the bowels of a mountain.  It strikes the lizard dead with one horrendous blow, breaking its neck.  Half stunned by the fall, Luke staggers up and attempts to draw the light-saber blaster holstered at his hip.  The snowman fetches him a blow across the face that would have taken part of his head off if it had not been for the helmet.  Luke falls.  Loses blaster.  He also has his light-saber..</p>"
+  - field_type: paragraph-type-text
+    field_otsk_ds_paragraph_class: green
+    field_otsk_ds_title: 'CLOSE SHOT'
+    field_otsk_ds_text: "<p>A moving beam of light reflects splintered radiance from knobs and spikes of ice on a rough ice wall.</p>"

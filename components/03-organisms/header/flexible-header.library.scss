@@ -1,0 +1,98 @@
+
+
+.flexible-header {
+  &__b {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: space(half-medium) space(half-medium) 0;
+    position: relative;
+    border-bottom: solid 1px #ccc;
+
+    > div, > div > div {
+      display: flex;
+      align-items: center;
+    }
+
+    > div > div {
+      gap: space(half-large);
+    }
+
+    svg {
+      height: 100px;
+      max-width: 150px;
+      padding: space(half-large);
+    }
+
+    [data-bs-toggle] > svg {
+      height: 48px;
+      width: 48px;
+      padding: space(half-medium);
+    }
+
+    .dropdown {
+      display: flex;
+      height: 100px;
+      border: solid 1px #ccc;
+      border-bottom: navajowhite;
+      margin-bottom: space(thick, true);
+
+      button {
+        height: inherit;
+      }
+
+      .dropdown-menu {
+        border-top: none;
+        border-radius: 0;
+        margin-top: space(thick, true) !important;
+        margin-left: space(hor-thin, true) !important;
+        padding: 0;
+      }
+    }
+  }
+
+  .toggle-expand--open {
+    text-align: right;
+  }
+}
+
+#flexibleHeaderMobileModal {
+  .modal-content {
+    background: none;
+
+    .modal-dialog {
+      max-width: initial;
+      padding: space(half-small);
+    }
+
+    .modal-header {
+      border: none;
+
+      .btn-close {
+        opacity: 1;
+        background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+      }
+    }
+
+    .modal-body {
+      padding: 0;
+
+      ul {
+        padding: 0;
+        font-size: $font-size-base;
+        list-style: none;
+
+        li {
+          margin: 0;
+
+          a {
+            display: block;
+            text-decoration: none;
+            color: clr(text-inverse);
+            padding: space(half-medium) 0;
+          }
+        }
+      }
+    }
+  }
+}

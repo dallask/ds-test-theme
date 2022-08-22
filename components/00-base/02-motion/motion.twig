@@ -1,0 +1,14 @@
+{% set base_class = base_class|default('motion') %}
+
+<div {{ bem(base_class) }}>
+  <h2>Motion</h2>
+  <div {{ bem('grid', [], base_class) }}>
+    {% for motion in motions %}
+      <div {{ bem('grid__item', [], base_class) }}>
+        <h3>{{ motion.name }}</h3>
+        <div
+          class="demo-motion demo-motion--{{ motion.name|lower|replace({' ':'-'}) }}"></div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

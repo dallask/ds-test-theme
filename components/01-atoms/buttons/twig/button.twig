@@ -1,0 +1,26 @@
+{#
+/**
+ * Available variables:
+ * - button_content - the content of the button (typically text)
+ *
+ * Available blocks:
+ * - button_content - used to replace the content of the button with something other than text
+ *   for example: to insert an icon
+ */
+#}
+
+{{ attach_library('otsuka_design_system2022/atoms.buttons') }}
+
+{% set button_base_class = button_base_class|default('button') %}
+
+{% if theme %}
+  {% set theme_data = {'data-theme': theme} %}
+{% endif %}
+
+{% set button_class = bem(button_base_class, button_modifiers, button_blockname, [attributes.class is defined ? (attributes.class is iterable ? attributes.class|join(' ') : attributes.class) : '']) %}
+
+<button {{ add_attributes(attributes.without('class')) }} {{ button_class }} {{ add_attributes(theme_data) }}>
+  {% block button_content %}
+    {{ button_content }}
+  {% endblock %}
+</button>

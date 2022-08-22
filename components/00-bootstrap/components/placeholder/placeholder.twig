@@ -1,0 +1,23 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.placeholders') }}
+
+{% set placeholder_base_class = placeholder_base_class|default('placeholder') %}
+
+{% set placeholder_attributes = {
+  class: bem(
+    '',
+    placeholder_modifiers,
+    placeholder_blockname,
+    [
+      'placeholder-' ~ effect,
+      position ? position : '',
+      classes|join(' '),
+    ]
+  ),
+}|merge(placeholder_attributes|default({})) %}
+
+<div {{ add_attributes(placeholder_attributes) }}>
+  {% block content %}
+    <span {{ bem('', '', offcanvas_base_class, ['placeholder', 'bg-' ~ variant, 'placeholder-' ~ size, 'w-100']) }}></span>
+  {% endblock %}
+</div>
+

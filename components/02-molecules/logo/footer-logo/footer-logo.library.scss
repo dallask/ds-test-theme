@@ -1,0 +1,19 @@
+
+
+.footer-a {
+  &__logo--site-logo,
+  &__logo--brand-logo {
+    margin-bottom: space(extra-large);
+  }
+
+  @include medium {
+    &__logo--site-logo,
+    &__logo--brand-logo {
+      display: inline-block;
+    }
+
+    &__logo--site-logo {
+      margin-right: space(extra-extra-extra-large);
+    }
+  }
+}

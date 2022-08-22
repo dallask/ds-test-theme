@@ -1,0 +1,24 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.collapse') }}
+
+{% set collapse_base_class = collapse_base_class|default('collapse') %}
+
+{% set collapse_additional_attributes = {
+  class: bem(
+    collapse_base_class,
+    collapse_modifiers,
+    collapse_blockname,
+    [
+      horizontal ? collapse_base_class ~ '-horizontal' : '',
+      classes|join(' '),
+    ]
+  ),
+  id: id,
+} %}
+
+<div {{ add_attributes(collapse_additional_attributes) }}>
+  {% block content %}
+    {% include "@bootstrap/components/card/card.twig" with {
+      content: content,
+    } %}
+  {% endblock %}
+</div>

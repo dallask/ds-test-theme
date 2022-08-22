@@ -1,0 +1,35 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.breadcrumb') }}
+
+{% set breadcrumb_base_class = base_class|default('breadcrumb') %}
+
+{% set breadcrumb_attributes = {
+  class: bem(
+    breadcrumb_base_class,
+    breadcrumb_modifiers,
+    breadcrumb_blockname,
+    [
+      breadcrumb_classes|join(' '),
+    ]
+  ),
+  'aria-label': 'breadcrumb',
+  'style': breadcrumb_divider ? "--bs-breadcrumb-divider: '" ~ breadcrumb_divider ~ "'" : ''
+}|merge(breadcrumb_extra_attributes|default({})) %}
+
+<nav {{ add_attributes(breadcrumb_attributes) }}>
+  {% block breadcrumb_content %}
+    <ol class="{{ breadcrumb_base_class }}">
+      {% for item in breadcrumb_content %}
+        <li class="{{ breadcrumb_base_class }}-item {{ item.active ? "active" : "" }}"
+            {% if item.active %}aria-current="page"{% endif %}>
+          {% if not item.active %}
+          <a href="{{ item.url }}">
+            {% endif %}
+            {{ item.title }}
+            {% if not item.active %}
+          </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  {% endblock %}
+</nav>

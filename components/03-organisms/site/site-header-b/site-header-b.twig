@@ -1,0 +1,21 @@
+{{ attach_library('otsuka_design_system2022/organisms.site-header-b') }}
+
+{% set header__base_class = 'header-b' %}
+
+<header {{ bem(header__base_class) }}>
+    <div>
+        {% include "@atoms/images/icons/_icon.twig" with {
+            icon_base_class: "icon",
+            icon_blockname: "logo",
+            icon_name: "otuska-logo--dark",
+        } %}
+        {% include "@bootstrap/components/dropdown/dropdown.twig" %}
+    </div>
+    {# @TODO: IMPLEMENT LINK WITH ICON COMPONENT AND USE HERE #}
+    {% include "@atoms/links/link/link.twig" with {
+        link_url: '#',
+        link_attributes: {
+            'target': '_blank'
+        }
+    } %}
+</header>

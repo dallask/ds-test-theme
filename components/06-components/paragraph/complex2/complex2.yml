@@ -1,0 +1,111 @@
+content:
+  field_otsk_ds_wrapper_title: 'Paragraph Complex2 Title'
+  field_otsk_ds_wrapper_background: ''
+  field_otsk_ds_wrapper_back_video: ''
+  field_otsk_ds_paragraphs:
+    - '#paragraph':
+        storibook_content: '
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        '
+    - '#paragraph':
+        storibook_content: '
+        <div>
+          <img class="img-thumbnail" src="//dummyimage.com/350" alt="placeholder">
+        </div>
+        '
+    - '#paragraph':
+        storibook_content: '
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        '
+    - '#paragraph':
+        storibook_content: '
+        <div>
+          <div class="card text-center">
+            <div class="card-header">
+              <img class="img-thumbnail m-auto" src="//dummyimage.com/150" alt="placeholder">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text
+              below as a natural lead-in to additional content. This content
+              is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+              <a href="" class="btn btn-primary">Lorem ipsum</a>
+            </div>
+          </div>
+        </div>
+        '
+    - '#paragraph':
+        storibook_content: '
+        <div>
+          <div class="card text-center">
+            <div class="card-header">
+              <img class="img-thumbnail m-auto" src="//dummyimage.com/150" alt="placeholder">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text
+              below as a natural lead-in to additional content. This content
+              is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+              <a href="" class="btn btn-primary">Lorem ipsum</a>
+            </div>
+          </div>
+        </div>
+        '
+    - '#paragraph':
+        storibook_content: '
+            <div>
+          <div class="card text-center">
+            <div class="card-header">
+              <img class="img-thumbnail m-auto" src="//dummyimage.com/150" alt="placeholder">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text
+              below as a natural lead-in to additional content. This content
+              is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+              <a href="" class="btn btn-primary">Lorem ipsum</a>
+            </div>
+          </div>
+        </div>
+            '
+    - '#paragraph':
+        storibook_content: '
+            <div>
+              <a href="" class="btn btn-primary">Lorem ipsum</a>
+            </div>
+            '
+    - '#paragraph':
+        storibook_content: '
+            <div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.</p>
+            </div>
+            '
+    - '#paragraph':
+        storibook_content: '
+            <div>
+              <img class="img-thumbnail" src="//dummyimage.com/350" alt="placeholder">
+            </div>
+            '
+    - '#paragraph':
+        storibook_content: '
+            <div>
+              <a href="" class="btn btn-primary">Lorem ipsum</a>
+            </div>
+            '

@@ -1,0 +1,20 @@
+{{ attach_library('otsuka_design_system2022/organisms.carousel') }}
+{% set base_class = base_class|default('carousel') %}
+
+<style>
+  {% for key, slide in slides %}
+  .C-slide:nth-child({{ key+1 }}) {
+    background-image: url("{{ slide.item.bg_img }}");
+  }
+  {% endfor %}
+</style>
+
+<div {{ bem('wrapper', [], base_class) }}>
+  <div id="carousel-slider" class="C-carousel">
+    {% for slide in slides %}
+      <div class="C-slide">
+        {{ slide.item.content }}
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.bd-example-row {
+  margin-bottom: space(extra-large);
+
+  &.bd-example-row-flex-cols {
+    .row {
+      min-height: 160px; //NONSTANDARD VAR
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  }
+
+  .row {
+    & > .col,
+    & > [class^="col-"] {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: rgba(39, 41, 43, 0.03);
+      border: 1px solid rgba(39, 41, 43, 0.1);
+    }
+
+    & + .row {
+      margin-top: 30px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+
+
+.footer-a {
+  &__menu-links {
+    text-transform: uppercase;
+    text-align: center;
+
+    &--social_links {
+      img {
+        height: 20px;
+        width: 27px;
+        position: relative;
+        top: -1px
+      }
+
+      a {
+        &:first-child {
+          margin-right: space(extra-extra-extra-large);
+
+          img {
+            height: 22px;
+            width: 22px;
+            top: 0;
+          }
+        }
+      }
+    }
+
+    &--policy_terms {
+      a {
+        text-decoration: none;
+        display: block;
+        margin-top: space(extra-large);
+      }
+    }
+
+    @include medium {
+      text-align: left;
+
+      &--social_links {
+        a {
+          &:first-child {
+            margin-right: space(extra-large);
+          }
+        }
+      }
+    }
+  }
+}

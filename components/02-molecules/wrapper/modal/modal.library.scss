@@ -1,0 +1,149 @@
+
+
+body {
+  .modal,
+  .modal-backdrop {
+    max-height: 100vh;
+
+    @include large {
+      max-height: unset;
+    }
+  }
+
+  .modal-backdrop.show {
+    z-index: 300;
+    opacity: 0.5;
+  }
+
+  .modal-content {
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+
+  .modal-dialog {
+    max-width: variable(modal-max-width-mobile);
+    padding: space(large) space(medium) space(half-large);
+    margin: 0 auto;
+    box-sizing: content-box;
+
+    @include large {
+      max-width: variable(modal-default-width);
+    }
+
+    // Small Modal size
+    &.modal-size--small {
+      max-width: variable(modal-small-width);
+    }
+
+    // Big Modal size
+    &.modal-size--big {
+      max-width: variable(modal-big-width);
+    }
+
+    // White play button Video Modal
+    &.modal-style--video {
+      .paragraph {
+        &.paragraph--type--video {
+          margin: 0;
+        }
+      }
+    }
+
+    // Modal with other Content
+    &.modal-style--content {
+      .modal-content {
+        background: clr(background);
+        padding: 0 22px;
+
+        @include large {
+          padding: 0 50px;
+        }
+      }
+    }
+
+    // Modal with Image Viewer
+    &.modal-style--image-viewer {
+      @include large {
+        max-width: 87.7%;
+      }
+
+      @include xxl {
+        max-width: calc(100% - 134px);
+      }
+
+      .modal-content {
+        padding: 6px;
+
+        @include large {
+          padding: 18px;
+        }
+      }
+    }
+  }
+
+  .modal {
+    z-index: 310;
+
+    .video-embed-field-responsive-video {
+      padding: 6px;
+
+      @include large {
+        padding: 18px;
+      }
+    }
+
+    .react-player-wrapper {
+      @include large {
+        padding-top: 56.4%;
+      }
+    }
+
+    .react-player,
+    .react-player-preview {
+      @include large {
+        border: 1px solid $gray;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: none;
+      background: url('#{$images-path}/modal/close_button.svg') no-repeat center center transparent;
+      background-size: contain;
+      opacity: 1;
+      font-size: 0;
+      z-index: 10;
+
+      &:hover {
+        transform: scale(1.05);
+        opacity: 1 !important;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      @include large {
+        width: 30px;
+        height: 30px;
+        top: -9px;
+        right: -9px;
+      }
+    }
+  }
+}
+
+// Blur effect
+#root {
+  filter: none;
+
+  .blur & {
+    filter: blur(7px);
+  }
+}

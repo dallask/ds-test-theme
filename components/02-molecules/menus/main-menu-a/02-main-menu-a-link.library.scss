@@ -1,0 +1,71 @@
+
+
+/* A */
+.main-menu-a__link {
+  color: clr(dark);
+  display: block;
+  line-height: 1.5;
+  padding: space(medium) space(medium) space(large);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: $h3-font-size;
+  text-align: center;
+  margin: 0 auto;
+  letter-spacing: 0.7px;
+
+
+  &--with-sub {
+    width: 80%;
+  }
+
+  @include medium {
+    color: clr(text-inverse);
+    border-bottom: none;
+    display: inline-block;
+    font-size: $font-size-base;
+    padding: space(medium) space(half-medium);
+    position: relative;
+    width: auto;
+    letter-spacing: 0;
+
+    &.active,
+    &:active,
+    &:hover {
+      color: clr(purple);
+    }
+  }
+
+  @include large {
+    padding: space(medium) space(half-large) space(medium) space(extra-extra-extra-large);
+  }
+
+  &--active,
+  &.main-menu-a__item--active {
+    font-style: italic;
+  }
+}
+
+/*
+ * Sub Navigation Links
+ */
+
+/* A (Nested) */
+.main-menu-a__link--sub {
+  color: clr(accent);
+  padding-left: space(extra-extra-extra-large);
+  font-weight: normal;
+  @include medium {
+    color: clr(highlight);
+    display: block;
+    padding: space(half-small) space(medium);
+  }
+}
+
+.main-menu-a--sub-2 {
+  background-color: clr(highlight-high);
+}
+
+.main-menu-a__link--sub-2 {
+  padding-left: 64px; //NONSTANDARD VAR
+}

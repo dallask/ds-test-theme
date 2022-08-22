@@ -1,0 +1,24 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.scrollspy') }}
+
+{% set scrollspy_class = scrollspy_class|default('scrollspy') %}
+
+{% set attributes = {
+  class: bem(
+    scrollspy_class,
+    scrollspy_modifiers,
+    scrollspy_blockname,
+    [
+      scrollspy_extra|join(' '),
+    ]
+  ),
+} %}
+
+<div {{ add_attributes(attributes) }}>
+  {% block content %}
+    {{ content.menu }}
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example"
+         data-bs-offset="0" tabindex="0">
+      {{ content.container }}
+    </div>
+  {% endblock %}
+</div>

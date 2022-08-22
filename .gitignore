@@ -1,0 +1,30 @@
+# Yarn/NPM
+node_modules/
+yarn.lock
+dist/
+
+# Storybook
+.out
+
+# System
+.DS_Store
+
+# Git deploy
+.publish
+
+# Composer
+composer.lock
+vendor
+
+# Jest
+.coverage
+
+ # creevey
+ .creevey/report
+
+# Webpack Browsersync config
+webpack/config.js
+
+# Cypress media
+cypress/videos
+cypress/screenshots

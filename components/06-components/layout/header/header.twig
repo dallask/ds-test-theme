@@ -1,0 +1,12 @@
+{% set wrapper_tag = wrapper_tag|default('header') %}
+{% set header_content = header_content|default('Header Content') %}
+
+{% extends "@components/layout/abstract/wrapper.twig" %}
+
+  {% block wrapper_content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {% block header_content %}
+      {{ header_content }}
+    {% endblock %}
+  {% endblock %}

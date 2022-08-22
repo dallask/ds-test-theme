@@ -1,0 +1,16 @@
+{% extends "@components/block/abstract/block.twig" %}
+{% block content %}
+  {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+  {% block block_content_prc_code %}
+    <span {{ bem('code', [], 'code-info')}}>
+      {{ content["#prc_code_markup"] }}
+    </span>
+  {% endblock %}
+
+  {% block block_content_prc_date %}
+    <span {{ bem('date', [], 'code-info') }}>
+      {{ content["#prc_date_markup"] }}
+    </span>
+  {% endblock %}
+{% endblock %}

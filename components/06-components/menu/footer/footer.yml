@@ -1,0 +1,11 @@
+configuration:
+  label: ''
+  label_display: false
+content:
+  '#items':
+    - title: 'LinkedIn'
+      url: 'https://www.linkedin.com/company/otsuka-pharmaceutical-companies/'
+    - title: 'YouTube'
+      url: 'https://www.youtube.com/channel/UCSMEX6Q10v5ehZSKsN-Odwg'
+    - title: 'Twitter'
+      url: 'https://twitter.com/otsukaus'

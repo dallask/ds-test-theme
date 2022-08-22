@@ -1,0 +1,44 @@
+{{ attach_library('otsuka_design_system2022/atoms.isi-tray') }}
+
+{% if (drawerContent['#markup']|length > 0) %}
+  {% set isi_content = drawerContent %}
+{% endif %}
+
+{% if (drawer_enable) %}
+  <section id="drawer-isi" class="isi-tray jsIsiContainer isi-drawer-collapsed">
+    <div class="isi-header">
+      <div class="isi-header-wrap">
+        <div class="drawer-title">{{ drawer_title_markup }}</div>
+        <button
+          aria-label="{{ drawer_expand_text }} or {{ drawer_collapse_text }}"
+          class="isi-btn jsIsiMinimize{% if (fake_drawer_enable) %} isi-jump-link{% endif %}"
+          data-oapigtmcategory="Button Clicks"
+          data-oapigtmaction="ISI"
+          data-oapigtmlabel="{{ drawer_expand_text }}">
+          <span
+            class="jsSwapText jsSwapTextExpand">{{ drawer_expand_text }}</span>
+          <span
+            class="jsSwapText jsSwapTextCollapse hide">{{ drawer_collapse_text }}</span>
+          <span class="isi-btn-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <div data-simplebar>
+      <div class="isi isi-block isi-drawer-content isi-content-wrap">
+        {{ isi_content }}
+      </div>
+    </div>
+  </section>
+{% else %}
+  <div id="stickyfooter-isi"
+       class="jump-link-stickyfooter-wrapper sticky-footer-revealed jsIsiContainer isi-tray">
+    <div class="isi-header">
+      <div class="isi-header-wrap">
+        <div class="drawer-title">
+          <a class="isi-jump-link">{{ jump_link_content }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

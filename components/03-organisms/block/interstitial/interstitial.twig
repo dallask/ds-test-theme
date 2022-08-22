@@ -1,0 +1,56 @@
+{{ attach_library('otsuka_design_system2022/organisms.interstitial') }}
+
+<div class="container">
+    <div class="interstitials-ds1">
+        <h1>Design System 1 Interstitials Examples</h1>
+        <hr/>
+
+        <div class="bd-example-interstitial">
+            <p>This is an example of a modal popup used to warn users that they have
+                clicked a link that take them to another website.</p>
+            <!-- Button trigger modal interstitial 1-->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleInterstitialDs1-1">
+                Interstitial 1
+            </button>
+
+            <!-- Modal Interstitial 1 -->
+            {% include "@organisms/block/interstitial/interstitial-modal.twig" with {
+                modalTitle: "You are now leaving this site",
+                modalBody: "Would you like to leave this site?",
+                modalID: "exampleInterstitialDs1-1",
+                modalLabelID: "exampleInterstitialDs1-1",
+                modalBodyID: "bodiId1",
+                modalCloseButtonID: "externalLinkPopupModalCloseButton",
+                modalContinueButtonID: "externalLinkPopupModalContinueButton",
+                continuButton: '<button role="button" type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>',
+                closeButton: '<button role="button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>'
+            } %}
+        </div>
+
+        <div class="bd-example-interstitial">
+            <p>This is an example of a modal popup used to warn users that they have
+                clicked a link that take them to another website owned by the same
+                organization.</p>
+            <!-- Button trigger modal interstitial 2-->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleInterstitialDs1-2">
+                Interstitial 2
+            </button>
+            <!-- Modal Interstitial 2 -->
+
+            {% include "@organisms/block/interstitial/interstitial-modal.twig" with {
+                modalTitle: "You are now leaving this site",
+                modalBody: "You are about to redirected to another Otsuka website.  The website will open in a new browser window/tab.",
+                modalID: "exampleInterstitialDs1-2",
+                modalLabelID: "exampleInterstitialDs1-2",
+                modalBodyID: "bodiId1",
+                modalCloseButtonID: "externalLinkPopupModalCloseButton",
+                modalContinueButtonID: "externalLinkPopupModalContinueButton",
+                continuButton: '<button role="button"  type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue</button>',
+                closeButton: '<button role="button"  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>'
+            } %}
+
+        </div>
+    </div>
+</div>

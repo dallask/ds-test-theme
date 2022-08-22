@@ -1,0 +1,45 @@
+{% set heading_id = attributes.id ~ '-menu-heading'|clean_id %}
+{% set menu_title_tag = menu_title_tag|default('h2') %}
+{% set menu_title_base_class = menu_title_base_class|default('title') %}
+{% set menu_blockname = menu_blockname|default('menu') %}
+{% set menu_class = menu_class|default(derivative_plugin_id|default('menu-class')|clean_class) %}
+{% set menu_extra = menu_extra|default(['navbar-light']) %}
+{% set items = content['#items'] %}
+{% set configuration = configuration|default({
+  label: '',
+  label_display: false
+}) %}
+
+{% set menu_block_class = bem(
+  menu_class,
+  menu_modifiers|default([]),
+  menu_blockname,
+  [
+    attributes.class is defined ? (attributes.class is iterable ? attributes.class|join(' ') : attributes.class) : '',
+    menu_extra|join(' '),
+  ]
+) %}
+
+{% set title_class = bem(
+  menu_title_base_class,
+  [],
+  menu_blockname,
+  [title_attributes.class is defined ? (title_attributes.class is iterable ? title_attributes.class|join(' ') : title_attributes.class) : '']
+) %}
+
+{% block libraries %}
+
+{% endblock %}
+{% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+{% block content %}
+  <div {{ add_attributes(attributes.without('class')) }} {{ menu_block_class }}>
+    {{ title_prefix }}
+    {% if configuration.label_display|default(false) %}
+      <{{ menu_title_tag }} {{ add_attributes(title_attributes.without('class').setAttribute('id', heading_id)) }} {{ title_class }}>{{ configuration.label }}</{{ menu_title_tag }}>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% include "@components/menu/abstract/_menu.twig" %}
+  </div>
+{% endblock %}

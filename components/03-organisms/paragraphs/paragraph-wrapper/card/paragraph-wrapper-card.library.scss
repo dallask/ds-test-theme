@@ -1,0 +1,25 @@
+
+
+.paragraph-text-wrapper {
+  &.layout-1-column,
+  &.layout-2-columns {
+    .paragraph-text-wrapper {
+      &.item-layout-1-column,
+      &.item-layout-2-columns {
+        border: 1px solid $gray-400;
+        margin: space(half-medium);
+        padding: space(half-medium);
+        overflow: hidden;
+      }
+    }
+
+    &.layout-1-column {
+      .content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 1500px;
+      }
+    }
+  }
+}

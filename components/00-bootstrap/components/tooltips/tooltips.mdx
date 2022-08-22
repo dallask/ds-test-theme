@@ -1,0 +1,38 @@
+## Overview
+Things to know when using the tooltip plugin:
+
+* Tooltips rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for tooltips to work!
+* Tooltips are opt-in for performance reasons, so **you must initialize them yourself**.
+
+### Example: Enable tooltips everywhere
+One way to initialize all tooltips on a page would be to select them by their `data-bs-toggle` attribute:
+```
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+```
+
+## References
+* https://getbootstrap.com/docs/5.1/components/tooltips/
+
+## SASS Variables
+
+Should be added to the:
+`components/00-bootstrap/scss/_variables.scss`
+
+```
+$tooltip-font-size:                 fontSize(sm);
+$tooltip-max-width:                 200px;
+$tooltip-color:                     $white;
+$tooltip-bg:                        $black;
+$tooltip-border-radius:             $border-radius;
+$tooltip-opacity:                   .9;
+$tooltip-padding-y:                 $spacer * .25;
+$tooltip-padding-x:                 $spacer * .5;
+$tooltip-margin:                    0;
+
+$tooltip-arrow-width:               .8rem;
+$tooltip-arrow-height:              .4rem;
+$tooltip-arrow-color:               $tooltip-bg;
+```

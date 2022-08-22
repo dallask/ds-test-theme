@@ -1,0 +1,37 @@
+{{ attach_library('otsuka_design_system2022/molecules.footer-menu') }}
+
+{% set footer__base_class = 'footer-a' %}
+{% set menu__base_class = 'menu-links' %}
+{% set img_directory = directory ? '/' ~ directory ~ '/images/' : '/' %}
+
+<div {{ bem(menu__base_class, [], footer__base_class) }}>
+
+  <div {{ bem(menu__base_class, ['social_links'], footer__base_class) }}>
+    {% include "@molecules/image-link/image-link.twig" with {
+      link_url: '//www.instagram.com/societyofvaluedminds',
+      img_src: img_directory ~'icons/instagram-black.svg',
+      img_alt: 'instagram',
+      link_attributes: {'target': '_blank'}
+    } %}
+    {% include "@molecules/image-link/image-link.twig" with {
+      link_url: 'mailto:sovm@otsuka-us.com',
+      img_src: img_directory ~ 'icons/email-black.svg',
+      img_alt: 'mail',
+      link_attributes: {'target': '_blank'}
+    } %}
+  </div>
+
+  <div {{ bem(menu__base_class, ['policy_terms'], footer__base_class) }}>
+    {% include "@atoms/links/link/link.twig" with {
+      link_url: '//www.otsuka-us.com/privacy-policy',
+      link_content: 'Privacy Policy',
+      link_attributes: {'target': '_blank'}
+    } %}
+    {% include "@atoms/links/link/link.twig" with {
+      link_url: '//www.otsuka-us.com/terms-and-conditions',
+      link_content: 'Terms and Conditions',
+      link_attributes: {'target': '_blank'}
+    } %}
+  </div>
+
+</div>

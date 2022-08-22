@@ -1,0 +1,129 @@
+<Meta title="Docs/Known Issues"/>
+
+# Known Issues
+
+## Slick slider carousel crashes in Storybook when user click `Docs` tab
+
+### Reason
+- no data
+
+### Solutions
+1. Solution:
+    - Reload the page in browser
+2. Solution:
+    - Switch to another component in Storybook then go back to Carousel
+
+## Menu with the subitems does not work with default Drupal menus (like Main, Footer, etc.)
+
+### Reason
+- no data
+
+### Solutions
+- Create the new custom menu for the complex menus with the subitems
+(do not use the default ones)
+
+### Proposals
+- no data
+
+## Not all features from the `Otsk DS` package can be installed separately
+
+### Description
+Mostly it is applicable for the `Accordion`, `Tabs`, `Carousel` features
+
+### Reason
+- Some features use the same fields that are stored in one of the feature
+
+### Solutions
+- Install all featured at once
+
+### Proposals
+- no data
+
+## Drupal crashes due to the absence of the `behavior` plugin
+
+### Description
+Drupal crashes with the:
+`Drupal\Component\Plugin\Exception\PluginNotFoundException` exception.
+It can happen right after the installation or after cache rebuild.
+[<img src="/docs/known-issues/drupal-crashes-plugin-not-found.png" width="100%"/>](/docs/known-issues/drupal-crashes-plugin-not-found.png)
+
+### Reason
+- Drupal ignores the theme folder when it seeks for the modules.
+
+### Solutions
+1. Solution:
+    - clear all tables in the db that have the `cache_` prefix
+    ```
+    TRUNCATE `cache_bootstrap`;
+    TRUNCATE `cache_config`;
+    TRUNCATE `cache_container`;
+    TRUNCATE `cache_data`;
+    TRUNCATE `cache_default`;
+    TRUNCATE `cache_discovery`;
+    TRUNCATE `cache_dynamic_page_cache`;
+    TRUNCATE `cache_entity`;
+    TRUNCATE `cache_menu`;
+    TRUNCATE `cache_page`;
+    TRUNCATE `cache_render`;
+    TRUNCATE `cache_toolbar`;
+    ```
+2. Solution:
+    - Place your modules into `otsk-drupal/docroot/modules/custom` folder
+    - Run cache rebuild after that
+
+### Proposals
+- no data
+
+## `MarginsBehavior` plugin returns int values instead of classes
+
+### Description
+This paragraphs behavior located in the module `otsuka_ds_paragraph_behaviors`.
+It should return the final classes for margins and paddings based on the int values.
+However, currently it returns only int values.
+
+### Reason
+- Some features use the same fields that are stored in one of the feature
+
+### Solutions
+- As a hotfix, in the abstract paragraph this issue solved by means of adding
+prefixes to this int values.
+
+### Proposals
+The issue should be investigated and fixed. After that the abstract
+paragraph should be fixed accordingly.
+
+## Menu links turn all `#` link anchors to empty anchors
+
+### Description
+If link contains only `#` symbol as a link destination, menu on the front-end
+turns it to the empty destination.
+
+Expected:
+`<a href="#">Link</a>`
+
+Actual:
+`<a href="">Link</a>`
+
+### Reason
+- no data
+
+### Solutions
+- Add some suffix to the `#` symbol (`#[suffix]`, e.g. `#main`, `#top`)
+
+### Proposals
+The issue should be investigated and fixed.
+
+## Media is not rendered on the front end in anonymous mode
+
+### Description
+It is because by default anonymous user has no permission to see All media.
+
+### Reason
+- possible issue with the media feature
+
+### Solutions
+- Visit `/admin/people/permissions`, check `View media` for `ANONYMOUS USER`
+and `AUTHENTICATED USER`, and save changes.
+
+### Proposals
+The issue should be investigated and fixed.

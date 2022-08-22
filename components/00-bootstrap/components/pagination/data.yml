@@ -1,0 +1,30 @@
+content:
+  - title: 'Previous'
+    link: '#'
+    active: false
+    disabled: true
+  - title: '1'
+    link: '#'
+    active: true
+    disabled: false
+  - title: '2'
+    link: '#'
+    active: false
+    disabled: false
+  - title: '3'
+    link: '#'
+    active: false
+    disabled: false
+  - title: 'Next'
+    link: '#'
+    active: false
+    disabled: false
+size:
+  - sm
+  - md
+  - lg
+position:
+  - 'justify-content-start'
+  - 'justify-content-center'
+  - 'justify-content-end'
+classes: [ ]

@@ -1,0 +1,17 @@
+.paragraph {
+  &__content {
+    position: relative;
+
+    .field-name-field-otsk-ds-image {
+      img {
+        max-width: 100%;
+        height: auto;
+
+        @include media-breakpoint-up(md) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

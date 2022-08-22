@@ -1,0 +1,14 @@
+content:
+  - url: #
+    title: Home
+    active: false
+  - url: #
+    title: Library
+    active: false
+  - url: #
+    title: Data
+    active: true
+divider: ">"
+classes: [ ]
+attributes:
+  'id': 'breadcrumbExample'

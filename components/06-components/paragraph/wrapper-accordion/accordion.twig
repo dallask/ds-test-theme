@@ -1,0 +1,58 @@
+{% set paragraph_blockname = paragraph_blockname|default('accordion') %}
+{% set accordion_always_open = accordion_always_open|default(false) %}
+{% set accordion_opened_item = accordion_opened_item|default(0) %}
+
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/bootstrap.accordion') }}
+
+    {% block field_paragraph %}
+
+      {% if content.field_title_format %}
+        {% block field_title_format %}
+          <div {{ bem(paragraph_base_class ~ '-title', [], paragraph_blockname) }}>
+            <h2>
+              {{ content.field_title_format }}
+            </h2>
+          </div>
+        {% endblock %}
+      {% endif %}
+
+      <div {{ bem(paragraph_base_class ~ '-paragraphs', [], paragraph_blockname, ['accordion']) }}
+        id="Accordion{{ paragraph.id() }}">
+
+        {% for key, item in content.field_paragraph if key|first != '#' %}
+          <div class="accordion-item">
+            <h2 class="accordion-header"
+                id="heading{{ content.field_paragraph[key]['#paragraph'].id.value }}">
+              <button class="accordion-button {{ loop.index == accordion_opened_item ? '' : 'collapsed' }}" type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse{{ content.field_paragraph[key]['#paragraph'].id.value }}" {{ loop.index == accordion_opened_item ? 'aria-expanded="true"' : '' }}
+                      aria-controls="collapse{{ content.field_paragraph[key]['#paragraph'].id.value }}">
+                {{ item['#paragraph'].field_title_format.0.value|raw }}
+              </button>
+            </h2>
+            <div
+              id="collapse{{ content.field_paragraph[key]['#paragraph'].id.value }}"
+              class="accordion-collapse collapse {{ loop.index == accordion_opened_item ? 'show' : '' }}"
+              aria-labelledby="heading{{ content.field_paragraph[key]['#paragraph'].id.value }}"
+              {% if not accordion_always_open %}
+                data-bs-parent="#Accordion{{ paragraph.id() }}"
+              {% endif %}
+            >
+              <div class="accordion-body">
+                {% if content.field_paragraph[key]['#paragraph'].field_paragraph.storibook_content %}
+                  {{ content.field_paragraph[key]['#paragraph'].field_paragraph.storibook_content }}
+                {% else %}
+                  {{ content.field_paragraph[key]|render }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    {% endblock %}
+  {% endblock %}

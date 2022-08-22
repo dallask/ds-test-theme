@@ -1,0 +1,51 @@
+{#
+/**
+ * Available variables:
+ * - link_content - the content of the link (typically text)
+ * - link_url - the url this link should poing to
+ * - link_attributes - array of attribute,value pairs
+ * - link_base_class - the base class name
+ * - link_modifiers - array of modifiers to add to the base classname
+ * - link_blockname - blockname prepended to the base classname
+ *
+ * Available blocks:
+ * - link_content - used to replace the content of the link
+ *     Example: to insert the image component
+ */
+#}
+{{ attach_library('otsuka_design_system2022/atoms.logo') }}
+
+{% set link_base_class = link_base_class|default('link') %}
+{% set image_base_class = image_base_class|default('image') %}
+
+<a
+{{ bem(link_base_class, link_modifiers, link_blockname) }}
+  {% for attribute, value in link_attributes %}
+{{ attribute }}="{{ value }}"
+{% endfor %}
+href="{{ link_url }}"
+>
+{% if link_content %}
+  {% block link_content %}
+    {{ link_content }}
+  {% endblock %}
+{% endif %}
+
+<img
+  {{ bem(image_base_class, image_modifiers, image_blockname) }}
+  {% if image_srcset %}
+    srcset="{{ image_srcset }}"
+  {% endif %}
+  {% if image_sizes %}
+    sizes="{{ image_sizes }}"
+  {% endif %}
+  src="{{ image_src }}"
+  {% if image_alt %}
+    alt="{{ image_alt }}"
+  {% endif %}
+  {% if image_title %}
+    title="{{ image_title }}"
+  {% endif %}
+/>
+
+</a>

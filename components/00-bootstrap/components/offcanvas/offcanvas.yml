@@ -1,0 +1,16 @@
+content:
+  header: 'Offcanvas header'
+  body: 'Offcanvas body'
+id: 'offcanvasTest'
+position:
+  - start
+  - end
+  - top
+  - bottom
+data_bs_scroll:
+  - 'true'
+  - 'false'
+data_bs_backdrop:
+  - 'true'
+  - 'false'
+classes: [ ]

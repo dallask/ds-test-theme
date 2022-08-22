@@ -1,0 +1,19 @@
+variant:
+  - primary
+  - secondary
+  - success
+  - danger
+  - warning
+  - info
+  - dark
+  - light
+size:
+  - xs
+  - sm
+  - md
+  - lg
+effect:
+  - glow
+  - wave
+classes:
+  - 'w-100'

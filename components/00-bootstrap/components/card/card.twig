@@ -1,0 +1,44 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.card') }}
+
+{% set card_base_class = card_base_class|default('card') %}
+
+{% set card_attributes = {
+  class: bem(
+    card_base_class,
+    card_modifiers,
+    card_blockname,
+    [
+      variant ? 'bg-' ~ variant : '',
+      text_alignment ? 'text-' ~ text_alignment : '',
+      classes|join(' '),
+    ]
+  ),
+}|merge(card_attributes|default({})) %}
+
+<div {{ add_attributes(card_attributes) }}>
+  {% block content %}
+    {% if img_header %}
+      <div {{ bem('img-top', '', card_base_class, ['card-img-top']) }}>
+        {{ img }}
+      </div>
+    {% endif %}
+    {% if content_header and not img_header %}
+      <div {{ bem('header', '', card_base_class, ['card-header']) }}>
+        {{ content_header }}
+      </div>
+    {% endif %}
+    <div {{ bem('body', '', card_base_class, ['card-body']) }}>
+      {{ content }}
+    </div>
+    {% if content_footer and not img_footer %}
+      <div {{ bem('footer', '', card_base_class, ['card-footer']) }}>
+        {{ content_footer }}
+      </div>
+    {% endif %}
+    {% if img_footer %}
+      <div {{ bem('bottom', '', card_base_class, ['card-bottom']) }}>
+        {{ img }}
+      </div>
+    {% endif %}
+  {% endblock %}
+</div>

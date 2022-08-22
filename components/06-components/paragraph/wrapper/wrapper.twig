@@ -1,0 +1,40 @@
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {% if content.field_otsk_ds_wrapper_background|render %}
+      {% block field_otsk_ds_wrapper_background %}
+        <div {{ bem(paragraph_base_class ~ '-background', [], paragraph_blockname) }}>
+          {{ content.field_otsk_ds_wrapper_background }}
+        </div>
+      {% endblock %}
+    {% endif %}
+
+    {% if content.field_otsk_ds_wrapper_back_video|render %}
+      {% block field_otsk_ds_wrapper_back_video %}
+        <div {{ bem('bg-video', [], paragraph_blockname) }}>
+          {{ content.field_otsk_ds_wrapper_back_video }}
+        </div>
+      {% endblock %}
+    {% endif %}
+
+    <div {{ bem(paragraph_base_class ~ '-content', [], paragraph_blockname, ['text-center']) }}>
+      {% if content.field_otsk_ds_wrapper_title %}
+        {% block field_otsk_ds_wrapper_title %}
+          <div {{ bem(paragraph_base_class ~ '-title', [], paragraph_blockname) }}>
+            <h2>
+              {{ content.field_otsk_ds_wrapper_title }}
+            </h2>
+          </div>
+        {% endblock %}
+      {% endif %}
+
+      {% if content.field_otsk_ds_paragraphs %}
+        {% block field_otsk_ds_paragraphs %}
+          <div {{ bem(paragraph_base_class ~ '-paragraphs', [], paragraph_blockname) }}>
+            {{ content.field_otsk_ds_paragraphs }}
+          </div>
+        {% endblock %}
+      {% endif %}
+    </div>
+  {% endblock %}

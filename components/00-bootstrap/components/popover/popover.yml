@@ -1,0 +1,13 @@
+content:
+  button_title: 'Click to toggle popover'
+  title: 'Popover title'
+  body: "And here's some amazing content. It's very engaging. Right?"
+position:
+  - left
+  - top
+  - right
+  - bottom
+classes:
+  - 'btn'
+  - 'btn-lg'
+  - 'btn-danger'

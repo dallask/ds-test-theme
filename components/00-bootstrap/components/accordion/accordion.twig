@@ -1,0 +1,57 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.accordion') }}
+
+{% set accordion_base_class = accordion_base_class|default('ds-accordion') %}
+
+{% set accordion_attributes = {
+  class: bem(
+    accordion_base_class,
+    accordion_modifiers,
+    accordion_blockname,
+    [
+      'accordion',
+      accordion_flush ? 'accordion-flush' : '',
+      accordion_classes|join(' '),
+    ]
+  ),
+}|merge(accordion_extra_attributes|default({'id': 'accordionExampleId'})) %}
+
+<div {{ add_attributes(accordion_attributes) }}>
+  {% block accordion_content %}
+    {% for item in accordion_content %}
+      <div {{ bem('accordion-item', '', accordion_base_class, ['accordion-item']) }}>
+        {% set heading_content %}
+          {% include "@bootstrap/components/buttons/button.twig" with {
+            button_content: item.title,
+            button_classes: [
+              'accordion-button',
+              item.expanded ? '' : 'collapsed',
+            ],
+            button_attributes: {
+              'type': 'button',
+              'data-bs-toggle': 'collapse',
+              'data-bs-target': '#collapse' ~ item.id,
+              'aria-expanded': item.expanded ? 'true' : 'false',
+              'aria-controls': 'collapse' ~ item.id,
+            }
+          } %}
+        {% endset %}
+        {% include "@atoms/text/headings/_heading.twig" with {
+          "heading_level": 2,
+          'heading_base_class': 'accordion-header',
+          "heading": heading_content,
+          'heading_attributes': {
+            'id': 'heading' ~ item.id
+          }
+        } %}
+        <div id="collapse{{ item.id }}"
+          {{ bem('collapse', '', accordion_base_class, ['accordion-collapse', 'collapse', item.expanded ? "show" : ""]) }}
+             aria-labelledby="heading{{ item.id }}"
+          {% if not accordion_always_opened %}data-bs-parent="#{{ accordion_attributes.id }}"{% endif %}>
+          <div {{ bem('accordion-body', '', accordion_base_class, ['accordion-body']) }}>
+            {{ item.body }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% endblock %}
+</div>

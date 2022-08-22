@@ -1,0 +1,35 @@
+content:
+  - content: 'Item 1 link'
+    link: '#'
+    disabled: false
+    active: true
+    attributes:
+      test: value
+      foo: bar
+  - content: 'Item 2'
+    link: '#'
+    disabled: false
+    active: false
+    attributes: {}
+  - content: 'Some link'
+    link: '#'
+    disabled: false
+    active: false
+    attributes: {}
+  - content: 'One more menu link'
+    link: '#'
+    disabled: true
+    active: false
+    attributes: {}
+type:
+  - pills
+  - tabs
+fill: true
+justified: false
+justify_content:
+  - justify-content-start
+  - justify-content-end
+direction:
+  - flex-column
+  - flex-row
+classes: [ ]

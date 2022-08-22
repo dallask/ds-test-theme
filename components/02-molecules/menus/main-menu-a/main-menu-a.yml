@@ -1,0 +1,11 @@
+menu_items:
+  - title: 'Home'
+    url: '#'
+  - title: 'Our Mission'
+    url: '#'
+  - title: 'Get Involved'
+    url: '#'
+  - title: 'Resources'
+    url: '#'
+  - title: 'Join Us'
+    url: '#'

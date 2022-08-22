@@ -1,0 +1,10 @@
+{
+  "project": {
+    "platform": "drupal",
+    "name": "Otsuka Design System 2022",
+    "machineName": "otsuka_design_system2022"
+  },
+  "starter": {
+    "repository": "https://github.com/OAPI-Commercial-IT/design_system.git"
+  }
+}

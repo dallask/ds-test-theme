@@ -1,0 +1,4 @@
+field_type: 'type-image'
+field_custom_class: 'paragraph-image-custom'
+field_title: '<h2>Paragraph Image</h2>'
+field_image: '250x250.png'

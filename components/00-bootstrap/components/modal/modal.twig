@@ -1,0 +1,72 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.modal') }}
+
+{% set modal_base_class = modal_base_class|default('ds-modal') %}
+{% set modal_header = modal_header|default(true) %}
+{% set modal_footer = modal_footer|default(true) %}
+
+{% set modal_attributes = {
+  class: bem(
+    modal_base_class,
+    modal_modifiers,
+    modal_blockname,
+    [
+      'modal',
+      modal_classes|join(' '),
+    ]
+  ),
+  id: modal_attributes.id|default('exampleModal'),
+  tabindex: '-1',
+  'aria-labelledby': modal_attributes.id|default('exampleModal') ~ "Label",
+  'aria-hidden': "true"
+}|merge(modal_attributes|default({})) %}
+
+<!-- Modal -->
+<div {{ add_attributes(modal_attributes) }}>
+  <div {{ bem(
+    'dialog',
+    '',
+    modal_base_class,
+    [
+      'modal-dialog',
+      'modal-' ~ modal_size|default('md'),
+      modal_scrollable|default('true') ? 'modal-dialog-scrollable' : '',
+      modal_centered|default('true') ? 'modal-dialog-centered' : ''
+    ]
+  ) }}>
+    <div {{ bem('content', '', modal_base_class, ['modal-content']) }}>
+      <div {{ bem('header', '', modal_base_class, ['modal-header']) }}>
+        {% if modal_header %}
+          {{ modal_content.title }}
+        {% endif %}
+
+        {% include "@bootstrap/components/buttons/button.twig" with {
+          button_classes: [
+            'btn-close'
+          ],
+          button_attributes: {
+            'type': 'button',
+            'data-bs-dismiss': 'modal'
+          }
+        } %}
+      </div>
+
+      <div {{ bem('body', '', modal_base_class, ['modal-body']) }}>
+        {{ modal_content.body }}
+      </div>
+
+      {% if modal_footer %}
+        <div {{ bem('footer', '', modal_base_class, ['modal-footer']) }}>
+          {% include "@bootstrap/components/buttons/button.twig" with {
+            button_content: modal_close_button.text|default('Close'),
+            button_variant: 'secondary',
+            button_size: 'md',
+            button_attributes: {
+              'type': 'button',
+              'data-bs-dismiss': 'modal'
+            }
+          } %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

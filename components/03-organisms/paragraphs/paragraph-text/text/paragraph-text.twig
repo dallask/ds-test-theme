@@ -1,0 +1,47 @@
+{{ attach_library('otsuka_design_system2022/organisms.paragraph-text') }}
+
+{% set paragraph_text_modifiers = (paragraph_text_modifiers ?? [])|merge(field_image_mobile ? ['mobile'] : []) %}
+{% set paragraph_text_attributes = {
+  class: bem(
+    'paragraph-text-wrapper',
+    paragraph_text_modifiers,
+    paragraph_text_blockname,
+    [
+      field_type,
+      layout.layout,
+      layout.image_position,
+      field_custom_class,
+      classes|join(' '),
+    ]
+  )
+} %}
+
+<div {{ add_attributes(paragraph_text_attributes) }}>
+    {% block image %}
+        {% if field_image|default(null) %}
+            <div class="image-wrapper">
+                <img src="{{ field_image }}" alt="" class="paragraph-text-image">
+                {% if field_image_mobile|default(null) %}
+                  <img src="{{ field_image_mobile }}" alt="" class="paragraph-text-image-mobile">
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endblock %}
+    <div class="content">
+        {% block title %}
+            {% if field_title|default(null) %}
+                <div class="title-wrapper">{{ field_title }}</div>
+            {% endif %}
+        {% endblock %}
+        {% block text %}
+            {% if field_text|default(null) %}
+                <div class="text-wrapper">{{ field_text }}</div>
+            {% endif %}
+        {% endblock %}
+        {% block link %}
+            {% if field_link|default(null) %}
+                <div class="link-wrapper">{{ field_link }}</div>
+            {% endif %}
+        {% endblock %}
+    </div>
+</div>

@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+{% set base_class = base_class|default('block') %}
+
+{# generate block classes #}
+{% set block_class = bem(base_class, [], '', [attributes.class is defined ? (attributes.class is iterable ? attributes.class|join(' ') : attributes.class) : '']) %}
+
+{# generate titlte classes #}
+{% set title_class = bem('title', [], base_class, [title_attributes.class is defined ? (title_attributes.class is iterable ? title_attributes.class|join(' ') : title_attributes.class) : '']) %}
+
+<div {{ add_attributes(attributes.without('class')) }} {{ block_class }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2 {{ add_attributes(title_attributes.without('class')) }} {{ title_class }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

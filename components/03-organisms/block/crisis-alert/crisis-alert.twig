@@ -1,0 +1,17 @@
+{{ attach_library('otsuka_design_system2022/organisms.crisis-alert') }}
+
+<div class="crisis-alert-wrapper">
+    <div class="crisis-alert">
+        <span class="headline-text">{{ headline_text }}</span>
+        <span class="headline-call-text">{{ headline_call_text }}</span>
+        <span>
+      {% include "@atoms/links/link/link.twig" with {
+          'link_url': phone_number,
+          'link_content': phone_number,
+          'link_attributes': {
+              'class': "crisis-alert-call",
+          }
+      } %}
+    </span>
+    </div>
+</div>

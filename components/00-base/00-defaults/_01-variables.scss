@@ -1,0 +1,150 @@
+
+$fonts-path: '../fonts';
+$images-path: '../images';
+$font-size-base: 1rem;
+
+$defaultVariables: (
+  header-height-mobile: 77px,
+  header-height-desktop: 96px,
+  sidebar-md: 300px,
+  sidebar-xl: 400px,
+  sidebar-xxl: 545px,
+  isi-height: 182px,
+  isi-height-open: 218px,
+  modal-default-width: 956px,
+  modal-small-width: 605px,
+  modal-big-width: 1200px,
+  modal-max-width-mobile: 500px,
+  play-btn-mobile-size: 63px,
+  play-btn-mobile-size-half: 31.5px,
+  play-btn-desktop-size: 150px,
+  play-btn-desktop-size-half: 75px,
+);
+$sozoseiFoundationVariables: (
+  header-height-mobile: 77px,
+  header-height-desktop: 96px,
+  sidebar-md: 300px,
+  sidebar-xl: 400px,
+  sidebar-xxl: 545px,
+  isi-height: 182px,
+  isi-height-open: 218px,
+  modal-default-width: 956px,
+  modal-small-width: 605px,
+  modal-big-width: 1200px,
+  modal-max-width-mobile: 500px,
+  play-btn-mobile-size: 63px,
+  play-btn-desktop-size: 150px,
+);
+
+$defaultSpacing: (
+  hor-thin: 1px,
+  thick: 2px,
+  half-small: 4px,
+  small: 8px,
+  half-medium: 12px,
+  medium: 16px,
+  half-large: 20px,
+  large: 24px,
+  extra-large: 32px,
+  extra-extra-large: 40px,
+  extra-extra-extra-large: 48px,
+  largest: 56px,
+);
+$sozoseiFoundationSpacing: (
+  hor-thin: 1px,
+  thick: 2px,
+  half-small: 4px,
+  small: 8px,
+  half-medium: 12px,
+  medium: 16px,
+  half-large: 20px,
+  large: 24px,
+  extra-large: 32px,
+  extra-extra-large: 40px,
+  extra-extra-extra-large: 48px,
+  largest: 56px,
+);
+
+$defaultFontSizing: (
+  sm: .875rem,
+  lg: 1.25rem,
+  xxs: .5rem,
+  xs: .75rem,
+  d: 1rem,
+  m: 1.125rem,
+  xl: 1.475rem,
+  xxl: 2rem,
+  xxxl: 3.5rem
+);
+$sozoseiFoundationFontSizing: (
+  sm: .875rem,
+  lg: 1.25rem,
+  xxs: .5rem,
+  xs: .75rem,
+  d: 1rem,
+  m: 1.125rem,
+  xl: 1.475rem,
+  xxl: 2rem,
+  xxxl: 3.5rem
+);
+
+$defaultFontFamily: (
+  headline: "'Museo Sans', sans-serif",
+  body: "'Whitman', serif",
+  code: "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
+  fallback: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif"
+);
+$sozoseiFoundationFontFamily: (
+  headline: "'HelveticaNeue', 'Helvetica', 'Arial', sans-serif",
+  body: "georgia, times, 'Times New Roman', serif",
+  code: "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
+  fallback: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif"
+);
+
+$defaultTransitionSpeed: (
+  fast: 0.15s,
+  normal: 0.3s,
+  slow: 0.6s,
+);
+$sozoseiFoundationTransitionSpeed: (
+  fast: 0.15s,
+  normal: 0.3s,
+  slow: 0.6s,
+);
+
+$defaultLineHeight: (
+  heading-1: 1.4,
+  heading-2: 1.6,
+  heading-3: 1.3,
+  heading-4: 1.5
+);
+
+// Sass map to define colors. Each set should have a "Dark" variation when required.
+// e.g. `default` and `default-dark`. Or `purple` and `purple-dark`.
+$button-colors: (
+  primary: (
+    text: clr(text-inverse),
+    bg: clr(primary),
+    text-hover: clr(primary),
+    bg-hover: clr(highlight),
+  ),
+  primary-dark: (
+    text: clr(text),
+    bg: clr(primary),
+    text-hover: clr(text),
+    bg-hover: clr(highlight-high),
+  ),
+  secondary: (
+    text: clr(text-inverse),
+    bg: clr(secondary),
+    text-hover: clr(secondary),
+    bg-hover: clr(highlight),
+  ),
+  secondary-dark: (
+    text: clr(text),
+    bg: clr(secondary),
+    text-hover: clr(text),
+    bg-hover: clr(highlight-high),
+  ),
+);
+

@@ -1,0 +1,178 @@
+
+
+/**
+  Based on https://github.com/OAPI-Commercial-IT/otsk-drupal/blob/drupal9_dev/docroot/themes/custom/otsuka_design_system_theme/assets/src/style/node/node.ods-article.scss
+  Equivalencies (node.ods-article.scss = _grid.ds1.scss):
+
+  .ods-articles-grid = .grid--card.grid--item-cards
+  .ods-articles-list = .grid--card.grid--item-rows
+
+  .item-rows = .grid--item-rows
+  .item-cards = .grid--item-cards
+
+  .views-row = .card.grid__item
+  .node-type-ods-article = .card
+  .teaser-container = &.grid__item
+
+  .news-icon = ???
+  .article-img = .image
+
+  .article-content = .card__content
+
+  .article-title = .card__heading
+  .time-source = .card__subheading
+  .article-body = .card__body
+   */
+.ds1 {
+  .grid {
+    &.grid--item-rows {
+      display: block;
+
+      .card {
+        border: unset;
+        border-bottom: 1px solid $gray-400;
+        margin-bottom: space(extra-extra-extra-large);
+
+        &.grid__item {
+          display: flex;
+          width: 100%;
+
+          .card__content {
+            flex-basis: 90%;
+
+            .card__heading {
+              font-size: fontSize(lg);
+              font-family: fontFamily(body);
+              font-weight: 500;
+              line-height: 1.2;
+
+              h1, h2, h3, h4, h5, p {
+                font-size: fontSize(lg);
+                font-family: fontFamily(body);
+                font-weight: 500;
+                line-height: 1.2;
+              }
+            }
+
+            .card__subheading {
+              margin: space(medium) 0;
+              font-size: $font-size-base;
+              padding: 0;
+            }
+          }
+
+          .news-icon, .image {
+            flex-basis: 10%;
+            margin: 0 space(half-large) 0 0;
+          }
+
+          @include media-breakpoint-down(sm) {
+            display: block;
+
+            .card__content, .news-icon, .image {
+              margin: space(medium) 0;
+            }
+          }
+        }
+      }
+    }
+
+    &.grid--item-cards {
+      max-height: 1399.84px;
+
+      &.grid--card.grid--item-cards {
+        display: flex;
+        flex-flow: column wrap;
+        margin-left: 0;
+        width: 100%;
+
+        .card.grid__item {
+          flex-basis: 33%;
+
+          .card__subheading {
+            margin: space(medium) 0;
+            font-size: $font-size-base;
+          }
+
+          @include media-breakpoint-down(sx) {
+            flex-basis: 100%;
+          }
+          @include media-breakpoint-up(sm) {
+            flex: auto;
+            margin: 0 space(small) space(small) 0;
+            width: 50%;
+            position: relative;
+            vertical-align: baseline;
+            overflow: hidden;
+          }
+          @include media-breakpoint-up(md) {
+            flex: auto;
+            margin: 0 space(small) space(small) 0;
+            width: 33.3333333%;
+            position: relative;
+            vertical-align: baseline;
+            overflow: hidden;
+          }
+        }
+
+        @include media-breakpoint-down(sm) {
+          //flex-flow: wrap;
+        }
+      }
+
+      .card {
+        border: 1px solid $gray-400;
+
+        &.grid__item {
+          display: block;
+          //width: 100%;
+
+          .card__heading {
+            font-size: fontSize(lg);
+            font-family: fontFamily(body);
+            font-weight: 500;
+            line-height: 1.2;
+
+            h1, h2, h3, h4, h5, p {
+              font-size: fontSize(lg);
+              font-family: fontFamily(body);
+              font-weight: 500;
+              line-height: 1.2;
+            }
+          }
+
+          .card__content {
+            text-align: center;
+            margin-bottom: space(extra-extra-extra-large);
+
+            .card__subheading {
+              align-items: center;
+              justify-content: center;
+              margin: space(medium) 0;
+            }
+          }
+
+          .card__body {
+            text-align: left;
+            max-width: 85%;
+            margin: 0 auto;
+          }
+
+          .news-icon, .image {
+            text-align: center;
+            background-position-x: 50%;
+            margin: space(medium) auto;
+          }
+
+          @include media-breakpoint-down(sm) {
+            display: block;
+
+            .card__content, .news-icon, .image {
+              margin: space(medium) 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

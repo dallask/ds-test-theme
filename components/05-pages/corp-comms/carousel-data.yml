@@ -1,0 +1,36 @@
+carousel_content:
+  - id: 1
+    content: '<svg class="d-block w-100" style="font-size: 3rem; text-anchor: middle" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 1921" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#fff" dy=".3em">1921</text></svg>
+    <div class="carousel-caption d-none d-md-block">
+        <h5>1921</h5>
+        <p>Busaburo Otsuka founded Otsuka in Tokushima Prefecture, Japan, with an unconventional idea and the belief that anything is possible. Otsuka has been on a journey of creativity and innovation ever since.
+      </div>'
+  - id: 2
+    content: '<svg class="d-block w-100" style="font-size: 3rem; text-anchor: middle" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#fff" dy=".3em">1985</text></svg>
+    <div class="carousel-caption d-none d-md-block">
+            <h5>1985</h5>
+            <p>The first Otsuka US research and development base was established in Rockville, Maryland. Just a few years later, in 1989, Otsuka’s first US commercial organization was created, Otsuka America Pharmaceutical, Inc (OAPI).</p>
+          </div>'
+  - id: 3
+    content: '<svg class="d-block w-100" style="font-size: 3rem; text-anchor: middle" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#fff" dy=".3em">2002</text></svg>
+    <div class="carousel-caption d-none d-md-block">
+            <h5>2002</h5>
+            <p><p>Otsuka’s second US location, in Princeton, New Jersey, was opened. We continued our evolution, and in 2007 Otsuka Pharmaceutical Development & Commercialization, Inc (OPDC), was created to oversee all commercial pharmaceutical and medical device activities in the United States.</p>"
+          </div>'
+  - id: 4
+    content: '<svg class="d-block w-100" style="font-size: 3rem; text-anchor: middle" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#fff" dy=".3em">2022</text></svg>
+    <div class="carousel-caption d-none d-md-block">
+            <h5>2020</h5>
+            <p>Today the two companies, OAPI and OPDC, are led by CEO and President</p>
+          </div>'
+carousel_arrows: true
+carousel_indicators: true
+carousel_dark: false
+carousel_classes:
+  - 'slide'
+carousel_attributes:
+  'id': 'carouselExampleIndicators'
+  'data-bs-interval': '2000'
+  'data-bs-ride': 'true'
+  'data-bs-keyboard': 'true'
+  'data-bs-wrap': 'true'

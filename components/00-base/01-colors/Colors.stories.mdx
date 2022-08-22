@@ -1,0 +1,31 @@
+import {ColorItem, ColorPalette, Meta} from '@storybook/addon-docs';
+import {color} from './colors';
+
+<Meta title="Base/Colors"/>
+
+<ColorPalette>
+  <ColorItem title="theme.color.primary" subtitle="Primary"
+             colors={[color.primary]}/>
+  <ColorItem title="theme.color.secondary" subtitle="Secondary"
+             colors={[color.secondary]}/>
+  <ColorItem title="theme.color.accent" subtitle="Accent"
+             colors={[color.accent]}/>
+  <ColorItem title="theme.color.accentHigh" subtitle="Accent High"
+             colors={[color.accentHigh]}/>
+  <ColorItem title="theme.color.text" subtitle="Text"
+             colors={[color.text]}/>
+  <ColorItem title="theme.color.background" subtitle="Background"
+             colors={[color.background]}/>
+  <ColorItem title="theme.color.highlight" subtitle="Highlight"
+             colors={[color.highlight]}/>
+  <ColorItem title="theme.color.highlightHigh" subtitle="Highlight High"
+             colors={[color.highlightHigh]}/>
+  <ColorItem title="theme.color.muted" subtitle="Muted"
+             colors={[color.muted]}/>
+  <ColorItem title="theme.color.warning" subtitle="Warning"
+             colors={[color.warning]}/>
+  <ColorItem title="theme.color.error" subtitle="Error"
+             colors={[color.error]}/>
+  <ColorItem title="theme.color.message" subtitle="Message"
+             colors={[color.message]}/>
+</ColorPalette>

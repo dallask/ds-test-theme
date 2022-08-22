@@ -1,0 +1,23 @@
+content:
+  field_title_format: 'Carousel Wrapper Title'
+  field_paragraph: '
+  <div class="field-name-field-paragraph">
+    <div class="paragraph__image">
+      <div class="field--item">
+        <img src="//dummyimage.com/1200x600/cecece/fff.png&text=Slide+1" alt="slide 1" />
+      </div>
+    </div>
+
+    <div class="paragraph__image">
+      <div class="field--item">
+        <img src="//dummyimage.com/1200x600/cecece/fff.png&text=Slide+1" alt="slide 1" />
+      </div>
+    </div>
+
+    <div class="paragraph__image">
+      <div class="field--item">
+        <img src="//dummyimage.com/1200x600/cecece/fff.png&text=Slide+1" alt="slide 1" />
+      </div>
+    </div>
+  </div>
+  '

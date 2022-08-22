@@ -1,0 +1,16 @@
+{% set menu_extra = menu_extra|default([])|merge([
+  "nav",
+  "justify-content-end",
+]) %}
+
+{% set link_extra = link_extra|default([])|merge([
+  "text-white",
+  "text-decoration-underline",
+]) %}
+
+{% extends "@components/menu/abstract/menu.twig" %}
+
+{% block libraries %}
+  {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+{% endblock %}
+

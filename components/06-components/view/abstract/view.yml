@@ -1,0 +1,63 @@
+content: '
+  <div class="row">
+    <div class="col-60 col-md-15 mb-3 d-flex justify-content-center justify-content-md-start">
+      <img src="//dummyimage.com/150" class="img-thumbnail" alt="image">
+    </div>
+    <div class="col-60 col-md-35 mb-3">
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. </p>
+    </div>
+    <div class="col-60 col-md-10 mb-3 d-flex d-md-block justify-content-center">
+      <button type="button" class="btn btn-success">Success</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-60 col-md-15 mb-3 d-flex justify-content-center justify-content-md-start">
+      <img src="//dummyimage.com/150" class="img-thumbnail" alt="image">
+    </div>
+    <div class="col-60 col-md-35 mb-3">
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. </p>
+    </div>
+    <div class="col-60 col-md-10 mb-3 d-flex d-md-block justify-content-center">
+      <button type="button" class="btn btn-success">Success</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-60 col-md-15 mb-3 d-flex justify-content-center justify-content-md-start">
+      <img src="//dummyimage.com/150" class="img-thumbnail" alt="image">
+    </div>
+    <div class="col-60 col-md-35 mb-3">
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. </p>
+    </div>
+    <div class="col-60 col-md-10 mb-3 d-flex d-md-block justify-content-center">
+      <button type="button" class="btn btn-success">Success</button>
+    </div>
+  </div>
+  <nav aria-label="...">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+'

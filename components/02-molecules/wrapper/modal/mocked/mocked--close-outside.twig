@@ -1,0 +1,57 @@
+<i>Reload the page if it's not working.</i>
+
+{# Inside Modal Close Trigger #}
+{% set modal_content %}
+  <img src="https://dummyimage.com/1000x565/a6a6a6/fff.png">
+  {% include '@molecules/wrapper/modal/modal-trigger.twig' with {
+    modal_id,
+    link_exists: true,
+    link_close_modal: true,
+    link_content: 'Close trigger inside the Modal',
+  } %}
+{% endset %}
+
+{# Modal #}
+{% include '@molecules/wrapper/modal/modal.twig' with {
+  modal_id,
+  modal_content_classes,
+  modal_content,
+} %}
+
+{# Outside Open/Close Modal Trigger #}
+<div id="mockedOpenCloseTrigger" class="mocked-close-trigger">
+  {% include '@molecules/wrapper/modal/modal-trigger.twig' with {
+    modal_id,
+    link_exists: true,
+    link_close_modal: false,
+    link_content: 'Open/Close trigger outside the Modal',
+  } %}
+</div>
+
+{# Outside only Close Modal Trigger #}
+<div id="mockedCloseTrigger" class="mocked-close-trigger">
+  {% include '@molecules/wrapper/modal/modal-trigger.twig' with {
+    modal_id,
+    link_exists: true,
+    link_close_modal: true,
+    link_content: 'Only Close trigger outside the Modal',
+  } %}
+</div>
+
+<style>
+  .mocked-close-trigger {
+    position: fixed;
+    right: 50px;
+    padding: 5px 10px;
+    background: #fff;
+    z-index: 9000;
+  }
+
+  #mockedOpenCloseTrigger {
+    top: 20px;
+  }
+
+  #mockedCloseTrigger {
+    top: 70px;
+  }
+</style>

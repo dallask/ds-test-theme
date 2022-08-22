@@ -1,0 +1,28 @@
+This component allow you to implement scroll slide animation. Scroll sliders uses GSAP as base library and "ScrollTrigger " plugin  to add scroll effects.
+
+## Effects
+There are two ways to add scroll effect to element:
+1. Directly to element. You need to add class "scroll--slider--effect" and "data-scroll-slider-item-effects" attribute. This attribute should contain json effects array.
+Each item of this array should be an object that has next properties:
+- action - effect action type. There are possible 3 options: **from**, **to** and **fromTo**. If action is **form** will be use only **from** property for animation, if **to** - **to**, if **fromTo** - both.
+- from - it's required property if action is **from** or **fromTo**. It's an object which defines the starting values to animate "from".
+- to - it's required property if action is **to** or **fromTo**. It's an object which defines the ending values to animate "to".
+- order - numeric item which defines effect position. If several effects have the same order they will be executed at the same time.
+
+> data-scroll-slider-item-effects='[{"action":"to","to":{"opacity":0},"order":"1"}]'
+
+2. As "data-scroll-slider-slide-effects" attribute in slider slide element. This attribute is the same as "data-scroll-slider-item-effects" attribute BUT each array item should have **item** property which is selector to element.
+
+> data-scroll-slider-slide-effects='[{"item":".selector","action":"to","to":{"opacity":0},"order":"1"}]'
+
+## References
+* https://greensock.com/docs/v3/GSAP/gsap.from()
+* https://greensock.com/docs/v3/GSAP/gsap.to()
+* https://greensock.com/docs/v3/GSAP/gsap.fromTo()
+* https://greensock.com/docs/v3/GSAP/Tween
+* https://greensock.com/scrolltrigger
+
+### How to use it in a Drupal site:
+**Template**: `templates/misc/status-messages.html.twig`
+1. Enable the theme `otsuka_design_system2022` or a sub-theme based on it.
+2. Create a paragraph of the type `Scroll slider` or `Scroll slider item`.

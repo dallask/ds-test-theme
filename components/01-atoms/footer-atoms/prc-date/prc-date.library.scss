@@ -1,0 +1,11 @@
+
+
+.prc-date {
+  font-size: fontSize(sm);
+  color: clr('text');
+  letter-spacing: 1px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: fontSize(xxs);
+  }
+}

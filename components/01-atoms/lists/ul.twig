@@ -1,0 +1,40 @@
+{#
+/**
+ * Available variables:
+ * - ul_base_class - the base classname
+ * - ul_modifiers - array of modifiers to add to the base classname
+ * - ul_blockname - blockname prepended to the base classname
+ * - ul_extra - array of extra classes
+ *
+ * - listItems - TBD
+ */
+#}
+{{ attach_library('otsuka_design_system2022/atoms.lists') }}
+
+{% set ul_base_class = ul_base_class|default('ul') %}
+
+{% set ul_attributes = {
+  class: bem(
+    ul_base_class,
+    ul_modifiers,
+    ul_blockname,
+    ul_extra
+  ),
+}|merge(ul_attributes|default({})) %}
+
+<ul {{ add_attributes(ul_attributes) }}>
+  {% block list_content %}
+    {% for ul_item in ul_items %}
+      {% include "@atoms/lists/_list-item.twig" with {
+        list_item_label: ul_item.label,
+        list_item_content: ul_item.content,
+        li_base_class: ul_item.li_base_class,
+        li_base_class: ul_item.li_base_class,
+        li_modifiers: ul_item.li_modifiers,
+        li_blockname: ul_item.li_blockname,
+        li_extra: ul_item.li_extra,
+        li_attributes: ul_item.li_attributes,
+      } %}
+    {% endfor %}
+  {% endblock %}
+</ul>

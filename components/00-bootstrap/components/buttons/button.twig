@@ -1,0 +1,26 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.button') }}
+
+{% set button_base_class = button_base_class|default('btn') %}
+{% set button_attributes = {
+  class: bem(
+    button_base_class,
+    button_modifiers,
+    button_blockname,
+    [
+      button_variant ? button_base_class ~ '-' ~ button_variant : '',
+      button_size ? button_base_class ~ '-' ~ button_size : '',
+      button_active ? 'active' : '',
+      button_classes|default('')|join(' '),
+    ]
+  ),
+}|merge(button_attributes|default({})) %}
+
+
+{% if button_disabled %}
+  {% set button_attributes = button_attributes|merge({'disabled': 'disabled'}) %}
+{% endif %}
+<button {{ add_attributes(button_attributes) }}>
+  {% block button_content %}
+    {{ button_content }}
+  {% endblock %}
+</button>

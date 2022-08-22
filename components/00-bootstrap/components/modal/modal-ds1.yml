@@ -1,0 +1,17 @@
+content:
+  title: Simple Popup Block Test
+  body: "<p>This is an example of a modal popup, with rich formatted text and an image.  It intentionally has a lot of content to demonstrate the overflow/scroll behavior.</p>
+  <p>Text can be rich text formatted. Cupcake ipsum dolor. Sit amet jelly-o. Tiramisu tootsie roll sesame snaps chocolate.</p>
+  <ul>
+	<li>Cotton candy topping cake wafer powder.</li>
+	<li>Chocolate bar jelly marshmallow.</li>
+	<li>Pudding pudding jelly-o chupa chups</li>
+</ul>
+<p>donut marshmallow gummi bears. Chocolate bar cake macaroon. Cookie danish<a href=\"https://www.google.com\" data-analytics-position=\"Overlay\" rel=\"noreferrer\"> gummi bears</a> lemon drops icing.</p>
+    <img src=\"https://i.pickadummy.com/600x400\" class=\"mb-3\">
+    <p>Lollipop tart candy tart wafer lemon drops. Macaroon halvah sweet sweet macaroon.</p>"
+launch_button:
+  text: Open modal
+close_button:
+  text: Custom cancel
+  text2: Custom ok

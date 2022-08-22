@@ -1,0 +1,260 @@
+<Meta title="Docs/Bootstrap"/>
+
+# Bootstrap
+
+## Introduction
+
+### Version
+
+The Otsuka storybook uses the Bootstrap framework v5. The full Bootstrap
+framework included in the project as a `npm` dependency.
+
+### Structure
+
+You can find all framework files inside the `component/00-bootstrap` folder.
+The framework core is in the `js` and `scss` subfolders.
+[<img src="/docs/bootstrap/bootstrap-structure.png" width="320"/>](/docs/bootstrap/bootstrap-structure.png)
+
+The holistic framework is split into parts to have the possibility to use any
+part separately due to performance.
+
+After run `npm run build` you will be able to find the final CSS and JS parts
+of the framework inside the `dist/css` and `dist/js` folders.
+[<img src="/docs/bootstrap/dist-structure.png" width="320"/>](/docs/bootstrap/dist-structure.png)
+
+All those parts have the relevant libraries in the `*.libraries.yml` file.
+They can be added to the appropriate templates or used as dependencies for
+other libraries.
+
+### Critical components library
+
+The main part of the framework that is used commonly is included to the critical
+library (`components/00-bootstrap/scss/bootstrap.critical.library.scss`) and
+connected to the Drupal global library.
+
+### Components
+
+The folder `components/00-bootstrap/components` contains all components of
+the framework integrated into storybook with settings (`Controls` tab on the
+component page in storybook) and templates. They can be used inside the Drupal
+components twig templates directly or as parts of the other components.
+[<img src="/docs/bootstrap/controls-tab.png" width="100%"/>](/docs/bootstrap/controls-tab.png)
+
+Components could be used as a prototypes during the framework adjustment
+by means of `components/00-bootstrap/scss/_variables.scss` file.
+
+Also, you can find documents for all framework components inside each
+storybook component (after you run `npm run storybook` and visit the
+components page `Docs` tab).
+[<img src="/docs/bootstrap/docs-tab.png" width="100%"/>](/docs/bootstrap/docs-tab.png)
+
+### Styleguide
+
+The folder `components/00-bootstrap/styleguide` contains the views of all
+parts of the framework. It provides you with the possibility to view the
+final component look after you change some variable in
+`components/00-bootstrap/scss/_variables.scss` file.
+
+All parts that are located in the folder **CANNOT** and **MUST NOT** be used
+directly or as the parts of the other components inside the twig templates.
+You should use them only during the bootstrap setup and adjustment.
+
+## Usage
+
+### Variables
+
+The Bootstrap framework is a highly customizable and flexible system.
+
+It provides the developers with the feature to change the final look of
+any part of the system deeply.
+
+By default the Bootstrap consumes the variables from npm dependency folder as
+`@import "~bootstrap/scss/_variables";`
+
+It means that all variables set you can find in the file:
+`node_modules/bootstrap/scss/_variables.scss`
+
+Any changes you want to add to the Otsuka Bootstrap build by means of default
+Bootstrap variables, you MUST place in the file:
+`components/00-bootstrap/scss/_variables.scss`
+
+If you leave this file empty, the Bootstrap will be built by default without
+any customisations.
+
+By default, Otsuka Bootstrap build contains only the grid settings that
+make it **60-column** instead of 12-column. It allows you to build the grid
+system with *1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30* columns, and adjust
+columns width more accurately.
+
+You can find this adjustement in the file
+`components/00-bootstrap/scss/_variables.scss`:
+```
+$grid-columns: 60 !default;
+$grid-gutter-width: 30px !default;
+$grid-row-columns: 30 !default;
+```
+
+All current storybook components rely on the fact that grid contains 60 columns.
+So, you **MUST** not change this part without utter necessity and without
+changes inside all current storybook components and twig templates that
+contains “col-*” classes.
+
+To make any other adjustment you should first run `npm run storybook`, visit
+the bootstrap component page you want to adjust or restyle, open `Docs` tab or
+open the component documents in the original Bootstrap site
+(like https://getbootstrap.com/docs/5.0/components/accordion/#variables),
+and place variables for certain components to the
+`components/00-bootstrap/scss/_variables.scss` file.
+
+You should separate the variables sections inside the file with the comment
+lines as it done in the `node_modules/bootstrap/scss/_variables.scss` file.
+You can just copy the comments needed from there.
+
+The best approach is before you apply any other adjustments, you should adjust
+the next important points:
+1. Fonts
+    - family
+    - size
+    - line-height
+1. Colors
+    - Colors itself (gray, red, green, cyan, etc.)
+    - Colors map (what is “primary”, “secondary”, “warning”, “danger”, etc.)
+    - Theme colors ($theme-colors)
+    - Link colors ($link-color, $link-hover-color)
+    - Any other color-relevant variables
+1. Decorations ($link-decoration, $link-hover-decoration)
+1. Breakpoints ($grid-breakpoints)
+1. Containers ($container-max-widths)
+1. Spacers
+    - Paddings
+    - Margins
+1. Borders
+    - Border-radius
+
+During adjustment refer to BS documentation and
+`node_modules/bootstrap/scss/_variables.scss` file
+[<img src="/docs/bootstrap/bootstrap-variables.png" width="100%"/>](/docs/bootstrap/bootstrap-variables.png)
+
+Here is a couple of examples:
+  - https://github.com/OAPI-Commercial-IT/theme-abilifymaintenahcp/blob/abilifymaintenahcp10069/themes/custom/abilifymaintena_hcp/assets/src/style/base/bootstrap/_variables.scss
+  - https://github.com/OAPI-Commercial-IT/otsk-ace/blob/dev/docroot/themes/custom/wild5_theme/assets/src/style/base/bootstrap/_variables.scss
+
+You should continue adjustments till you see that all your parts or the site
+(fonts, colors, containers, buttons, typography, etc.) look as close
+as possible to the final design.
+
+After you make sure that further adjustment is impossible by means of
+the Bootstrap variables, you can proceed with creating custom styles.
+
+Please pay attention that almost all Bootstrap variables are global.
+So, you should make as many adjustments as you need first of all, and as few
+adjustments as possible afterward.
+
+Because all subsequent adjustments can affect the final appearance of
+the components.
+
+### Mixins
+Use bootstrap default mixins, functions and variables as often as you can.
+All Bootstrap mixins, variables, utilities and
+functions are available globally across all storybook.
+
+#### Breakpoints
+
+E.g. for the breakpoints inside your own components use BS mixins:
+```
+@include media-breakpoint-up(lg) {
+  margin-left: auto;
+}
+```
+
+### Twig namespaces
+
+If you use the Bootstrap components inside your own component, you should use twig namespaces instead of absolute or relative paths:
+
+`{% include "@bootstrap/components/buttons/button.twig" %} `
+
+All namespaces for twig are declared in the next files:
+- `.storybook/setupTwig.js`
+- `[theme_name].info.yml`
+
+### JS namespaces
+
+Inside your own component, you should use JS namespaces instead of absolute or relative paths:
+
+`import accordionItem from "@components/paragraph/wrapper-accordion/accordion-item.twig"; `
+
+All namespaces for JS are declared in the next files:
+- `.storybook/main.js `
+
+## Best practices
+
+### **DO**
+- Store all non-Bootstrap SCSS variables, mixins, functions in the appropriate
+files (`components/00-base/00-defaults/_01-variables.scss`,
+`components/00-base/00-defaults/_03-mixins.scss`,
+`components/00-base/00-defaults/_04-functions.scss`)
+
+- Store Bootstrap SCSS ONLY variables in `components/00-bootstrap/scss/_variables.scss`
+
+- Make as many Bootstrap variables adjustments as you need first of all,
+and as few adjustments as possible afterward
+
+- Use bootstrap default mixins and variables as often as you can
+
+- After creating, deleting, refactoring, replacing, renaming components run
+`npm run storybook`, `npm run build`, `npm run webpack `
+to make sure that the integrity of the system is maintained
+
+- After creating, deleting, refactoring, replacing, renaming components
+fix the paths in *.library.yml file and in all dependent components
+
+- Avoid using 'import’ directive in SCSS files (it dramatically slows down the CSS building process)
+
+- Use `container` class inside exact entity template (mostly: block, paragraph,
+menu; rare: layout) to have the possibility to create full width paragraphs or blocks
+
+- Use twig namespaces inside your templates (e.g. `@components/paragraph/abstract/paragraph.twig`)
+(https://www.drupal.org/docs/contributed-modules/components/understanding-twig-namespaces)
+
+- Use JS webpack aliases for `import` directives instead of absolute or
+relative paths (e.g. `import accordionItem from "@components/paragraph/wrapper-accordion/accordion-item.twig";`)
+(https://www.npmjs.com/package/babel-plugin-webpack-alias)
+
+- Use Bootstrap components from storybook or from the original
+Bootstrap site in most cases (same for tags, structures, classes, etc.)
+
+### **DO NOT**
+- Use global CSS selectors, or selectors with common names
+
+- Place all SCSS into one file or into global.scss
+
+- Store your SCSS variables wherever you want
+
+- Store Bootstrap SCSS variables wherever you want
+
+- Make a lot of Bootstrap variables adjustments in the final phase of the project
+
+- Use custom mixins and variables as often as you can
+
+- Make import SCSS files inside the `*.story.js` files (all SCSS will
+be imported automatically. All SCSS, except those have the prefix `“_”`,
+will be built into the dist folder)
+
+- Delete, replace, edit, refactor, rename any component or file you want
+
+- Store your components wherever you want
+
+- Use global `container` class inside page layout
+
+- Use a custom html structure, classes, components without using Bootstrap
+
+## References
+- https://getbootstrap.com/docs/5.0
+- https://getbootstrap.com/docs/5.0/components
+- https://getbootstrap.com/docs/5.0/customize/overview/
+- https://getbootstrap.com/docs/5.0/customize/sass/
+- https://getbootstrap.com/docs/5.0/customize/options/
+- https://getbootstrap.com/docs/5.0/customize/color/
+- https://getbootstrap.com/docs/5.0/customize/components/
+- https://vladocar.github.io/60gs/
+- https://www.drupal.org/docs/contributed-modules/components/understanding-twig-namespaces

@@ -1,0 +1,83 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.carousel') }}
+
+{% set carousel_base_class = carousel_base_class|default('ds-carousel') %}
+
+{% set carousel_attributes = {
+  class: bem(
+    carousel_base_class,
+    carousel_modifiers,
+    carousel_blockname,
+    [
+      'carousel',
+      carousel_dark ? 'carousel-dark' : '',
+      carousel_dark ? carousel_base_class ~ '--dark' : '',
+      carousel_classes|join(' '),
+    ]
+  ),
+}|merge(carousel_attributes|default({})) %}
+
+<div {{ add_attributes(carousel_attributes) }}>
+  {% block carousel_content %}
+    {% if carousel_indicators %}
+      <div {{ bem('indicators', '', carousel_base_class, ['carousel-indicators']) }}>
+        {% for item in carousel_content %}
+          {% include "@bootstrap/components/buttons/button.twig" with {
+            button_classes: [
+              loop.first ? 'active' : '',
+            ],
+            button_attributes: {
+              'type': 'button',
+              'data-bs-target': '#' ~ carousel_attributes.id,
+              'data-bs-slide-to': loop.index0 ~ '',
+              'aria-current': loop.first ? 'active' : 'false',
+              'aria-label': ('Slide')|t ~ loop.index,
+            }
+          } %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div {{ bem('inner', '', carousel_base_class, ['carousel-inner']) }}>
+      {% for item in carousel_content %}
+        <div {{ bem('item', loop.first ? 'active' : '', carousel_base_class, ['carousel-item', loop.first ? 'active' : '']) }}>
+          {{ item.content }}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if carousel_arrows %}
+      {% set button_prev_content %}
+        <span {{ bem('control-prev-icon', '', carousel_base_class, ['carousel-control-prev-icon']) }} aria-hidden="true"></span>
+        <span {{ bem('control-prev-text', '', carousel_base_class, ['visually-hidden']) }}>{{ ('Previous')|t }}</span>
+      {% endset %}
+      {% include "@bootstrap/components/buttons/button.twig" with {
+        button_content: button_prev_content,
+        button_classes: [
+          'carousel-control-prev',
+        ],
+        button_attributes: {
+          'type': 'button',
+          'data-bs-target': '#' ~ carousel_attributes.id,
+          'data-bs-slide': 'prev',
+        }
+      } %}
+
+      {% set button_next_content %}
+        <span {{ bem('control-next-icon', '', carousel_base_class, ['carousel-control-next-icon']) }} aria-hidden="true"></span>
+        <span {{ bem('control-next-text', '', carousel_base_class, ['visually-hidden']) }}>{{ ('Next')|t }}</span>
+      {% endset %}
+      {% include "@bootstrap/components/buttons/button.twig" with {
+        button_content: button_next_content,
+        button_classes: [
+          'carousel-control-next',
+        ],
+        button_attributes: {
+          'type': 'button',
+          'data-bs-target': '#' ~ carousel_attributes.id,
+          'data-bs-slide': 'next',
+        }
+      } %}
+    {% endif %}
+  {% endblock %}
+</div>
+

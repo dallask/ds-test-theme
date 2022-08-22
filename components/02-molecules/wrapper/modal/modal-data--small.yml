@@ -1,0 +1,9 @@
+modal_id: smallModal
+
+# Modal Trigger
+link_content: <span>Small Modal</span>
+link_close_modal: false
+
+# Modal
+modal_content_classes: modal-size--small
+modal_content: <img src="https://dummyimage.com/605x365/a6a6a6/fff.png">

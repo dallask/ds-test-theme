@@ -1,0 +1,77 @@
+
+
+//Set common box-shadow
+$standardButtonBoxShadow: 0 0 0 .2rem rgba(108, 117, 125, .5) !important;
+$defaultBorderRadiusValue: 4px;
+
+@mixin backToTopButton($fontSize: fontSize(xxl), $height: 57px, $width: 57px, $borderRadius: 50%) {
+  display: block;
+  font-family: fontFamily(body);
+  color: clr('text-inverse');
+  font-size: $fontSize;
+  width: $width;
+  height: $height;
+  border-radius: $borderRadius;
+  border: none;
+  text-align: center;
+
+  i {
+    height: 11px;
+    width: 15px;
+    font-weight: bold;
+  }
+
+  .text-span {
+    margin-top: space(small, true);
+    display: block;
+  }
+}
+
+// Back2Top Styles.
+.back-to-top-buttons {
+  .text-center {
+    text-align: center !important;
+  }
+}
+
+//positions modifiers
+@mixin stickyPositionedHorizontally($isDefaultHorizontalPosition: true) {
+  position: fixed;
+  top: 50%;
+
+  @if ($isDefaultHorizontalPosition) {
+    right: 1%;
+  } @else {
+    left: 1%;
+  }
+}
+
+.sticky-back-to-top-to-right {
+  @include stickyPositionedHorizontally();
+}
+
+.sticky-back-to-top-to-left {
+  @include stickyPositionedHorizontally(false);
+}
+
+.absolute-centered-back-to-top, .fixed-centered-back-to-top, .sticky-back-to-top-to-button {
+  position: fixed;
+  top: inherit;
+  left: 50%;
+  bottom: 10px;
+  font-family: fontFamily(body);
+
+  &.btn-circle {
+    @include backToTopButton($font-size-base, 58px, 58px, 29px);
+  }
+  &.btn-square {
+    @include backToTopButton($font-size-base, 58px, 58px, 4px);
+  }
+  .fa-chevron-up:before {
+    content: "\0005E";
+    font-style: normal;
+  }
+  &:focus, &:active, &:hover {
+    box-shadow: $standardButtonBoxShadow;
+  }
+}

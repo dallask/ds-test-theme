@@ -1,0 +1,9 @@
+modal_id: centeredModal
+
+# Modal Trigger
+link_content: <span>Vertically Centered</span>
+link_close_modal: false
+
+# Modal Trigger
+modal_content_classes: modal-dialog-centered
+modal_content: <img src="https://dummyimage.com/1000x565/a6a6a6/fff.png">

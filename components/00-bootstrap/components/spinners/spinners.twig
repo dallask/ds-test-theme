@@ -1,0 +1,27 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.spinners') }}
+
+{% set spinners_base_class = spinners_base_class|default('spinner') %}
+
+{% set spinners_attributes = {
+  class: bem(
+    spinners_base_class,
+    spinners_modifiers,
+    spinners_blockname,
+    [
+      'spinner',
+      classes|join(' '),
+      'spinner-' ~ type,
+      'text-' ~ variant,
+      'spinner-' ~ type ~ '-' ~ size
+    ]
+  ),
+  role: 'status',
+}|merge(spinners_attributes|default({'role': 'status'})) %}
+
+{% block content %}
+  <div {{ add_attributes(spinners_attributes) }}>
+    <span {{ bem('visually-hidden', '', spinners_base_class, ['visually-hidden']) }}>{{ ('Loading...')|t }}</span>
+  </div>
+{% endblock %}
+
+

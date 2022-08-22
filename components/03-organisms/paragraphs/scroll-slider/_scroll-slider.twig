@@ -1,0 +1,8 @@
+{{ attach_library('otsuka_design_system2022/organisms.scroll-slider') }}
+
+{% set slider_attribues = attributes ? attributes.addClass('scroll--slider') : 'class="scroll--slider"' %}
+<div {{ slider_attribues }}>
+    {% block slider %}
+        {% include "@organisms/paragraphs/scroll-slider/_scroll-slide.twig" %}
+    {% endblock %}
+</div>

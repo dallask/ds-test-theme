@@ -1,0 +1,46 @@
+
+
+.ds1.modal {
+  * {
+    font-family: "Museo Sans", sans-serif;
+  }
+
+  .modal-content {
+    max-width: 500px;
+  }
+
+  .modal-header {
+    h4 {
+      font-weight: bold;
+      font-size: fontSize(lg);
+    }
+  }
+
+  .modal-body {
+    p {
+      font-size: $font-size-base;
+      font-weight: 300;
+      margin-top: 0;
+      margin-bottom: space(medium);
+    }
+
+    ul {
+      li {
+        font-size: $font-size-base;
+        font-weight: 300;
+        margin: space(medium) 0;
+      }
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+.modal-footer {
+  button {
+    text-transform: uppercase;
+  }
+}
+

@@ -1,0 +1,25 @@
+variant:
+  - primary
+  - secondary
+  - success
+  - danger
+  - warning
+  - info
+  - dark
+  - light
+size:
+  - sm
+  - lg
+type:
+  - grow
+  - border
+position:
+  - left
+  - top
+  - right
+  - bottom
+classes:
+  - 'btn'
+  - 'btn-lg'
+  - 'btn-danger'
+  - 'm-5'

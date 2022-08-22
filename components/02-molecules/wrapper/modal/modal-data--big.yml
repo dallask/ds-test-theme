@@ -1,0 +1,9 @@
+modal_id: bigModal
+
+# Modal Trigger
+link_content: <span>Big Modal</span>
+link_close_modal: false
+
+# Modal
+modal_content_classes: modal-size--big
+modal_content: <img src="https://dummyimage.com/1200x700/a6a6a6/fff.png">

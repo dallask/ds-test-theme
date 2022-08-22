@@ -1,0 +1,63 @@
+{#
+/**
+ * Available css/js classes (modifiers):
+ * - css modifiers (horizontal): .sticky-back-to-top-to-left ; .sticky-back-to-top-to-right (it changes horizontal position of this element)
+ * - css modifiers (bottom of parent container, horizontally centered): .absolute-centered-back-to-top (it move element to bottom of parent container and center it)
+ * - css modifiers (it have position fixed, bottom of parent container, horizontally centered): .fixed-centered-back-to-top ( is positioned relative to the viewport, it move element to bottom of viewport and center it horizontally)
+ *
+ * - js modifiers .js-show-button: JS functionality that cover condition  - "if page content length is longer than the height of viewport"
+ * - js modifiers .js-fade-in-or-out: JS functionality that is responsible for appearing elemnt on scroll event
+ * - js modifiers .js-scroll-top, .js-sticky-back-to-top: JS functionalities that are responsible for smooth scrolling to the top of viewport
+ */
+#}
+{{ attach_library('otsuka_design_system2022/atoms.back-to-top') }}
+
+{% set visibility %}
+{{ visibility }}
+{% endset %}
+
+{% set shape %}
+{{ shape }}
+{% endset %}
+
+{% set buttonPosition %}
+ {{ buttonPosition }}
+{% endset %}
+
+{% set jsIdSelector %}
+ {% if 'btm-appears-on-scroll' in visibility %}
+  js-scroll-top
+  {% else %}btm-persistent
+   js-sticky-back-to-top
+ {% endif %}
+{% endset %}
+
+{% set isJsFadeInOrOutClass =
+ ('btm-appears-on-scroll' in visibility) ?
+ 'js-fade-in-or-out' %}
+
+{% set position = ('right' in buttonPosition ) ? 'sticky-back-to-top-to-right' : 'absolute-centered-back-to-top' %}
+
+ {% set classes = [
+ 'back-to-top-buttons',
+] %}
+
+{% set additional_attributes = {
+ class: classes,
+} %}
+
+<div {{ add_attributes(additional_attributes) }}>
+ {{ title_prefix }}
+ {{ title_suffix }}
+ {% block content %}
+<div class="container" style="height: 2000px;">
+ {{ text|default('This is some placeholder text and empty space. Scroll to view the back-to-top functionality.') }}
+</div>
+  <button class="js-show-button btn-secondary {{ btnShape }} text-uppercase {{ position }} back-to-top {{ isJsFadeInOrOutClass }} {{ absolutePositionedCssClass }}">
+    <span class="text-center"><i class="fa fa-chevron-up"></i></span>
+    <span class="text-span"> {{ buttonText|default('Top') }}</span>
+  </button>
+
+ {% endblock %}
+</div>
+

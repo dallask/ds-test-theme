@@ -1,0 +1,19 @@
+
+
+.crisis-alert {
+  margin: auto;
+  width: 320px;
+
+  @include large {
+    width: 960px;
+  }
+
+  .headline-call-text {
+    @include link;
+  }
+
+  &-wrapper {
+    width: 100%;
+    background: clr(text);
+  }
+}

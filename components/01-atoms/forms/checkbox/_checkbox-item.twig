@@ -1,0 +1,8 @@
+{{ attach_library('otsuka_design_system2022/atoms.checkbox') }}
+
+<li class="form-item--checkbox__item">
+  <label for="checkbox{{ key }}">
+    <input id="checkbox{{ key }}" name="checkbox" type="checkbox"
+           {% if checkbox_item_checked %}checked="{{ checkbox_item_checked }}"{% endif %}> {{ checkbox_item }}
+  </label>
+</li>

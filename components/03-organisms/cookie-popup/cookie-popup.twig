@@ -1,0 +1,29 @@
+{{ attach_library('otsuka_design_system2022/organisms.cookie-popup') }}
+
+<div id="cookie-popup">
+  <p>
+    {% spaceless %}
+      We use cookies to personalize content and ads, provide social media
+      features, analyze our traffic, share information with our third-party
+      partners or allow our third-party partners to collect information about your
+      use of our site. For more information regarding our privacy practices and
+      use of cookies, review our
+      {% include "@atoms/links/link/link.twig" with {
+        link_url: 'https://www.otsuka-us.com/privacy-policy',
+        link_content: 'Privacy Policy',
+        link_attributes: {
+          target: '_blank'
+        }
+      } %}.
+    {% endspaceless %}
+  </p>
+  {% include "@bootstrap/components/buttons/button.twig" with {
+    button_classes: [
+      'btn-close'
+    ],
+    button_attributes: {
+      'type': 'button',
+      'data-bs-dismiss': 'modal'
+    }
+  } %}
+</div>

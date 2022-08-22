@@ -1,0 +1,127 @@
+
+
+/* LI */
+.main-menu-a__item {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  @include medium {
+    display: inline-block;
+
+    /* Only top level */
+    &:not(.main-menu-a__item--sub):hover {
+      transition: all 0.2s;
+
+      & > .main-menu-a--sub {
+        display: block;
+      }
+    }
+  }
+
+  &:hover {
+    .main-menu-a__link::after {
+      font-style: italic;
+    }
+  }
+
+  .header & {
+    .main-menu-a__link {
+      width: 100%;
+    }
+
+    &:last-child {
+      .main-menu-a__link {
+        border: 2px solid $gray-darker;
+        color: $gray-darker;
+        position: relative;
+        background: none;
+        width: 140px;
+        margin-bottom: 64px; //NONSTANDARD VAR
+
+        @include medium {
+          border-color: clr(text-inverse);
+          color: clr(text-inverse);
+          width: 142px;
+          background: url('#{$images-path}/icons/instagram-white.svg') no-repeat 22px 13px;
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: "";
+          height: 20px;
+          width: 20px;
+          background: url('#{$images-path}/icons/instagram-black.svg') no-repeat;
+          position: absolute;
+          left: 22px;
+          top: 13px;
+
+          @include medium {
+            content: none;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          background-color: clr(blue);
+          font-style: normal;
+
+          @include medium {
+            background-color: clr(purple);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Expand Button */
+.expand-sub {
+  background-color: clr(accent-high);
+  cursor: pointer;
+  display: block;
+  width: 20%;
+  color: clr(text-inverse);
+  position: relative;
+
+  @include medium {
+    display: none;
+  }
+
+  /* Down triangle */
+  &::after {
+    border: 15px solid;
+    border-bottom-color: transparent;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    content: '';
+    display: block;
+    margin-right: space(half-medium, true);
+    margin-top: space(half-small, true);
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 0;
+  }
+
+  /* See main-menu.js */
+  &--open {
+    background-color: clr(accent-high);
+    color: clr(muted);
+
+    &::after {
+      margin-top: space(half-large);
+    }
+  }
+}
+
+/*
+ * Sub Navigation
+ */
+
+/* LI (Nested) */
+.main-menu-a__item--sub {
+  @include medium {
+    display: block;
+  }
+}

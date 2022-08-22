@@ -1,0 +1,203 @@
+
+
+$stick-video-primary: #9ae51a;
+$stick-video-background: #2e2d2e;
+$stick-video-secondary: #ff5e4d;
+
+.sticky-video__wrapper {
+  display: flex;
+  background-color: $stick-video-background;
+
+  video {
+    display: none;
+  }
+
+  .home-title {
+    text-align: center;
+    margin-top: space(half-large);
+    color: $white;
+  }
+
+  .sticky-video-hero-block {
+    position: relative;
+    background-color: $stick-video-background;
+    height: 1600px;
+    margin-top: space(extra-large);
+
+
+    .video-block {
+      .sticky-video {
+        position: fixed;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        min-height: 330px;
+        max-height: 330px;
+
+        @include media-breakpoint-up(lg) {
+          position: sticky;
+          height: auto;
+          top: 20vh;
+        }
+
+        canvas {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          height: 100%;
+          min-height: 330px;
+          max-height: 550px;
+          width: auto;
+
+          @include media-breakpoint-up(lg) {
+            position: absolute;
+            height: auto;
+            transform: none;
+            top: 55%;
+            left: -30%;
+          }
+
+          @include media-breakpoint-up(xl) {
+            top: 55%;
+            left: -14%;
+          }
+
+          @include media-breakpoint-up(xxl) {
+            left: 0;
+          }
+        }
+      }
+    }
+
+
+    .text-block {
+      padding: 0 space(half-large);
+      z-index: 2;
+
+      & > div {
+        background-color: $stick-video-background;
+        padding: space(half-large) 0;
+
+        @include media-breakpoint-up(lg) {
+          background-color: transparent;
+        }
+      }
+
+      h2 {
+        font-size: fontSize(xxl);
+        line-height: 1;
+        color: $stick-video-primary;
+        position: relative;
+        margin-bottom: space(half-large);
+
+        &:after {
+          content: '';
+          display: block;
+          height: 3px;
+          position: absolute;
+          background: $stick-video-secondary;
+          width: calc(100% - 22px);
+          left: 0;
+          bottom: -15%;
+        }
+      }
+
+      p {
+        font-size: fontSize(lg);
+        line-height: 1.4;
+        color: $white;
+      }
+
+      a[role="button"] {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        background: $stick-video-primary;
+        border: 3px solid $stick-video-primary;
+        color: $black;
+        font-weight: bold;
+        height: 55px;
+        padding-left: space(half-medium);
+        padding-right: space(half-medium);
+        border-radius: space(half-medium);
+        text-decoration: none;
+        font-size: $font-size-base;
+        line-height: fontSize(lg);
+        text-transform: none !important;
+        margin-right: 0;
+        margin-left: 0;
+
+        &:after {
+          margin-left: space(half-medium);
+          content: '';
+          width: 24px;
+          height: 24px;
+          display: inline-block;
+          background-image: url("/images/icons/arrow-circle-right.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          text-decoration: none;
+          min-width: 24px;
+          min-height: 24px;
+          max-width: 24px;
+          max-height: 24px;
+        }
+      }
+
+      &.text-block-1 {
+        order: 2;
+
+        @include media-breakpoint-up(lg) {
+          order: 1;
+        }
+
+        div:nth-child(1) {
+          margin-top: 240px; //NONSTANDARD VAR
+
+          @include media-breakpoint-up(lg) {
+            margin-top: space(extra-large);
+          }
+        }
+
+        div:nth-child(2) {
+          margin-top: 360px; //NONSTANDARD VAR
+
+          @include media-breakpoint-up(lg) {
+            margin-top: 480px; //NONSTANDARD VAR
+          }
+        }
+      }
+
+      &.text-block-2 {
+        order: 3;
+
+        div:nth-child(1) {
+          margin-top: 360px; //NONSTANDARD VAR
+
+          @include media-breakpoint-up(lg) {
+            margin-top: 240px; //NONSTANDARD VAR
+          }
+        }
+
+        div:nth-child(2) {
+          margin-top: 360px; //NONSTANDARD VAR
+
+          @include media-breakpoint-up(lg) {
+            margin-top: 720px; //NONSTANDARD VAR
+          }
+        }
+      }
+    }
+
+    .video-block {
+      order: 1;
+
+      @include media-breakpoint-up(lg) {
+        order: 2;
+      }
+    }
+  }
+}

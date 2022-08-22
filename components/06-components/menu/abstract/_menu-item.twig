@@ -1,0 +1,52 @@
+{% if not item_modifiers %}
+  {% set item_modifiers = [] %}
+{% endif %}
+{# Pass original item modifiers down to children #}
+{% set original_item_modifiers = item_modifiers %}
+{% if item.in_active_trail == TRUE %}
+  {% set item_modifiers = item_modifiers|merge(['active']) %}
+{% endif %}
+{% if menu_level > 0 %}
+  {% set item_modifiers = item_modifiers|merge(['sub', 'sub-' ~ menu_level]) %}
+{% endif %}
+{% set li_extra = li_extra|default(['nav-item']) %}
+{% if item.below %}
+  {% set item_modifiers = item_modifiers|merge(['with-sub', 'dropdown']) %}
+  {% set li_extra = li_extra|merge(['dropdown']) %}
+{% endif %}
+{% set link_extra = link_extra|default(['nav-link']) %}
+{# below could maybe be done without a loop? #}
+{% for modifier in item.modifiers %}
+  {% set item_modifiers = item_modifiers|merge([modifier]) %}
+{% endfor %}
+
+{% set list_item_label = item_label %}
+{% set li_base_class = item_base_class|default(menu_class ~ '-item') %}
+{% set li_modifiers = item_modifiers %}
+{% set li_blockname = item_blockname|default(menu_blockname) %}
+
+{% import "@components/menu/abstract/_menu.twig" as menus %}
+
+{% extends "@atoms/lists/_list-item.twig" %}
+  {% block list_item_content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {# if drupal #}
+    {% if directory %}
+      {{ link(item.title, item.url, bem(item_base_class|default(menu_class ~ '-link'), item_modifiers, menu_blockname, link_extra|merge(item.below ? ['dropdown-toggle'] : [])|merge(menu_level > 0 ? ['dropdown-item'] : [])|merge(menu_level == 0 ? ['nav-link'] : []))) }}
+    {% else %}
+      {% include "@atoms/links/link/link.twig" with {
+        link_content: item.title,
+        link_url: item.url,
+        link_base_class: item_base_class|default(menu_blockname ~ '__' ~ menu_class ~ '-link'),
+        link_modifiers: item_modifiers,
+        link_extra: link_extra|merge(item.below ? ['dropdown-toggle'] : [])|merge(menu_level > 0 ? ['dropdown-item'] : [])|merge(menu_level == 0 ? ['nav-link'] : []),
+        link_attributes: link_attributes|default({})|merge(item.below ? {
+          'data-bs-toggle': 'dropdown',
+        } : {})
+      } %}
+    {% endif %}
+    {% if item.below %}
+      {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_class, menu_modifiers, menu_blockname, menu_extra, item_base_class, original_item_modifiers, item_blockname, li_extra, link_extra, directory, twig_debug_on) }}
+    {% endif %}
+  {% endblock %}

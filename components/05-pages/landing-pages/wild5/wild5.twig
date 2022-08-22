@@ -1,0 +1,151 @@
+{{ attach_library('otsuka_design_system2022/pages.wild5') }}
+
+<div class="node--type-otsk-ds-landing-page">
+  <div class="region-header-top">
+    <div id="block-sitebranding-2" class="contextual-region site-branding">
+      {% include "@organisms/paragraphs/paragraph-text/text/paragraph-text.twig" with {
+        field_text: '<a href="/" title="Home" rel="home" class="navbar-brand" data-analytics-id="link-logo-/">
+        <img src="icons/logo.svg" alt="Home" class="img-fluid d-inline-block align-top" />
+         </a>'
+      }
+      %}
+    </div>
+    {% include "@organisms/block/block--system-menu-block.twig" with {
+      menu_items: [
+        {
+          title: 'About Wild5',
+          url: '/about',
+        },
+        {
+          title: 'My Wild5 Path',
+          url: '/wild5-path',
+        },
+        {
+          title: 'Welness Practices',
+          url: '/welness-practices',
+        },
+      ],
+    } %}
+
+    {% include "@organisms/block/block--system-menu-block.twig" with {
+      attributes: {
+        class: 'menu--log-in'
+      },
+      menu_items: [
+        {
+          title: 'Log In',
+          url: '/user/login',
+        },
+      ],
+    } %}
+  </div>
+  <div class="main">
+  <a id="main-content" tabindex="-1"></a>
+  <main role="main" class="main-content">
+    <div class="region region--content grid-full layout--pass--content-medium ie11-autorow" id="content">
+      <div data-drupal-messages-fallback class="hidden"></div>
+      <span data-big-pipe-placeholder-id="callback=Drupal%5CCore%5CRender%5CElement%5CStatusMessages%3A%3ArenderMessages&amp;args%5B0%5D&amp;token=_HAdUpwWmet0TOTe2PSiJuMntExoshbm1kh2wQzzzAA"></span>
+      <div id="block-otsuka-design-system2022-content" class="block block-system block-system-main-block">
+        <div class="content">
+          <article data-history-node-id="2" role="article" about="/node/2" class="node contextual-region homepage">
+            <div>
+              <div class="field field-name-field-otsk-ds-hero-block field-type-entity-reference-revisions field-label-hidden">
+                <div class="field--item">
+                  {% include "@organisms/hero/video-background/hero-video-background.twig" with {
+                    hero_video_source: '/video/AdobeStock_175410830.mp4',
+                    hero_video_poster: '/1920x1080.png',
+                    hero_sizing_modifier: 'full-width-height',
+                    hero_placement_modifier: 'center',
+                    hero_padding_modifier: 'all-16',
+                  } %}
+                </div>
+              </div>
+            </div>
+              <div>
+                <div class="field field-name-field-otsk-ds-main-body field-type-entity-reference-revisions field-label-hidden">
+                  <div class="field--item">
+                    <div class="container">
+                      <div class="otsk-ds-text">
+                        <div class="text-long">
+                          <p>
+                            <img alt="icon" data-entity-type="file" data-entity-uuid="a2f88122-4f6d-4520-8604-10e871c41a22" src="icons/stones.png" class="align-left" width="158" height="207" loading="lazy" style="float: left;" />
+                          </p>
+                          <p>
+                            Hikers follow a trail. Stacked rocks can mark the trail and let you know you’re on the right path.
+                          </p>
+                          <p>
+                            When it comes to wellness, we all need a path to follow, and that’s exactly what WILD 5 offers.
+                          </p>
+                          <p>
+                            WILD 5 makes optimum wellness available to everyone through a proven, 30-day,
+                            <strong>
+                              no cost
+                            </strong>
+                            program that combines established wellness practices and positive psychology.
+                          </p>
+                          <p>
+                            After just 30 days, most people who complete the WILD 5 program increase their levels of happiness and resilience, and they lower their levels of depression, anxiety, insomnia, and chronic pain.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="wild5-button" style="text-align: center;">
+        <button class="button">
+          Create an account  to get started on your WILD 5 journey
+        </button>
+      </p>
+    </div>
+  </main>
+  </div>
+  <footer class="flexible-footer bg-secondary" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="region region-footer-first-middle-first clearfix">
+            <div id="block-sitebranding" class="contextual-region site-branding">
+              {% include "@organisms/paragraphs/paragraph-text/text/paragraph-text.twig" with {
+                field_text: '<a href="/" title="Home" rel="home" class="navbar-brand" data-analytics-id="link-logo-/">
+                <img src="icons/logo_white.png" alt="Home" class="img-fluid d-inline-block align-top"></a>'
+              }
+              %}
+            </div>
+            <div id="block-copyright" class="contextual-region block-content-copyright block block-block-content block-block-content2e2c3b68-b0eb-423f-a8cc-5cdb77b22634 block-copyright">
+              {% include "@organisms/paragraphs/paragraph-text/text/paragraph-text.twig" with {
+                field_text: '<div class="content"><div class="text-long"><p>Copyright 2022 IP holder All rights reserved</p></div></div>'
+              }
+              %}
+            </div>
+
+            {% include "@organisms/block/block--inline-menu-block.twig" with {
+              attributes: {
+                class: 'footer'
+              },
+              inline_menu_items: [
+                {
+                  title: 'About Us',
+                  url: '/about-us',
+                },
+                {
+                  title: 'Contact Us',
+                  url: '/contact-us',
+                },
+                {
+                  title: 'Terms of Use',
+                  url: '/terms-of-use',
+                },
+              ],
+            } %}
+            </div>
+          </div>
+      </div>
+    </div>
+  </footer>
+</div>

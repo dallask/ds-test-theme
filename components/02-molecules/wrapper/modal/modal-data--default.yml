@@ -1,0 +1,8 @@
+modal_id: defaultModal
+
+# Modal Trigger
+link_content: <span>Default Modal</span>
+link_close_modal: false
+
+# Modal
+modal_content: <img src="https://dummyimage.com/956x565/a6a6a6/fff.png">

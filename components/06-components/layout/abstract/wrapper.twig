@@ -1,0 +1,30 @@
+{% set wrapper_base_class = wrapper_base_class|default('wrapper') %}
+{% set wrapper_modifiers = wrapper_modifiers|default([]) %}
+{% set wrapper_tag = wrapper_tag|default('div') %}
+{% set wrapper_container_class = wrapper_container_class|default('container-fluid') %}
+{% set wrapper_variant = wrapper_variant|default('white') %}
+{% set wrapper_text_color = wrapper_text_color|default('black') %}
+{% set wrapper_content = wrapper_content|default('Wrapper Content') %}
+
+{% set wrapper_attributes = {
+  class: bem(
+    wrapper_base_class,
+    wrapper_modifiers,
+    wrapper_blockname,
+    [
+      'bg-' ~ wrapper_variant,
+      'text-' ~ wrapper_text_color,
+      wrapper_extra|join(' '),
+    ]
+  )
+}|merge(wrapper_attributes|default({})) %}
+
+{% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+<{{ wrapper_tag }} {{ add_attributes(wrapper_attributes) }}>
+  <div {{ bem(wrapper_container_class, [], wrapper_blockname, [wrapper_container_class]) }}>
+    {% block wrapper_content %}
+      {{ wrapper_content }}
+    {% endblock %}
+  </div>
+</{{ wrapper_tag }}>

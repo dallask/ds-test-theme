@@ -1,0 +1,11 @@
+items:
+  - field_type: paragraph-type-text
+    field_item_number: one
+    field_otsk_ds_custom_class: green
+    field_otsk_ds_title: 'our mission'
+    field_otsk_ds_text: "<p>It is our mission to create storybook components from which to build websites.</p><p>Components include various content items which can be assembled to provide desired functionality.</p>"
+  - field_type: paragraph-type-image
+    field_item_number: two
+    field_otsk_ds_custom_class: blue
+    field_otsk_ds_title: 'get involved'
+    field_otsk_ds_text: "<p>Components include various content items which can be assembled to provide desired functionality.</p><p>It is our mission to create storybook components from which to build websites.</p>"

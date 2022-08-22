@@ -1,0 +1,9 @@
+modal_id: imageViewerModal
+
+# Modal Trigger
+link_content: <span>Image Viewer Modal</span>
+link_close_modal: false
+
+# Modal
+modal_content_classes: modal-style--image-viewer
+modal_content: <img src="https://dummyimage.com/2000x1000/a6a6a6/fff.png">

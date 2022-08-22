@@ -1,0 +1,7 @@
+output_image_tag: true
+image_src: 'https://www.jynarquehcp.com/sites/g/files/qhldwo1861/themes/site/jynarque_hcp/images/otsuka_logo2.png'
+image_alt: 'A 16 by 9 image'
+link_url: 'https://github.com/emulsify-ds/emulsify-design-system'
+link_content: 'This is my link text'
+link_attributes:
+  'target': '_blank'

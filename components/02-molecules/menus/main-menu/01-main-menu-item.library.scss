@@ -1,0 +1,87 @@
+
+
+/* LI */
+.main-menu__item {
+  border-top: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  @include medium {
+    border-top: none;
+    display: inline-block;
+
+    /* Only top level */
+    &:not(.main-menu__item--sub):hover {
+      background-color: clr(accent-high);
+      transition: all 0.2s;
+
+      & > .main-menu--sub {
+        display: block;
+      }
+    }
+  }
+
+  &:hover {
+    .main-menu__link::after {
+      color: clr(text);
+    }
+  }
+}
+
+/* Expand Button */
+.expand-sub {
+  background-color: clr(accent-high);
+  cursor: pointer;
+  display: block;
+  width: 20%;
+  color: clr(text-inverse);
+  position: relative;
+
+  @include medium {
+    display: none;
+  }
+
+  /* Down triangle */
+  &::after {
+    border: space(medium) solid;
+    border-bottom-color: transparent;
+    border-left: space(half-medium) solid transparent;
+    border-right: space(half-medium) solid transparent;
+    content: '';
+    display: block;
+    margin-right: space(half-medium, true);
+    margin-top: space(half-small, true);
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 0;
+  }
+
+  /* See main-menu.js */
+  &--open {
+    background-color: clr(accent-high);
+    color: clr(muted);
+
+    &::after {
+      border-top-color: transparent;
+      border-bottom: space(medium) solid;
+      margin-top: space(large, true);
+    }
+  }
+}
+
+/*
+ * Sub Navigation
+ */
+
+/* LI (Nested) */
+.main-menu__item--sub {
+  @include medium {
+    display: block;
+
+    &:not(:first-child) {
+      border-top: 1px solid clr(highlight);
+    }
+  }
+}

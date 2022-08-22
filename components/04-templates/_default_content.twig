@@ -1,0 +1,56 @@
+<article {{ bem("node").addClass(content_classess) }}>
+  {% block hero_block %}
+    {% if hero_content %}
+      <div{{ attributes.addClass(hero_classess) }}>
+        {{ hero_content }}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% if sidebar %}
+  <div class="row">
+    <div class="col">
+      {% endif %}
+      {{ title_prefix }}
+      {% if not page %}
+        {% include "@atoms/text/headings/_heading.twig" with {
+          "heading_level": 2,
+          "heading": label,
+          "heading_url": url,
+          "heading_link_attributes": {
+            'rel': 'bookmark'
+          },
+        } %}
+      {% endif %}
+      {{ title_suffix }}
+
+      {% block main_block %}
+        <div{{ content_attributes }}>
+          {{ content }}
+        </div>
+      {% endblock %}
+
+      {% if display_submitted %}
+        <footer>
+          {{ author_picture }}
+          <div{{ author_attributes }}>
+            {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+            {{ metadata }}
+          </div>
+        </footer>
+      {% endif %}
+      {% if sidebar %}
+    </div>
+    {% endif %}
+
+    {% if sidebar %}
+    <div class="col-3">
+      <aside class="content-sidebar" role="complementary">
+        {% block sidebar_block %}
+          {{ sidebar }}
+        {% endblock %}
+      </aside>
+    </div>
+  </div>
+  {% endif %}
+</article>

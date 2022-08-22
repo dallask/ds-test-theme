@@ -1,0 +1,67 @@
+
+
+body {
+  .bd-example-interstitial {
+    padding: space(large);
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: space(large);
+    border: 1px solid $gray-light;
+    border-radius: .25rem;
+  }
+
+  .interstitials-ds1 {
+    padding-top: space(half-large);
+  }
+
+  .ds1.modal.interstitial {
+    .modal-dialog {
+      .modal-content {
+        border-radius: 0.3rem;
+        margin: 0 auto;
+      }
+    }
+
+    .modal-header {
+      position: relative;
+
+      .modal-title {
+        color: clr(black);
+      }
+
+      .close {
+        position: relative;
+        background: none;
+        font-size: fontSize(xl);
+        margin: 0;
+
+        &:hover, &:active {
+          transform: none;
+        }
+
+        span {
+          font-family: fontFamily(body);
+          opacity: 0.5;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    .modal-body {
+      font-weight: 300;
+      padding: space(half-large);
+
+      p {
+        margin-top: 0;
+        margin-bottom: space(medium);
+      }
+    }
+
+    a {
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+modal_id: closeOutsideModal
+
+# Modal Trigger
+link_content: <span>Open Modal</span>
+link_close_modal: true

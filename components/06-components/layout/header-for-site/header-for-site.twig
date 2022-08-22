@@ -1,0 +1,39 @@
+{% set wrapper_blockname = wrapper_blockname|default('header-block') %}
+{% set wrapper_base_class = wrapper_base_class|default('header') %}
+{% set wrapper_container_class = wrapper_container_class|default('container-full') %}
+{% set wrapper_variant = wrapper_variant|default('primary') %}
+{% set wrapper_text_color = wrapper_text_color|default('white') %}
+{% set wrapper_extra = [
+  'bs-header'
+] %}
+
+{% extends "@components/layout/header/header.twig" %}
+
+  {% block header_content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/layout.header-for-site') }}
+
+    {% if page.header_top %}
+      <div {{ bem('col-60', [], wrapper_blockname, ['col-60']) }}>
+        {% block header_top %}
+          {{ page.header_top }}
+        {% endblock %}
+      </div>
+    {% endif %}
+
+    {% if page.header_logo or page.header_menu %}
+      <div {{ bem('col-60', [], wrapper_blockname, ['col-60']) }}>
+        {% block header_main_menu %}
+          {% include "@bootstrap/components/navbar/navbar.twig" with {
+            navbar_container: 'container-xxl',
+            navbar_content: {
+              navbar_logo: page.header_logo,
+              navbar_menu: page.header_menu
+            }
+          } %}
+        {% endblock %}
+      </div>
+    {% endif %}
+
+  {% endblock %}

@@ -1,0 +1,21 @@
+{{ attach_library('otsuka_design_system2022/tabs') }}
+<div id="tabs" class="tabs no-js">
+    <ul class="tabs__nav">
+        {% for item in items %}
+            <li class="nav-item {% if loop.first %} active {% endif %}">
+                <a href="#tab-{{ item.field_otsk_ds_title|clean_class }}"
+                   class="tabs__link{% if loop.first %} is-active{% endif %}">{{ item.field_otsk_ds_title }}</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+    {% for item in items %}
+        <div class="tabs__tab{% if loop.first %} is-active{% endif %}">
+            <div id="tab-{{ item.field_otsk_ds_title|clean_class }}"
+                 class="tabs__content">
+                {{ item.field_otsk_ds_text }}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+

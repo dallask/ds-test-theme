@@ -1,0 +1,63 @@
+
+
+.paragraph-text-wrapper {
+  padding: space(half-medium);
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparentize($dark-grayish-blue, 0.5);
+    z-index: 2;
+  }
+
+  .hero-video-desktop {
+    display: none;
+  }
+
+  @include large {
+    .hero-video-mobile {
+      display: none;
+    }
+
+    .hero-video-desktop {
+      display: block;
+    }
+  }
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+}
+
+.field-name-field-otsk-ds-main-body {
+  .field--item {
+    position: relative;
+  }
+}

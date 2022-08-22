@@ -1,0 +1,1 @@
+Creevey - open source tool for visual regression test of images.

@@ -1,0 +1,49 @@
+{#
+/**
+ * VARIABLES:
+ * - modal_id: string
+ * - link_custom_classes: string
+ * - link_close_modal: bool (default: false)
+ * - link_content
+ * - link_label
+ */
+#}
+
+{# Link #}
+{% set link = "#" %}
+
+{# Link wrapper classes #}
+{% set link_wrapper_classes = [
+  modal_id ? "modal-link" : "",
+  link_custom_classes,
+]|join(' ') %}
+
+{# Modal attributes #}
+{% set link_modal_attributes = {} %}
+{% set link_modal_attributes = modal_id ? {"data-bs-target": "#" ~ modal_id} %}
+
+{# Open/Close Modal #}
+{% if not link_close_modal %}
+  {% set link_modal_attributes = link_modal_attributes|merge({"data-bs-toggle": "modal"}) %}
+{% endif %}
+
+{# Only close modal #}
+{% if link_close_modal %}
+  {% set link_modal_attributes = link_modal_attributes|merge({"data-bs-dismiss": "modal"}) %}
+{% endif %}
+
+{# Attributes string #}
+{% set link_modal_attributes_str = '' %}
+{% for attribute, value in link_modal_attributes %}
+  {% set link_modal_attributes_str = link_modal_attributes_str ~ attribute ~ "=" ~ value ~ " " %}
+{% endfor %}
+
+{# Render Modal Trigger #}
+<div class="{{ link_wrapper_classes }}">
+  <a aria-label="{{ link_label }}"
+     href="{{ link }}" {{ link_modal_attributes_str }}>
+    {% block modal_trigger %}
+      {{ link_content }}
+    {% endblock %}
+  </a>
+</div>

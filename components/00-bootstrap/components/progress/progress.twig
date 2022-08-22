@@ -1,0 +1,35 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.progress') }}
+
+{% set progress_base_class = progress_base_class|default('progress') %}
+
+{% set progress_attributes = {
+  class: bem(
+    progress_base_class,
+    progress_modifiers,
+    progress_blockname,
+    [
+      'progress',
+      classes|join(' '),
+    ]
+  ),
+}|merge(popover_attributesprogress_attributes|default({})) %}
+
+<div {{ add_attributes(progress_attributes) }}>
+  <div
+    {{ bem('bar',
+      [
+        stripped ? 'striped' : '',
+        animated ? 'animated' : '',
+      ]
+      , progress_base_class, [
+        'progress-bar',
+        stripped ? 'progress-bar-striped' : '',
+        animated ? 'progress-bar-animated' : '',
+        'bg-' ~ variant,
+      ]) }}
+    role="progressbar" aria-valuenow="{{ aria_valuenow }}"
+    aria-label="{{ variant }}"
+    aria-valuemin="{{ aria_valuemin }}"
+    aria-valuemax="{{ aria_valuemax }}"
+    style="width: {{ aria_valuenow }}%"></div>
+</div>

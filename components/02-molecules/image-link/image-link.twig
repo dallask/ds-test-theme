@@ -1,0 +1,12 @@
+{{ attach_library('otsuka_design_system2022/molecules.image-link') }}
+
+{% set link_base_class = 'image-link' %}
+{% extends "@atoms/links/link/link.twig" %}
+{% block link_content %}
+  {% include "@atoms/images/image/responsive-image.twig" with {
+    output_image_tag: true,
+    image_src: img_src,
+    image_alt: 'Logo',
+    responsive_image_blockname: 'logo',
+  } %}
+{% endblock %}

@@ -1,0 +1,11 @@
+dist
+build
+.out
+.coverage
+coverage
+node_modules
+*.min.js
+./storybook-static/*
+./generated-stories-entry.js
+./storybook-init-framework-entry.js
+./node_modules/*

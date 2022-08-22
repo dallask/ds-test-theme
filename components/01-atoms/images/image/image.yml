@@ -1,0 +1,5 @@
+output_image_tag: true
+image_srcset: '320x180.png 320w, 480x270.png 480w, 640x360.png 640w, 800x450.png 800w, 960x540.png 960w, 1120x630.png 1120w, 1280x720.png 1280w, 1440x810.png 1440w, 1600x900.png 1600w, 1760x990.png 1760w, 1920x1080.png 1920w, 2080x1170.png 2080w, 2240x1260.png 2240w'
+image_sizes: '100vw'
+image_src: '320x180.png'
+image_alt: 'A 16 by 9 image'

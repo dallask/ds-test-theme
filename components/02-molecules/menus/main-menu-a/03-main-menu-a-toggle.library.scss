@@ -1,0 +1,63 @@
+
+
+/* Toggle */
+.toggle-expand-a {
+  @include link;
+
+  @include medium {
+    display: none;
+  }
+
+  display: inline-block;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+
+  &__text {
+    display: block;
+    font-size: fontSize(sm);
+    font-weight: bold;
+
+    .toggle-expand-a--open & {
+      color: clr(background);
+    }
+  }
+
+  /* SVG icon */
+  &__icon {
+    height: auto;
+    width: 35px;
+    margin: 0 auto;
+  }
+
+  &__open {
+    display: inline-block;
+    text-align: center;
+
+    .toggle-expand-a--open & {
+      display: none;
+    }
+  }
+
+  &__close {
+    display: none;
+    text-align: center;
+
+    &::before {
+      color: clr(text-inverse);
+      display: block;
+      font-size: fontSize(xxl);
+      line-height: 1;
+    }
+
+    .toggle-expand-a--open & {
+      display: inline-block;
+    }
+  }
+
+  &--open {
+    .toggle-expand-a__icon {
+      width: 27px;
+    }
+  }
+}

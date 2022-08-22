@@ -1,0 +1,43 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.toasts') }}
+
+{% set toasts_base_class = toasts_base_class|default('toast') %}
+
+{% set toasts_attributes = {
+  class: bem(
+    toasts_base_class,
+    toasts_modifiers,
+    toasts_blockname,
+    [
+      classes|join(' '),
+      position,
+    ]
+  ),
+}|merge(toasts_attributes|default({
+  id: id|default(toasts_base_class),
+  role: 'alert',
+  'aria-live': 'assertive',
+  'aria-atomic': 'true'
+})) %}
+
+{% block content %}
+  <div {{ add_attributes(toasts_attributes) }}>
+    <div {{ bem('header', '', toasts_base_class, ['toast-header']) }}>
+      {{ content.header }}
+      {% include "@bootstrap/components/buttons/button.twig" with {
+        button_classes: [
+          'btn-close',
+        ],
+        button_attributes: {
+          'type': 'button',
+          'data-bs-dismiss': 'toast',
+          'aria-label': 'Close',
+        }
+      } %}
+    </div>
+    <div {{ bem('body', '', toasts_base_class, ['toast-body']) }}>
+      {{ content.body }}
+    </div>
+  </div>
+{% endblock %}
+
+

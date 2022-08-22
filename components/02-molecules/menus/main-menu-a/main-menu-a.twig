@@ -1,0 +1,26 @@
+{{ attach_library('otsuka_design_system2022/molecules.main-menu-a') }}
+
+<nav>
+  <a href="#" id="toggle-expand-a" class="toggle-expand-a">
+    <span class="toggle-expand-a__open">
+      {% include "@atoms/images/icons/_icon.twig" with {
+        icon_base_class: "icon",
+        icon_blockname: "toggle-expand-a",
+        icon_name: "menu",
+      } %}
+    </span>
+    <span class="toggle-expand-a__close">
+      {% include "@atoms/images/icons/_icon.twig" with {
+        icon_base_class: "icon",
+        icon_blockname: "toggle-expand-a",
+        icon_name: "menu-close",
+      } %}
+    </span>
+  </a>
+  <div id="main-nav-a" class="main-nav-a">
+    {% include "@molecules/menus/_menu.twig" with {
+      menu_class: "main-menu-a",
+      items: menu_items,
+    } %}
+  </div>
+</nav>

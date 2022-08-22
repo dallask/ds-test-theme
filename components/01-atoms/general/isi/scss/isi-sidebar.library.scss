@@ -1,0 +1,200 @@
+
+
+.isi-sidebar {
+  position: relative;
+  width: 100%;
+  z-index: 89;
+
+  @include media-breakpoint-up(lg) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 0;
+    min-width: variable(sidebar-xl);
+    max-width: variable(sidebar-xl);
+  }
+
+  @include media-breakpoint-up(xl) {
+    min-width: variable(sidebar-xxl);
+    max-width: variable(sidebar-xxl);
+  }
+
+  &.isi-section {
+    background-color: clr(muted);
+
+    @include media-breakpoint-up(lg) {
+      height: calc(100vh - 93px);
+      overflow: hidden;
+      top: 0;
+      bottom: 0;
+
+      .isi-block {
+        height: 100%;
+      }
+
+      .scroll-element {
+        position: absolute;
+        right: 11px;
+        top: 80px;
+        bottom: 15px;
+        width: 11px;
+
+        div {
+          display: block;
+          height: 100%;
+          left: 0;
+          top: 0;
+          width: 100%;
+          position: absolute;
+        }
+
+        .scroll-element_track {
+          background-color: clr(muted);
+          border-radius: 6px;
+        }
+
+        .scroll-bar {
+          height: 80px !important;
+          opacity: 1;
+          border-radius: 6px;
+          background-color: clr(highlight);
+        }
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      .scroll-element {
+        top: 65px;
+      }
+    }
+
+    .isi-block {
+      .isi-inline-title-wrap {
+        display: none;
+        background-color: clr(gray);
+
+        @include media-breakpoint-up(lg) {
+          display: block;
+          padding: space(small) space(medium);
+          //position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 10;
+
+          .isi-block-title {
+            p {
+              font-size: fontSize(sm);
+              line-height: 1;
+              font-weight: 700;
+              color: clr(text-inverse);
+              margin: 0 0 space(half-small);
+            }
+
+            a {
+              color: clr(text-inverse);
+              text-decoration: underline;
+            }
+
+            sub {
+              font-size: fontSize(xs);
+              line-height: 1.4;
+
+              &::after {
+                content: "\a";
+                white-space: pre;
+              }
+            }
+          }
+        }
+      }
+
+      .isi-inline-inner-wrap {
+        padding: space(half-small) space(medium) 0;
+        color: clr(text-inverse);
+
+        @include media-breakpoint-up(lg) {
+          //margin-top: 63px;
+          padding: space(medium) space(extra-large) 0 space(medium);
+        }
+
+        .text-center {
+          text-align: center;
+        }
+
+        h2,
+        h3 {
+          color: clr(text-inverse);
+          font-weight: 700;
+          margin-bottom: space(half-small);
+        }
+
+        h2 {
+          font-size: $font-size-base;
+          line-height: 1.125;
+          color: clr(text-inverse);
+
+          @include media-breakpoint-up(lg) {
+            font-size: fontSize(m);
+            line-height: 1;
+          }
+        }
+
+        h3 {
+          font-size: fontSize(sm);
+          line-height: 1.29;
+          color: clr(text-inverse);
+
+          &.color-regular {
+            color: clr(text-inverse);
+          }
+        }
+
+        p,
+        ul {
+          font-size: fontSize(sm);
+          line-height: 1.29;
+          margin-bottom: space(half-small);
+        }
+
+        a {
+          color: clr(text-inverse);
+          text-decoration: underline;
+
+          &:hover,
+          &:focus {
+            color: clr(text-inverse);
+          }
+        }
+      }
+    }
+  }
+
+  .isi {
+    position: relative;
+
+    h3 {
+      font-size: $font-size-base;
+      line-height: 1.125;
+      color: clr(primary);
+    }
+
+    .isi-header {
+      height: 29px;
+      background: clr(background);
+      box-sizing: border-box;
+
+      @include media-breakpoint-up(lg) {
+        position: fixed;
+        top: 0;
+        height: 62px;
+        width: 100%;
+        padding: space(medium);
+      }
+    }
+
+    .isi-content {
+      padding: 80px space(medium) 112px; //NONSTANDARD VAR
+    }
+  }
+}

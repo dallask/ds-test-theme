@@ -1,0 +1,14 @@
+modal_id: videoModal
+
+# Modal Trigger
+link_content: <span>Video Modal</span>
+link_close_modal: false
+
+# Modal
+modal_content_classes: modal-style--video
+modal_content: |
+  <div id="video-embed-field-provider-426-0" class="video-embed-field-provider-426-0 video-embed-field-responsive-video">
+    <div class="react-player-wrapper">
+      <div class="react-player-preview" tabindex="0" style="background-image: url(https://dummyimage.com/1000x565/a6a6a6/fff.png);"></div>
+    </div>
+  </div>

@@ -1,0 +1,54 @@
+{% set paragraph_base_class = paragraph_base_class|default('content') %}
+
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+{% block content %}
+  {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+  {{ attach_library('otsuka_design_system2022/paragraph.content') }}
+
+  <div class="row">
+    {% block field_otsk_ds_title %}
+      {% if content.field_otsk_ds_title %}
+        <div {{ bem(paragraph_base_class ~ '-title', [], paragraph_blockname, ['col-60']) }}>
+          <h2>
+            {{ content.field_otsk_ds_title }}
+          </h2>
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block field_otsk_ds_image %}
+      {% if content.field_otsk_ds_image %}
+        <div {{ bem(
+          paragraph_base_class ~ '-image',
+          [],
+          paragraph_blockname,
+          [
+            'col-60',
+            'col-md-20',
+            'd-flex',
+            'justify-content-center',
+            'justify-content-md-start'
+          ]
+        ) }}>
+          {{ content.field_otsk_ds_image }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block field_otsk_ds_text %}
+      {% if content.field_otsk_ds_text or content.field_otsk_ds_link %}
+        <div {{ bem(paragraph_base_class ~ '-text', [], paragraph_blockname, ['col-60', content.field_otsk_ds_image|render ? 'col-md-40' : '', 'text-center', content.field_otsk_ds_image|render ? 'text-md-start' : '']) }}>
+          {{ content.field_otsk_ds_text }}
+          {% block field_otsk_ds_link %}
+            {% if content.field_otsk_ds_link %}
+              <div {{ bem(paragraph_base_class ~ '-link', [], paragraph_blockname, ['col-60', 'text-center', content.field_otsk_ds_image|render ?  'text-md-start' : '']) }}>
+                {{ content.field_otsk_ds_link }}
+              </div>
+            {% endif %}
+          {% endblock %}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

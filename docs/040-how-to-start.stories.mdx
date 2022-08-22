@@ -1,0 +1,40 @@
+<Meta title="Docs/How to Start"/>
+
+# How to start
+
+1. Create a new theme repository
+1. Copy DS repository (use the branch `DF-18340_New_webpack`)
+`https://github.com/OAPI-Commercial-IT/design_system/tree/DF-18340_New_webpack`
+1. Rename files that contain `otsuka_design_system2022` in the name
+1. Substitute all substrings `otsuka_design_system2022` by your `[theme_name]`
+in all files inside the root folder of your new repository (by means of IDE)
+1. Install all modules in the `Otsk DS` package
+1. Install your `[theme_name]` and set it as a default theme for the site
+1. Run `nvm use` in the `[theme_name]` folder
+1. Run `npm run install` in the `[theme_name]` folder
+1. Run `npm run build` in the `[theme_name]` folder
+1. Run `npm run storybook` in the `[theme_name]` folder
+1. Set your `localServer` in the `[theme_name]/webpack/config.js` file
+1. Edit theme regions (add, delete, rename if it is needed):
+    - `themes/custom/[theme_name]/[theme_name].info.yml`
+    - `themes/custom/[theme_name]/templates/layout/page/page.html.twig`
+    - check and fix all components and twig templates files in accordance
+with your new regions
+1. Adjust Bootstrap (see the Bootstrap section in this documents folder)
+1. Create your exact components in storybook or:
+    - Layout
+    - Footer
+    - Header
+    - Menus
+    - Blocks
+    - Paragraphs
+1. Create Drupal libraries for new components
+1. Rebuild assets: run `npm run build` in the `[theme_name]` folder
+1. Add Drupal content in accordance with components structure
+1. Adjust Drupal styles by means of `BrowserSync`: run `npm run webpack`
+in the `[theme_name]` folder
+
+
+Please pay attention, you should rebuild assets (`npm run build`) and
+restart storybook (`npm run storybook`) every single time when you add
+new `scss/js` files

@@ -1,0 +1,25 @@
+{#
+/**
+ * VARIABLES:
+ * - modal_id: string
+ * - modal_content_classes: string
+ * - modal_content
+ */
+#}
+{{ attach_library('otsuka_design_system2022/components.molecules.modal') }}
+<div id="{{ modal_id|trim }}" class="modal fade modal-custom" tabindex="-1"
+     role="dialog" aria-hidden="true">
+  <div class="modal-dialog {{ modal_content_classes }}">
+    <div class="modal-content">
+      <button type="button" class="close" data-bs-dismiss="modal"
+              aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="modal-body">
+        {% block modal_content %}
+          {{ modal_content }}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

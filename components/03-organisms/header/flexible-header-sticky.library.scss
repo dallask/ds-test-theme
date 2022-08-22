@@ -1,0 +1,19 @@
+
+
+header {
+  &.flexible-header {
+    transform: translateZ(0);
+    will-change: transform;
+    transition: transform .5s;
+
+    &.position-fixed {
+      width: 100%;
+      z-index: 501;
+      background: clr(background);
+    }
+
+    &.js--header-hidden {
+      transform: translateY(-100%);
+    }
+  }
+}

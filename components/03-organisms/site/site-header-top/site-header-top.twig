@@ -1,0 +1,6 @@
+{{ attach_library('otsuka_design_system2022/organisms.site-header-top') }}
+
+{% set header_top__base_class = 'header-top' %}
+<div {{ bem(header_top__base_class) }}>
+    {% include "@molecules/menus/full-pi-menu/full-pi-menu.twig" %}
+</div>

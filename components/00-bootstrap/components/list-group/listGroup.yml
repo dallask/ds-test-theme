@@ -1,0 +1,36 @@
+content:
+  - variant: 'primary'
+    content: 'A simple list group item 1'
+    disabled: false
+    active: true
+  - variant: 'secondary'
+    content: 'A simple list group item 2'
+    disabled: true
+    active: false
+  - variant: 'success'
+    content: 'A simple list group item 3'
+    disabled: false
+    active: false
+  - variant: 'danger'
+    content: 'A simple list group item 4'
+    disabled: false
+    active: false
+  - variant: 'warning'
+    content: 'A simple list group item 5'
+    disabled: false
+    active: false
+  - variant: 'info'
+    content: 'A simple list group item 6'
+    disabled: false
+    active: false
+  - variant: 'dark'
+    content: 'A simple list group item 7'
+    disabled: false
+    active: false
+  - variant: 'light'
+    content: 'A simple list group item 8'
+    disabled: false
+    active: false
+flush: false
+classes: [ ]
+attributes: {}

@@ -1,0 +1,36 @@
+
+
+.flexible-footer {
+  color: clr(text-inverse);
+  font-size: fontSize(xs);
+  padding: space(extra-extra-extra-large) 0;
+
+  .prc-date, .prc-code {
+    color: clr(text-inverse);
+    font-size: fontSize(xxs);
+  }
+
+  h2 {
+    font-size: $font-size-base;
+  }
+
+  a {
+    color: clr(text-inverse);
+    text-decoration: none;
+
+    &:hover {
+      color: clr(text-inverse);
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+
+
+.node--type-otsk-ds-landing-page {
+  .homepage {
+    background-color: rgba(207, 221, 187, 0.5);
+  }
+
+  .otsk-ds-text {
+    font-size: 24px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    line-height: 1.2;
+    color: #73308a;
+    padding-top: space(extra-large);
+    padding-bottom: space(extra-large);
+    img {
+      margin-right: space(large);
+      max-width: 120px;
+    }
+  }
+
+  .wild5-button {
+    margin-top: space(largest);
+    margin-bottom: space(largest);
+    .button {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 24px;
+      text-align: center;
+      position: relative;
+      background-color: #73308a;
+      color: #fff;
+
+      padding: space(small) space(largest) space(small) space(medium);
+
+      display: inline-block;
+      border-radius: 4px;
+      transition: 0.3s ease;
+      text-transform: none;
+      &:hover {
+        background-color: #cfddbb;
+        color: #73308a;
+      }
+      &::after {
+        background-color: #73308a;
+        top: calc(50% - 7px);
+        transform: rotate(41deg);
+      }
+      &::before {
+        background-color: #73308a;
+        top: calc(50% + 4px);
+        transform: rotate(-41deg);
+      }
+    }
+  }
+
+  .block-copyright {
+    margin-top: space(extra-extra-large);
+    margin-bottom: -(space(small));
+  }
+
+  .region-header-top {
+    display: flex;
+    justify-content: space-around;
+    padding-top: space(extra-extra-large);
+    box-shadow: 0 3px 9px 2px rgb(0 0 0 / 17%);
+    margin-bottom: space(small);
+    padding-bottom: space(small);
+  }
+
+  footer {
+    .content {
+      max-width: 100%;
+    }
+    .paragraph-text-wrapper {
+      background: none;
+      .text-long p {
+        color: var(--c-text-inverse);
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .menu--log-in {
+
+    a {
+      font-size: 18px;
+      padding: space(small) space(half-large);
+      ul {
+        margin-top: space(half-large) !important;
+      }
+    }
+
+    ul {
+      display: flex;
+    }
+    li {
+      list-style: none;
+      margin-top: space(small);
+      margin-left: 0;
+      background: #cfddbb;
+      color: #73308a;
+      border-color: #cfddbb;
+      border-radius: 6px;
+    }
+
+    .main-menu__item {
+      .main-menu__link {
+        color: #73308a;
+        :hover {
+          background: rgba(182, 184, 221, 0.39);
+        }
+      }
+    }
+  }
+  .flexible-footer {
+    background-color: #73308a !important;
+    ul {
+      display: flex;
+      li {
+        margin-left: space(small);
+      }
+    }
+  }
+}

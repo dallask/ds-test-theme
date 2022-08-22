@@ -1,0 +1,8 @@
+field_text:
+  '<p><span class="h1">Wysywig Title H1</span></p></br>
+  <p><span class="h2">Wysywig Title H2</span></p></br>
+  <p><span class="h3">Wysywig Title H3</span></p></br>
+  <p><span class="h4">Wysywig Title H4</span></p></br>
+  <p><span class="h5">Wysywig Title H5</span></p></br>
+  <p><span class="h6">Wysywig Title H6</span></p></br>
+  <p><span class="editor--footnotes">Wysywig footnotes</span></p>'

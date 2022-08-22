@@ -1,0 +1,248 @@
+
+
+/**
+  Based on https://github.com/OAPI-Commercial-IT/otsk-drupal/blob/drupal9_dev/docroot/themes/custom/otsuka_design_system_theme/assets/src/style/block/block.isi.scss
+  Equivalencies (block.isi.scss = _block.isi.ds1.scss):
+  .inline-isi-wrapper = #inline-isi-wrapper
+   */
+.ds1 {
+  //Overrides-------------------------------
+  #drawer-isi {
+    background-color: white;
+
+    .isi-header {
+      .isi-header-wrap {
+        .drawer-title {
+          color: clr('text-blue');
+
+          a {
+            color: clr('text-blue');
+          }
+        }
+      }
+    }
+  }
+
+  [data-simplebar],
+  .isi-drawer-content.isi-content-wrap {
+    background-color: unset !important;
+  }
+
+  //----------------------------------------
+  #inline-isi-wrapper,
+  .isi-tray {
+    font-family: fontFamily(body);
+
+    p, ul {
+      font-size: fontSize(sm);
+      line-height: fontSize(m);
+      margin-bottom: space(small);
+    }
+
+    ul {
+      li {
+        margin-bottom: space(half-small);
+      }
+    }
+
+    h6, .h6 {
+      font-weight: 700;
+    }
+
+    .field--item {
+      margin-bottom: space(small);
+
+      ul, ol, dl {
+        padding-left: space(medium);
+      }
+    }
+  }
+
+  #inline-isi-wrapper {
+    .field-name-field-isi-inline-content {
+      padding: space(extra-large) space(medium);
+      border: 1px solid clr('text-inverse');
+
+      @media all and (min-width: 576px) {
+        padding: space(extra-large);
+      }
+    }
+
+    margin-bottom: 64px; //NONSTANDARD VAR
+  }
+
+  .isi-header {
+    background: none !important;
+    border-top: 5px solid clr('theme-blue');
+    padding: space(small) 0;
+
+    @media all and (min-width: 576px) {
+      height: 65px;
+
+      .drawer-title {
+        padding-top: 0;
+        padding-right: 112px; //NONSTANDARD VAR
+      }
+    }
+
+    @media all and (min-width: 768px) {
+      height: 60px;
+
+      .drawer-title {
+        padding-top: space(small);
+      }
+    }
+  }
+
+  .drawer-title,
+  .behavior--isi-header {
+    p {
+      font-size: $font-size-base;
+      line-height: fontSize(m);
+      font-weight: 700;
+      color: clr('text-blue');
+      margin-bottom: space(medium);
+    }
+  }
+
+  .isi-btn {
+    //Overrides-------------------------------
+    border: 1px solid clr('text-blue') !important;
+    color: clr('text-blue');
+    padding: space(medium) space(large) !important;
+
+    &:hover {
+      color: clr('background');
+      background-color: clr('text-blue') !important;
+    }
+
+    .jsSwapText {
+      background-image: unset;
+      display: none !important;
+    }
+
+    //----------------------------------------
+    &.btn {
+      height: 30px;
+      width: 30px;
+    }
+
+    margin-right: space(large);
+    border-radius: space(extra-large);
+    @media all and (min-width: 576px) {
+      &.btn {
+        height: auto;
+        width: auto;
+      }
+
+      padding: space(half-small) space(small) space(half-small) space(small);
+    }
+    @media all and (min-width: 768px) {
+      margin-right: auto;
+      padding: space(small) space(medium) space(small) space(medium);
+    }
+
+
+    .isi-btn-icon {
+      margin: 0;
+      border: none;
+
+      &::before,
+      &::after {
+
+        @media all and (min-width: 576px) {
+          top: 8px;
+          left: 0;
+        }
+
+        @media all and (min-width: 768px) {
+          top: 7px;
+        }
+
+        //Overrides-------------------------------
+        background-color: clr('accent-high');
+        content: '';
+        height: 2px;
+        left: 35% !important;
+        position: absolute;
+        top: 50% !important;
+        width: 8px;
+      }
+
+      &::after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .isi-open & {
+        background-image: unset;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      //----------------------------------------
+    }
+
+    &:active,
+    &:hover {
+      .isi-btn-icon {
+        &::before,
+        &::after {
+          background-color: clr('background');
+        }
+      }
+    }
+  }
+
+  .isi-content-wrap {
+    .isi-scrollable {
+      .scroll-content {
+        & > div {
+          padding-top: space(small);
+
+          @media all and (min-width: 576px) {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .external-scroll-y {
+    &.scroll-scrolly_visible {
+      width: 7px;
+      border: none;
+    }
+
+    div {
+      height: 90%;
+      top: auto;
+      bottom: 0;
+    }
+
+    .scroll-bar {
+      background: clr(background-section);
+      border-radius: 4px;
+      height: 38px;
+    }
+  }
+
+  .js-swap-text {
+    font-size: fontSize(sm);
+
+    @media all and (min-width: 576px) {
+      display: inline-block;
+      vertical-align: middle;
+
+      &.hide {
+        display: none;
+      }
+    }
+
+    @media all and (min-width: 768px) {
+      font-size: $font-size-base;
+    }
+  }
+}

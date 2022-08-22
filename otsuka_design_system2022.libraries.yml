@@ -1,0 +1,867 @@
+global:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.critical.css: { }
+    theme:
+      dist/css/global.css: {}
+  dependencies:
+    - otsuka_design_system2022/focus
+    - otsuka_design_system2022/focus.advanced
+
+modernizr:
+  js:
+    dist/js/00-base/05-libraries/modernizr-custom.js: { preprocess: 0, weight: -21 }
+
+bootstrap:
+  version: 5.1.3
+  license:
+    name: MIT
+    url: https://github.com/twbs/bootstrap/blob/main/LICENSE
+  js:
+    //cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js: { type: external, minified: true }
+
+bootstrap-local:
+  version: 5.1.3
+  remote: https://getbootstrap.com/
+  license:
+    name: MIT
+    url: https://github.com/twbs/bootstrap/blob/main/LICENSE
+  js:
+    dist/js/00-bootstrap/bootstrap.js: {}
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.css: {}
+  dependencies:
+    - core/jquery
+    - otsuka_design_system2022/popper
+
+bootstrap.accordion:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.accordion.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.collapse.js: {}
+  dependencies:
+    - core/jquery
+    - otsuka_design_system2022/bootstrap.transitions
+
+bootstrap.alert:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.alert.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.alert.js: {}
+
+bootstrap.badge:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.badge.css: {}
+
+bootstrap.breadcrumb:
+  css:
+    component:
+      dist/css/00-bootstrap/bootstrap.breadcrumb.css: {}
+
+bootstrap.button:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.buttons.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.button.js: {}
+
+bootstrap.button-group:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.button-group.css: {}
+
+bootstrap.card:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.card.css: {}
+
+bootstrap.carousel:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.carousel.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.carousel.js: {}
+
+bootstrap.collapse:
+  js:
+    dist/js/00-bootstrap/bootstrap.collapse.js: {}
+
+bootstrap.close:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.close.css: {}
+
+bootstrap.dropdown:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.dropdown.css: { }
+  js:
+    dist/js/00-bootstrap/bootstrap.dropdown.js: {}
+  dependencies:
+    - otsuka_design_system2022/bootstrap.button
+
+bootstrap.forms:
+  css:
+    component:
+      dist/css/00-bootstrap/bootstrap.forms.css: {}
+
+bootstrap.images:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.images.css: {}
+
+bootstrap.list-group:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.list-group.css: {}
+
+bootstrap.modal:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.modal.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.modal.js: {}
+  dependencies:
+    - otsuka_design_system2022/bootstrap.close
+
+bootstrap.nav:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.nav.css: {}
+      dist/css/00-bootstrap/bootstrap.navbar.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.collapse.js: { }
+  dependencies:
+    - core/jquery
+    - otsuka_design_system2022/bootstrap.dropdown
+    - otsuka_design_system2022/bootstrap.transitions
+
+bootstrap.offcanvas:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.offcanvas.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.offcanvas.js: {}
+
+bootstrap.pagination:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.pagination.css: {}
+
+bootstrap.placeholders:
+  css:
+    component:
+      dist/css/00-bootstrap/bootstrap.placeholders.css: {}
+
+bootstrap.popover:
+  css:
+    component:
+      dist/css/00-bootstrap/bootstrap.poprver.css: {}
+      dist/css/00-bootstrap/bootstrap.tooltip.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.poprver.js: { }
+    dist/js/00-bootstrap/bootstrap.tooltip.js: { }
+  dependencies:
+    - otsuka_design_system2022/popper
+
+bootstrap.progress:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.progress.css: {}
+
+bootstrap.scrollspy:
+  js:
+    dist/js/00-bootstrap/bootstrap.scrollspy.js: { }
+  dependencies:
+    - otsuka_design_system2022/bootstrap.nav
+
+bootstrap.spinners:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.spinners.css: {}
+
+bootstrap.tables:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.tables.css: {}
+
+bootstrap.tab:
+  js:
+    dist/js/00-bootstrap/bootstrap.tab.js: {}
+  dependencies:
+    - core/jquery
+    - otsuka_design_system2022/bootstrap.nav
+
+bootstrap.transitions:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.transitions.css: {}
+
+bootstrap.toasts:
+  css:
+    component:
+      dist/css/00-bootstrap/bootstrap.toasts.css: {}
+  js:
+    dist/js/00-bootstrap/bootstrap.toasts.js: { }
+
+bootstrap.utilities:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.utilities.css: {}
+
+bootstrap.root:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.root.css: {}
+
+bootstrap.reboot:
+  css:
+    base:
+      dist/css/00-bootstrap/bootstrap.reboot.css: {}
+
+popper:
+  version: 2.14.
+  remote: https://popper.js.org/
+  license:
+    name: MIT
+    url: https://github.com/popperjs/popper-core/blob/master/LICENSE.md
+  js:
+    //unpkg.com/@popperjs/core@2: { type: external }
+  dependencies:
+    - core/jquery
+
+main-menu:
+  js:
+    dist/js/02-molecules/menus/main-menu/main-menu.js: {}
+  dependencies:
+    - core/drupal
+
+menu.main:
+  css:
+    component:
+      dist/css/06-components/menu/main/main.css: { }
+  js:
+    dist/js/06-components/menu/main/main.js: {}
+  dependencies:
+    - core/drupal
+    - otsuka_design_system2022/bootstrap.nav
+
+# IE 11 support for SVG use - disable if not needed.
+# See also components/01-atoms/images/icons/_icon.twig to remove attach_library.
+sprite:
+  js:
+    components/01-atoms/images/icons/svgxuse.min.js:
+      { attributes: { defer: true } }
+
+scroll-slider:
+  js:
+    dist/js/03-organisms/paragraphs/scroll-slider/_gsap.js: {}
+    dist/js/03-organisms/paragraphs/scroll-slider/scroll-slider.js: {}
+
+tabs:
+  js:
+    dist/js/02-molecules/wrapper/tabs/tabs.js: {}
+  dependencies:
+    - core/drupal
+
+## DS1.0 Libraries:
+block.circular-back-to-top-button-persistent-bottom:
+  js:
+    dist/js/01-atoms/general/back-to-top/back-to-top-buttons.js: {}
+  dependencies:
+    - otsuka_design_system_theme/bootstrap.button
+    - otsuka_design_system_theme/font-awesome-5
+
+block.square-back-to-top-button-appears-on-scroll-bottom:
+  js:
+    dist/js/01-atoms/general/back-to-top/back-to-top-buttons.js: {}
+  dependencies:
+    - otsuka_design_system_theme/bootstrap.button
+    - otsuka_design_system_theme/font-awesome-5
+
+block.square-back-to-top-button-persistent-bottom:
+  js:
+    dist/js/01-atoms/general/back-to-top/back-to-top-buttons.js: {}
+  dependencies:
+    - otsuka_design_system_theme/bootstrap.button
+    - otsuka_design_system_theme/font-awesome-5
+
+block.square-back-to-top-button-persistent-right:
+  js:
+    dist/js/01-atoms/general/back-to-top/back-to-top-buttons.js: {}
+  dependencies:
+    - otsuka_design_system_theme/bootstrap.button
+    - otsuka_design_system_theme/font-awesome-5
+
+block.square-back-to-top-button-appears-on-scroll-right:
+  js:
+    dist/js/01-atoms/general/back-to-top/back-to-top-buttons.js: {}
+  dependencies:
+    - otsuka_design_system_theme/bootstrap.button
+    - otsuka_design_system_theme/font-awesome-5
+
+focus:
+  js:
+    components/00-base/04-focus/focus.js: { weight: -10 }
+
+focus.advanced:
+  js:
+    components/00-base/04-focus/focus.advanced.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - otsuka_design_system2022/focus
+
+slick:
+  version: 1.8.1
+  license:
+    name: MIT
+    url: https://github.com/kenwheeler/slick/blob/master/LICENSE
+  css:
+    component:
+      //cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css: { type: external }
+      //cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css: { type: external }
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js: { type: external }
+  dependencies:
+    - core/jquery
+
+crisis-alert:
+  js:
+    dist/js/02-molecules/blocks/crisis-alert/crisis-alert.js: {}
+  dependencies:
+    - core/drupal
+
+site-header-sticky-animated:
+  js:
+    dist/js/03-organisms/site/site-header-sticky/site-header-sticky-animated.js: {}
+  dependencies:
+    - core/drupal
+
+site-header-sticky-configurable:
+  js:
+    dist/js/03-organisms/site/site-header-sticky/site-header-sticky-configurable.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+
+components.molecules.modal:
+  css:
+    component:
+      dist/css/02-molecules/wrapper/modal/modal.css: { }
+      dist/css/02-molecules/wrapper/modal/modal-ds1.css: { }
+      dist/css/02-molecules/wrapper/modal/modal-content.css: { }
+  js:
+    dist/js/02-molecules/wrapper/modal/modal.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - otsuka_design_system2022/bootstrap.modal
+
+font-awesome:
+  version: 5.15.2
+  remote: https://fontawesome.com/
+  license:
+    url: https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt
+  css:
+    theme:
+      //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css: { type: external, minified: true }
+
+base.02-colors-component-library:
+  css:
+    component:
+      dist/css/00-base/01-colors/02-colors-component-library.css: {}
+
+base.motion:
+  css:
+    component:
+      dist/css/00-base/02-motion/motion.css: {}
+
+base.focus:
+  css:
+    component:
+      dist/css/00-base/04-focus/focus.css: {}
+
+atoms.buttons:
+  css:
+    component:
+      dist/css/01-atoms/buttons.css: {}
+
+atoms.copyright:
+  css:
+    component:
+      dist/css/01-atoms/footer-atoms/copyright/copyright.css: {}
+
+atoms.copyright-b:
+  css:
+    component:
+      dist/css/01-atoms/footer-atoms/copyright-b/copyright-b.css: {}
+
+atoms.prc-code:
+  css:
+    component:
+      dist/css/01-atoms/footer-atoms/prc-code/prc-code.css: {}
+
+atoms.prc-date:
+  css:
+    component:
+      dist/css/01-atoms/footer-atoms/prc-date/prc-date.css: {}
+
+atoms.radio:
+  css:
+    component:
+      dist/css/01-atoms/forms/radio/radio.css: {}
+
+atoms.select:
+  css:
+    component:
+      dist/css/01-atoms/forms/select/select.css: {}
+
+atoms.textfields:
+  css:
+    component:
+      dist/css/01-atoms/forms/textfields/textfields.css: {}
+
+atoms.back-to-top:
+  css:
+    component:
+      dist/css/01-atoms/general/back-to-top/back-to-top.css: {}
+
+atoms.isi-sidebar:
+  css:
+    component:
+      dist/css/01-atoms/general/isi/isi-sidebar.css: {}
+
+atoms.isi-tray:
+  css:
+    component:
+      dist/css/01-atoms/general/isi/isi-tray.css: {}
+
+atoms.react-player:
+  css:
+    component:
+      dist/css/01-atoms/general/react-player/react-player.css: {}
+
+atoms.video:
+  css:
+    component:
+      dist/css/01-atoms/general/video/video.css: {}
+
+atoms.icons:
+  css:
+    component:
+      dist/css/01-atoms/icons/icons.css: {}
+
+atoms.image:
+  css:
+    component:
+      dist/css/01-atoms/images/image/image.css: {}
+
+atoms.links:
+  css:
+    component:
+      dist/css/01-atoms/links/link/link.css: {}
+      dist/css/01-atoms/links/link/join-us-link.css: {}
+
+atoms.lists:
+  css:
+    component:
+      dist/css/01-atoms/lists/lists.css: {}
+
+atoms.logo:
+  css:
+    component:
+      dist/css/01-atoms/logo/SiteLogo/logo.css: {}
+
+atoms.tables:
+  css:
+    component:
+      dist/css/01-atoms/tables/tables.css: {}
+
+atoms.headings:
+  css:
+    component:
+      dist/css/01-atoms/text/headings/headings.css: {}
+
+atoms.text:
+  css:
+    component:
+      dist/css/01-atoms/text/text/text.css: {}
+
+molecules.footer-prc:
+  css:
+    component:
+      dist/css/02-molecules/blocks/footer-prc/footer-prc.css: {}
+
+molecules.card:
+  css:
+    component:
+      dist/css/02-molecules/card/card.css: {}
+      dist/css/02-molecules/card/card.ds1.css: {}
+
+molecules.cta:
+  css:
+    component:
+      dist/css/02-molecules/cta/cta.css: {}
+
+molecules.image-link:
+  css:
+    component:
+      dist/css/02-molecules/image-link/image-link.css: {}
+
+molecules.footer-logo:
+  css:
+    component:
+      dist/css/02-molecules/logo/footer-logo/footer-logo.css: {}
+
+molecules.breadcrumbs:
+  css:
+    component:
+      dist/css/02-molecules/menus/breadcrumbs/breadcrumbs.css: {}
+
+molecules.dropdown-list:
+  css:
+    component:
+      dist/css/02-molecules/menus/dropdown-list/dropdown-list.css: {}
+
+molecules.footer-menu:
+  css:
+    component:
+      dist/css/02-molecules/menus/footer-menu/footer-menu.css: {}
+
+molecules.full-pi-menu:
+  css:
+    component:
+      dist/css/02-molecules/menus/full-pi-menu/full-pi-menu.css: {}
+
+molecules.inline-menu:
+  css:
+    component:
+      dist/css/02-molecules/menus/inline/inline-menu.css: {}
+
+molecules.main-menu:
+  css:
+    component:
+      dist/css/02-molecules/menus/main-menu/00-main-menu.css: {}
+      dist/css/02-molecules/menus/main-menu/01-main-menu-item.css: {}
+      dist/css/02-molecules/menus/main-menu/02-main-menu-link.css: {}
+      dist/css/02-molecules/menus/main-menu/03-main-menu-toggle.css: {}
+
+molecules.main-menu-a:
+  css:
+    component:
+      dist/css/02-molecules/menus/main-menu/00-main-menu-a.css: {}
+      dist/css/02-molecules/menus/main-menu/01-main-menu-a-item.css: {}
+      dist/css/02-molecules/menus/main-menu/02-main-menu-a-link.css: {}
+      dist/css/02-molecules/menus/main-menu/03-main-menu-a-toggle.css: {}
+
+molecules.social-menu:
+  css:
+    component:
+      dist/css/02-molecules/menus/social/social-menu.css: {}
+
+molecules.pager:
+  css:
+    component:
+      dist/css/02-molecules/pager/pager.css: {}
+
+molecules.status:
+  css:
+    component:
+      dist/css/02-molecules/status/status.css: {}
+
+molecules.tab:
+  css:
+    component:
+      dist/css/02-molecules/wrapper/tabs/tab.css: {}
+
+molecules.tabs:
+  css:
+    component:
+      dist/css/02-molecules/wrapper/tabs/tabs.css: {}
+
+organisms.banner-modal:
+  css:
+    component:
+      dist/css/03-organisms/block/banner-modal/banner-modal.css: {}
+
+organisms.carousel:
+  js:
+    dist/js/03-organisms/block/carousel/carousel.js: { }
+  css:
+    component:
+      dist/css/03-organisms/block/carousel/carousel.css: {}
+  dependencies:
+    - core/drupal
+
+organisms.crisis-alert:
+  css:
+    component:
+      dist/css/03-organisms/block/crisis-alert/crisis-alert.css: {}
+
+organisms.eu_cookie_compliance_popup_info:
+  css:
+    component:
+      dist/css/03-organisms/block/eu_cookie_compliance_popup_info/eu_cookie_compliance_popup_info.css: {}
+
+organisms.interstitial:
+  css:
+    component:
+      dist/css/03-organisms/block/interstitial/interstitial.css: {}
+
+organisms.prescribing-information:
+  css:
+    component:
+      dist/css/03-organisms/block/prescribing-information/prescribing-information.css: {}
+
+organisms.sticky-video:
+  css:
+    component:
+      dist/css/03-organisms/block/sticky-video/sticky-video.css: {}
+
+organisms.flexible-footer:
+  css:
+    component:
+      dist/css/03-organisms/footer/flexible-footer.css: {}
+
+organisms.grid:
+  css:
+    component:
+      dist/css/03-organisms/grid/grid.css: {}
+      dist/css/03-organisms/grid/grid-item.css: {}
+      dist/css/03-organisms/grid/grid.ds1.css: {}
+
+organisms.flexible-header:
+  js:
+    dist/js/04-templates/header/flexible-header-sticky.js: {}
+    dist/js/04-templates/header/flexible-header-overflow.js: {}
+  css:
+    component:
+      dist/css/03-organisms/header/flexible-header.css: { }
+      dist/css/03-organisms/header/flexible-header-overflow.css: { }
+      dist/css/03-organisms/header/flexible-header-sticky.css: { }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+
+organisms.hero-image-background:
+  css:
+    component:
+      dist/css/03-organisms/hero/image-background/hero-image-background.css: {}
+
+organisms.hero-video-background:
+  css:
+    component:
+      dist/css/03-organisms/hero/video-background/hero-video-background.css: {}
+
+organisms.paragraph-image:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/paragraph-image/paragraph-image.css: {}
+
+organisms.paragraph-text:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/paragraph-text/text/paragraph-text.css: {}
+
+organisms.paragraph-text-reference:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/paragraph-text/text-reference/paragraph-text-reference.css: {}
+
+organisms.paragraph-wrapper:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/paragraph-wrapper/paragraph-wrapper.css: {}
+      dist/css/03-organisms/paragraphs/paragraph-wrapper/paragraph-wrapper-layout.ds1.css: {}
+
+organisms.paragraph-wrapper-card:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/paragraph-wrapper/card/paragraph-wrapper-card.css: {}
+  dependencies:
+    - otsuka_design_system2022/organisms.paragraph-wrapper
+
+organisms.paragraph-wrapper-carousel:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/paragraph-wrapper/carousel/paragraph-wrapper-carousel.css: { }
+  js:
+    dist/js/03-organisms/paragraphs/paragraph-wrapper/carousel/paragraph-wrapper-carousel.js: {  }
+  dependencies:
+    - otsuka_design_system2022/slick
+    - otsuka_design_system2022/bootstrap.carousel
+    - otsuka_design_system2022/organisms.paragraph-wrapper
+
+organisms.scroll-slider:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/scroll-slider/scroll-slidere.css: {}
+      dist/css/03-organisms/paragraphs/scroll-slider/example.scroll-slider.css: {}
+
+organisms.scroll-to:
+  css:
+    component:
+      dist/css/03-organisms/paragraphs/scroll-to/scroll-to-menu/scroll-to-element-navigation.css: { }
+  js:
+    components/03-organisms/paragraphs/scroll-to/scroll-to-menu/scroll-to-element-navigation.js: {}
+  dependencies:
+    - core/jquery
+
+organisms.site-header:
+  css:
+    component:
+      dist/css/03-organisms/site/site-header/site-header.css: {}
+
+organisms.site-header-a:
+  css:
+    component:
+      dist/css/03-organisms/site/site-header-a/site-header-a.css: {}
+
+organisms.site-header-b:
+  css:
+    component:
+      dist/css/03-organisms/site/site-header-b/site-header-b.css: {}
+
+organisms.site-header-top:
+  css:
+    component:
+      dist/css/03-organisms/site/site-header-top/site-header-top.css: {}
+
+organisms.cookie-popup:
+  css:
+    component:
+      dist/css/03-organisms/cookie-popup/cookie-popup.css: { }
+  js:
+    dist/js/03-organisms/cookie-popup/cookie-popup.js: { }
+
+templates.placeholder:
+  css:
+    component:
+      dist/css/04-templates/placeholder/place-holder.css: {}
+
+templates.default:
+  css:
+    component:
+      dist/css/04-templates/default.css: {}
+
+pages.corp-comms:
+  css:
+    component:
+      dist/css/05-pages/corp-comms/corp-comms.css: {}
+
+pages.boilerplate-style-guide:
+  css:
+    component:
+      dist/css/05-pages/ds1/boilerplate-style-guide.css: {}
+
+pages.design-system-v1:
+  css:
+    component:
+      dist/css/05-pages/landing-pages/design-system-v1/design-system-v1.css: {}
+
+pages.sozosei-foundation:
+  css:
+    component:
+      dist/css/05-pages/landing-pages/sozosei-foundation/sozosei-foundation.css: {}
+
+pages.svm-landing-page:
+  css:
+    component:
+      dist/css/05-pages/landing-pages/svm-landing-page/svm-landing-page.css: {}
+
+pages.wild5:
+  css:
+    component:
+      dist/css/05-pages/landing-pages/wild5/wild5.css: {}
+
+paragraph.otsk-ds-text:
+  css:
+    component:
+      dist/css/06-components/paragraph/text/text.css: {}
+
+paragraph.otsk-ds-wrapper:
+  css:
+    component:
+      dist/css/06-components/paragraph/wrapper/wrapper.css: {}
+
+paragraph.carousel:
+  css:
+    component:
+      dist/css/06-components/paragraph/wrapper-carousel/carousel.css: {}
+  js:
+    dist/js/06-components/paragraph/wrapper-carousel/carousel.js: { }
+  dependencies:
+    - otsuka_design_system2022/slick
+
+paragraph.carousel-bs:
+  css:
+    component:
+      dist/css/06-components/paragraph/wrapper-carousel-bs/carousel.css: {}
+  js:
+    dist/js/06-components/paragraph/wrapper-carousel-bs/carousel.js: { }
+  dependencies:
+    - otsuka_design_system2022/bootstrap.carousel
+
+paragraph.wrapper-tabs:
+  css:
+    component:
+      dist/css/06-components/paragraph/wrapper-tabs/tabs.css: {}
+  dependencies:
+    - otsuka_design_system2022/bootstrap.tab
+
+paragraph.cta:
+  css:
+    component:
+      dist/css/06-components/paragraph/cta/cta.css: {}
+
+paragraph.card:
+  css:
+    component:
+      dist/css/06-components/paragraph/card/card.css: {}
+
+paragraph.content:
+  css:
+    component:
+      dist/css/06-components/paragraph/content/content.css: {}
+
+paragraph.complex1:
+  css:
+    component:
+      dist/css/06-components/paragraph/complex1/complex1.css: {}
+
+paragraph.complex2:
+  css:
+    component:
+      dist/css/06-components/paragraph/complex2/complex2.css: {}
+
+paragraph.modal:
+  css:
+    component:
+      dist/css/06-components/paragraph/modal/modal.css: {}
+  dependencies:
+    - otsuka_design_system2022/bootstrap.modal
+
+paragraph.image:
+  css:
+    component:
+      dist/css/06-components/paragraph/image/image.css: {}
+
+paragraph.video:
+  css:
+    component:
+      dist/css/06-components/paragraph/video/video.css: {}
+
+layout.header-for-site:
+  css:
+    component:
+      dist/css/06-components/layout/header-for-site/header-for-site.css: {}
+

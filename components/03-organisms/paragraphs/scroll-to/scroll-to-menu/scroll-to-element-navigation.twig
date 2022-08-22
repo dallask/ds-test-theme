@@ -1,0 +1,45 @@
+{{ attach_library('otsuka_design_system2022/organisms.scroll-to') }}
+
+{% if (number_of_id_elements >= 0) and (number_of_id_elements == number_of_title_elements) %}
+    <ul class="scroll-to--list desktop-only">
+        {% if prefix %}
+            <li class="scroll-to--prefix scroll-to--item">
+                {{ prefix|trans }}
+            </li>
+        {% endif %}
+        {% for key in element_id_items_keys %}
+            {% if titles[key] %}
+                <li class="scroll-to--item">
+                    <div data-scrollto="{{ element_ids[key] }}" class="jsScrollTo scroll-to--link">
+                        {{ titles[key] }}
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <div class="container scroll-to--wrapper mobile-only">
+        <div class="scroll-to--button scroll-to--selector-item jsOpenSelectBody">
+            {{ prefix|trans }}
+        </div>
+        <div class="scroll-to--selector-body">
+            {% for key in element_id_items_keys %}
+                {% if titles[key] %}
+                    <div class="scroll-to--selector-item jsScrollTo"
+                         data-scrollto="{{ element_ids[key] }}">
+                        {{ titles[key] }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% for key in element_id_items_keys %}
+        {% if titles[key] %}
+            <a class="anchor-link" id="{{ element_ids[key] }}"></a>
+            <h2>{{ titles[key] }}</h2>
+            {{ content[key] }}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+

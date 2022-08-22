@@ -1,0 +1,41 @@
+
+
+.paragraph-text-reference-wrapper {
+  background-color: clr('background');
+
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .title-wrapper {
+    p, h1, h2 {
+      font-size: inherit;
+      margin: 0;
+      padding: 0;
+      font-weight: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .text-wrapper {
+    .subtitle {
+      font-size: fontSize(d);
+      line-height: lineHeight('heading-2');
+      font-weight: 700;
+      margin-bottom: space(extra-extra-extra-large);
+
+      @include large {
+        margin-bottom: space(medium);
+      }
+    }
+
+    p {
+      font-size: fontSize(sm);
+      font-weight: 400;
+      line-height: lineHeight('heading-3');
+      color: clr('text');
+      margin: 0;
+    }
+  }
+}

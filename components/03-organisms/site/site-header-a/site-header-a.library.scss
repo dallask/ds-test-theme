@@ -1,0 +1,82 @@
+
+
+.header-a {
+  box-shadow: 0 3px 9px 2px rgb(0 0 0 / 17%);
+  &__inner {
+    @include wrapper(1600px);
+
+    height: variable(header-height-mobile);
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include medium {
+      height: variable(header-height-desktop);
+    }
+  }
+
+  &__primary {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: space(half-small) 0 0;
+    height: variable(header-height-mobile);
+    margin: 0 space(medium);
+
+    @include medium {
+      margin: 0;
+      height: variable(header-height-desktop);
+    }
+
+    @include large {
+      padding-top: 0;
+    }
+  }
+
+  &__branding {
+    overflow: hidden;
+
+    @include medium {
+      margin-top: space(half-small);
+    }
+
+    svg {
+      width: 80px;
+      height: auto;
+
+      @include medium {
+        width: 165px;
+        height: auto;
+      }
+    }
+  }
+
+  .logo__image {
+    @include medium {
+      padding: 0;
+      width: 100px;
+    }
+  }
+
+  // Set Join-us mixin to the last child.
+  .main-menu-a {
+    &__item:last-child {
+      a {
+        @include join-us;
+
+        @include disable-highlight;
+
+        margin-top: 40px;
+
+        @include medium {
+          margin-top: 0;
+        }
+      }
+
+      @include medium {
+        padding-left: 40px;
+      }
+    }
+  }
+}

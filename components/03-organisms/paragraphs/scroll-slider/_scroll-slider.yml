@@ -1,0 +1,129 @@
+items:
+  - attributes: class="scroll--slider--slide" data-scroll-slider-slide-effects='[{"item":".scroll-line-list .first-item","action":"to","from":null,"to":{"opacity":1},"order":"1"},{"item":".scroll-line-list .second-item","action":"to","from":null,"to":{"opacity":1},"order":"2"},{"item":".scroll-line-list .third-item","action":"to","from":null,"to":{"opacity":1},"order":"3"},{"item":".scroll-line-list .fourth-item","action":"to","from":null,"to":{"opacity":1},"order":"4"},{"item":".scroll-line-list .fifth-item","action":"to","from":null,"to":{"opacity":1},"order":"5"},{"item":".scroll-line-list .sixth-item","action":"to","from":null,"to":{"opacity":1},"order":"6"},{"item":".scroll-line-list .line","action":"to","from":null,"to":{"height":"10%"},"order":"1"},{"item":".scroll-line-list .line","action":"to","from":null,"to":{"height":"30%"},"order":"2"},{"item":".scroll-line-list .line","action":"to","from":null,"to":{"height":"50%"},"order":"3"},{"item":".scroll-line-list .line","action":"to","from":null,"to":{"height":"70%"},"order":"4"},{"item":".scroll-line-list .line","action":"to","from":null,"to":{"height":"90%"},"order":"5"},{"item":".scroll-line-list .line","action":"to","from":null,"to":{"height":"100%"},"order":"6"}]'
+    content: |
+      <style>
+          .scroll-line-list {
+              font-size: 20px;
+              position: relative;
+          }
+          .scroll-line-list .list {
+              list-style: none;
+          }
+          .scroll-line-list .line {
+              position: absolute;
+              top: 0;
+              left: 5px;
+              background-color: black;
+              width: 3px;
+              height: 0;
+              border-radius: 10px;
+          }
+      </style>
+      <h3>Example list 1</h3>
+      <div class="scroll-line-list">
+        <div class="line"></div>
+        <ul class="list">
+          <li class="scroll--slider--effect--opacity--show first-item">First item</li>
+          <li class="scroll--slider--effect--opacity--show second-item">Second item</li>
+          <li class="scroll--slider--effect--opacity--show third-item">Third item</li>
+          <li class="scroll--slider--effect--opacity--show fourth-item">Fourth item</li>
+          <li class="scroll--slider--effect--opacity--show fifth-item">Fifth item</li>
+          <li class="scroll--slider--effect--opacity--show sixth-item">Sixth item</li>
+        </ul>
+      </div>
+  - attributes: class="scroll--slider--slide" data-scroll-slider-slide-effects='[{"item":".position-show-list .first-item","action":"fromTo","from":{"x":"200px","opacity":0},"to":{"x":"0","opacity":1},"order":"1"},{"item":".position-show-list .second-item","action":"fromTo","from":{"x":"200px","opacity":0},"to":{"x":"0","opacity":1},"order":"2"},{"item":".position-show-list .third-item","action":"fromTo","from":{"x":"200px","opacity":0},"to":{"x":"0","opacity":1},"order":"3"},{"item":".position-show-list .fourth-item","action":"fromTo","from":{"x":"200px","opacity":0},"to":{"x":"0","opacity":1},"order":"4"},{"item":".position-show-list .fifth-item","action":"fromTo","from":{"x":"200px","opacity":0},"to":{"x":"0","opacity":1},"order":"5"},{"item":".position-show-list .sixth-item","action":"fromTo","from":{"x":"200px","opacity":0},"to":{"x":"0","opacity":1},"order":"6"}]'
+    content: |
+      <style>
+        .position-show-list {
+          font-size: 20px;
+          position: relative;
+        }
+        .position-show-list .list {
+          list-style: none;
+        }
+        .position-show-list .line {
+          position: absolute;
+          top: 0;
+          left: 5px;
+          background-color: black;
+          width: 3px;
+          height: 100%;
+          border-radius: 10px;
+        }
+      </style>
+      <h3>Example list 2</h3>
+      <div class="position-show-list">
+        <div class="line"></div>
+        <ul class="list">
+          <li class="scroll--slider--effect--opacity--show first-item">First item</li>
+          <li class="scroll--slider--effect--opacity--show second-item">Second item</li>
+          <li class="scroll--slider--effect--opacity--show third-item">Third item</li>
+          <li class="scroll--slider--effect--opacity--show fourth-item">Fourth item</li>
+          <li class="scroll--slider--effect--opacity--show fifth-item">Fifth item</li>
+          <li class="scroll--slider--effect--opacity--show sixth-item">Sixth item</li>
+        </ul>
+      </div>
+  - attributes: class="scroll--slider--slide" data-scroll-slider-slide-effects='[{"item":".scale-list .first-item","action":"fromTo","from":{"font-size":"1.2em","font-weight":"700"},"to":{"font-size":"1em","font-weight":"normal"},"order":"1"},{"item":".scale-list .second-item","action":"to","from":null,"to":{"font-size":"1.2em","font-weight":"700"},"order":"1"},{"item":".scale-list .second-item","action":"to","from":null,"to":{"font-size":"1em","font-weight":"normal"},"order":"2"},{"item":".scale-list .third-item","action":"to","from":null,"to":{"font-size":"1.2em","font-weight":"700"},"order":"2"},{"item":".scale-list .third-item","action":"to","from":null,"to":{"font-size":"1em","font-weight":"normal"},"order":"3"},{"item":".scale-list .fourth-item","action":"to","from":null,"to":{"font-size":"1.2em","font-weight":"700"},"order":"3"},{"item":".scale-list .fourth-item","action":"to","from":null,"to":{"font-size":"1em","font-weight":"normal"},"order":"4"},{"item":".scale-list .fifth-item","action":"to","from":null,"to":{"font-size":"1.2em","font-weight":"700"},"order":"4"},{"item":".scale-list .fifth-item","action":"to","from":null,"to":{"font-size":"1em","font-weight":"normal"},"order":"5"},{"item":".scale-list .sixth-item","action":"to","from":null,"to":{"font-size":"1.2em","font-weight":"700"},"order":"5"}]'
+    content: |
+      <style>
+        .scale-list {
+          font-size: 20px;
+          position: relative;
+        }
+        .scale-list .list {
+          list-style: none;
+        }
+        .scale-list .line {
+          position: absolute;
+          top: 0;
+          left: 5px;
+          background-color: black;
+          width: 3px;
+          height: 100%;
+          border-radius: 10px;
+        }
+      </style>
+      <h3>Example list 3</h3>
+      <div class="scale-list">
+        <div class="line"></div>
+        <ul class="list">
+          <li class="first-item">First item</li>
+          <li class="second-item">Second item</li>
+          <li class="third-item">Third item</li>
+          <li class="fourth-item">Fourth item</li>
+          <li class="fifth-item">Fifth item</li>
+          <li class="sixth-item">Sixth item</li>
+        </ul>
+      </div>
+  - attributes: class="scroll--slider--slide" data-scroll-slider-slide-effects='[{"item":".color-list .first-item","action":"to","from":null,"to":{"color":"#8d8d8d"},"order":"1"},{"item":".color-list .second-item","action":"fromTo","from":{"opacity":"0"},"to":{"opacity":"1"},"order":"1"},{"item":".color-list .second-item","action":"to","from":null,"to":{"color":"#8d8d8d"},"order":"2"},{"item":".color-list .third-item","action":"fromTo","from":{"opacity":"0"},"to":{"opacity":"1"},"order":"2"},{"item":".color-list .third-item","action":"to","from":null,"to":{"color":"#8d8d8d"},"order":"3"},{"item":".color-list .fourth-item","action":"fromTo","from":{"opacity":"0"},"to":{"opacity":"1"},"order":"3"},{"item":".color-list .fourth-item","action":"to","from":null,"to":{"color":"#8d8d8d"},"order":"4"},{"item":".color-list .fifth-item","action":"fromTo","from":{"opacity":"0"},"to":{"opacity":"1"},"order":"4"},{"item":".color-list .fifth-item","action":"to","from":null,"to":{"color":"#8d8d8d"},"order":"5"},{"item":".color-list .sixth-item","action":"fromTo","from":{"opacity":"0"},"to":{"opacity":"1"},"order":"5"}]'
+    content: |
+      <style>
+        .color-list {
+          font-size: 20px;
+          position: relative;
+        }
+        .color-list .list {
+          list-style: none;
+        }
+        .color-list .line {
+          position: absolute;
+          top: 0;
+          left: 5px;
+          background-color: black;
+          width: 3px;
+          height: 100%;
+          border-radius: 10px;
+        }
+      </style>
+      <h3>Example list 4</h3>
+      <div class="color-list">
+        <div class="line"></div>
+        <ul class="list">
+          <li class="first-item">First item</li>
+          <li class="second-item">Second item</li>
+          <li class="third-item">Third item</li>
+          <li class="fourth-item">Fourth item</li>
+          <li class="fifth-item">Fifth item</li>
+          <li class="sixth-item">Sixth item</li>
+        </ul>
+      </div>

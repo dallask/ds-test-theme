@@ -1,0 +1,83 @@
+{{ attach_library('otsuka_design_system2022/pages.corp-comms') }}
+
+{% set page_layout_modifier = 'full' %}
+
+{% embed "@templates/full-width.twig" %}
+    {% block page_header %}
+        {% include "@organisms/header/flexible-header.twig" %}
+        {% include "@molecules/wrapper/modal/modal.twig" %}
+    {% endblock %}
+    {% block page_content %}
+        <br>
+        <!-- WHO WE ARE -->
+        {% include "@atoms/text/headings/_heading.twig" with {
+            heading_level: '2',
+            heading: 'Who We Are',
+        } %}
+        {% include "@atoms/text/text/01-paragraph.twig" with {
+            paragraph_content: 'At our core is perseverance, a fierce determination to overcome any obstacle regardless of setbacks, on behalf of patients and their loved ones. We place greater value on what we can achieve together than on what we can do alone because the needs of those we serve always come first. We will not be bound by doing what’s been done before. Instead, we free ourselves from preconceived notions to discover solutions that advance patient care. Our mission is clear: Otsuka-people, creating new products for better health worldwide.',
+        } %}
+        {% include "@organisms/hero/image-background/hero-image-background.twig" with {
+            content: ""
+        }%}
+        <div class="ds1">
+        {% include "@organisms/paragraphs/paragraph-wrapper/card/paragraph-wrapper-card.twig" %}
+        </div>
+
+        <!-- OUR HISTORY -->
+        {% include "@atoms/text/headings/_heading.twig" with {
+            heading_level: '3',
+            heading: 'Our History',
+        } %}
+        {% include "@organisms/paragraphs/paragraph-wrapper/carousel-bootstrap/paragraph-wrapper-carousel-bootstrap.twig" %}
+
+        <!-- OUR FAMILY OF COMPANIES -->
+        {% include "@organisms/paragraphs/paragraph-text/text/paragraph-text.twig" with {
+            layout: {
+                layout: 'item-layout-1-column',
+            },
+            field_title: '<h3>Our Family Of Companies</h3>',
+            field_text: 'Our parent, Otsuka America, Inc (OAI), consists of multiple companies committed to offering innovative products that go beyond healthcare to improve the health and well-being of patients. Otsuka America Pharmaceutical, Inc. (OAPI) and Otsuka Pharmaceutical Development, Inc. (OPDC) belong to a distinguished family of US affiliates.',
+        } %}
+
+        <div class="ds1 triptych">
+        {% include "@organisms/paragraphs/paragraph-wrapper/card/paragraph-wrapper-card.twig" with {
+            items: {
+                1: {
+                    field_otsk_ds_title: '<h3>9</h3><h4>Pharmaceuticals</h4>',
+                    field_otsk_ds_text: '<hr /><ul><li>McQuade Center for StrategicResearch & Development (MSRD)</li>
+                                        <li>Cambridge IsotopeLaboratories, Inc</li>
+                                        <li>Visterra</li>
+                                        <li>Astex Pharmaceuticals</li>
+                                        <li>Avanir Pharmaceuticals</li>
+                                        <li>Otsuka Canada Pharmaceutical, Inc (OCPI)</li>
+                                        <li>Otsuka America Pharmaceutical, Inc (OAPI)</li>
+                                        <li>Otsuka Pharmaceutical Development</li></ul>',
+                },
+                2: {
+                    field_otsk_ds_title: '<h3>3</h3><h4>Nutraceuticals</h4>',
+                    field_otsk_ds_text: '<hr /><ul><li>Pharmavite</li><li>MegaFood</li><li>Daiya</li></ul>',
+
+                },
+                3: {
+                    field_otsk_ds_title: '<h3>2</h3><h4>Consumer</h4>',
+                    field_otsk_ds_text: '<hr /><ul><li>Crystal Geyser</li><li>Ridge Vineyards</li></ul>',
+                },
+            }
+        }%}
+        </div>
+        {% include "@organisms/paragraphs/paragraph-text/text/paragraph-text.twig" with {
+            layout: {
+                layout: 'item-layout-2-column',
+                image_position: 'image-position-left',
+            },
+            field_title: '<h3>Collaborations are a key part of our business.</h3>',
+            field_text: '<p><a href="#">Learn more</a></p>',
+        } %}
+
+    {% endblock %}
+    {% block page_footer %}
+        {% include "@organisms/footer/flexible-footer.twig" %}
+        {% include "@organisms/block/eu_cookie_compliance_popup_info/eu_cookie_compliance_popup_info.twig" %}
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,20 @@
+<div class="ds1 modal interstitial" tabindex="-1" role="dialog" id="{{ modalID }}" aria-labelledby="{{ modalLabelID }}"
+     style="display:none;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="{{ modalLabelID }}">{{ modalTitle }}</h4>
+                <button type="button" class="close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="{{ modalBodyID }}">
+                <p>{{ modalBody }}</p>
+            </div>
+            <div class="modal-footer">
+                {{ closeButton|raw }}
+                {{ continuButton|raw }}
+            </div>
+        </div>
+    </div>
+</div>

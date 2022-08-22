@@ -1,0 +1,15 @@
+{{ attach_library('otsuka_design_system_theme/component.modal') }}
+{{ attach_library('otsuka_design_system2022/bootstrap.button') }}
+
+{% set close_analytics_id = 'close-' ~ modalCloseButtonID|data_analytics_id %}
+{% set open_analytics_id = 'open-' ~ modalContinueButtonID|data_analytics_id %}
+
+{% include "@organisms/block/interstitial/interstitial-modal.twig" with {
+  modalID: modalID,
+  modalLabelID: modalLabelID,
+  modalBodyID: modalBodyID,
+  modalCloseButtonID: "externalLinkPopupModalCloseButton",
+  modalContinueButtonID: "externalLinkPopupModalContinueButton",
+  continuButton: '<a role="button" href="#" class="btn btn-secondary analytics--o-exit-close" data-analytics-id="'~ close_analytics_id ~'" data-dismiss="modal" id="' ~ modalCloseButtonID ~ '">Close</a>',
+  closeButton: '<a role="button" href="#" class="btn btn-primary analytics--e-link" data-analytics-id="' ~ open_analytics_id ~ '" id="' ~ modalContinueButtonID ~ '">Continue</a>'
+} %}

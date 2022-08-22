@@ -1,0 +1,12 @@
+menu_items:
+  - title: 'HOME'
+    url: '#'
+  - title: 'OUR MISSION'
+    url: '#'
+  - title: 'GET INVOLVED'
+    url: '#'
+  - title: 'RESOURCES'
+    url: '#'
+  - title: 'JOIN US'
+    url: '#'
+    modifier: 'outline-button'

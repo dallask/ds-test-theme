@@ -1,0 +1,23 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.badge') }}
+
+{% set badge_base_class = base_class|default('ds-badge') %}
+
+{% set badge_attributes = {
+  class: bem(
+    badge_base_class,
+    badge_modifiers,
+    badge_blockname,
+    [
+      'badge',
+      'bg-' ~ badge_variant,
+      badge_pill ? 'rounded-pill' : '',
+      badge_classes|join(' '),
+    ]
+  ),
+}|merge(badge_extra_attributes|default({})) %}
+
+<span {{ add_attributes(badge_attributes) }}>
+  {% block badge_content %}
+    {{ badge_content }}
+  {% endblock %}
+</span>

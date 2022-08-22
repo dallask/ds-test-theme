@@ -1,0 +1,87 @@
+{% set paragraph_base_class = paragraph_base_class|default('cta') %}
+
+{% extends "@components/paragraph/wrapper/wrapper.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/paragraph.cta') }}
+
+    {% if content.field_otsk_ds_wrapper_background|render %}
+      {% block field_otsk_ds_wrapper_background %}
+        <div {{ bem(paragraph_base_class ~ '-background', [], paragraph_blockname) }}>
+          {{ content.field_otsk_ds_wrapper_background }}
+        </div>
+      {% endblock %}
+    {% endif %}
+
+    {% if content.field_otsk_ds_wrapper_back_video|render %}
+      {% block field_otsk_ds_wrapper_back_video %}
+        <div {{ bem('bg-video', [], paragraph_blockname) }}>
+          {{ content.field_otsk_ds_wrapper_back_video }}
+        </div>
+      {% endblock %}
+    {% endif %}
+
+    <div {{ bem(paragraph_base_class ~ '-content', [], paragraph_blockname) }}>
+      {% if content.field_otsk_ds_wrapper_title %}
+        {% block field_otsk_ds_wrapper_title %}
+          <div {{ bem(paragraph_base_class ~ '-title', [], paragraph_blockname) }}>
+            <h2>
+              {{ content.field_otsk_ds_wrapper_title }}
+            </h2>
+          </div>
+        {% endblock %}
+      {% endif %}
+
+      {% if content.field_otsk_ds_paragraphs %}
+        {% block field_otsk_ds_paragraphs %}
+          <div {{ bem(paragraph_base_class ~ '-paragraphs', [], paragraph_blockname) }}>
+            <div class="row">
+              <div {{ bem(paragraph_base_class ~ '-image', [], paragraph_blockname, [
+                'col-60',
+                'col-md-15',
+                'text-center',
+                'd-flex',
+                'justify-content-center',
+              ]) }}>
+                {% if content.field_otsk_ds_paragraphs[0]['#paragraph'].storibook_content %}
+                  {{ content.field_otsk_ds_paragraphs[0]['#paragraph'].storibook_content }}
+                {% else %}
+                  {{ content.field_otsk_ds_paragraphs[0]|render }}
+                {% endif %}
+              </div>
+              <div {{ bem(paragraph_base_class ~ '-text', [], paragraph_blockname, [
+                'col-60',
+                'col-md-30',
+                'text-center',
+                'text-md-start',
+                'justify-content-center',
+                'align-items-center',
+              ]) }}>
+                {% if content.field_otsk_ds_paragraphs[1]['#paragraph'].storibook_content %}
+                  {{ content.field_otsk_ds_paragraphs[1]['#paragraph'].storibook_content }}
+                {% else %}
+                  {{ content.field_otsk_ds_paragraphs[1]|render }}
+                {% endif %}
+              </div>
+              <div {{ bem(paragraph_base_class ~ '-link', [], paragraph_blockname, [
+                'col-60',
+                'col-md-15',
+                'text-center',
+                'd-flex',
+                'align-items-center',
+                'justify-content-center',
+              ]) }}>
+                {% if content.field_otsk_ds_paragraphs[2]['#paragraph'].storibook_content %}
+                  {{ content.field_otsk_ds_paragraphs[2]['#paragraph'].storibook_content }}
+                {% else %}
+                  {{ content.field_otsk_ds_paragraphs[2]|render }}
+                {% endif %}
+              </div>
+            </div>
+
+          </div>
+        {% endblock %}
+      {% endif %}
+    </div>
+  {% endblock %}

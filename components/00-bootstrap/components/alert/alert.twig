@@ -1,0 +1,53 @@
+{#
+/**
+ * Available variables:
+ * - content - the content of the alert (typically text)
+ *
+ * Available blocks:
+ * - content - used to replace the content of the button with something other than text
+ *   for example: to insert an icon
+ */
+#}
+
+{{ attach_library('otsuka_design_system2022/bootstrap.alert') }}
+{{ attach_library('otsuka_design_system2022/bootstrap.close') }}
+
+{% set alert_base_class = alert_base_class|default('ds-alert') %}
+{% set variant = variant|default('primary') %}
+{% set alert_dismissible = alert_dismissible|default(true) %}
+{% set alert_content = alert_content|default('Alert content') %}
+
+{% set alert_attributes = {
+  class: bem(
+    alert_base_class,
+    alert_modifiers,
+    alert_blockname,
+    [
+      'alert',
+      'alert-' ~ variant,
+      alert_dismissible ? 'alert-dismissible' : '',
+      'fade',
+      'show',
+      alert_classes|join(' '),
+    ]
+  ),
+  'role': 'alert',
+}|merge(alert_attributes|default({})) %}
+
+<div {{ add_attributes(alert_attributes) }}>
+  {% block alert_content %}
+    {{ alert_content }}
+  {% endblock %}
+  {% if alert_dismissible %}
+    {% include "@bootstrap/components/buttons/button.twig" with {
+      button_classes: [
+        'btn-close',
+      ],
+      button_attributes: {
+        'type': 'button',
+        'data-bs-dismiss': 'alert',
+        'aria-label': 'Close',
+      }
+    } %}
+  {% endif %}
+</div>

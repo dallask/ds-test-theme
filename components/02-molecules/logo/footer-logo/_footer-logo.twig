@@ -1,0 +1,25 @@
+{{ attach_library('otsuka_design_system2022/molecules.footer-logo') }}
+
+{% set footer__base_class = 'footer-a' %}
+{% set img_directory = directory ? '/' ~ directory ~ '/images/' : '/' %}
+
+<div {{ bem('logo', [], footer__base_class) }}>
+
+  <div {{ bem('logo', ['site-logo'], footer__base_class) }}>
+    {% include "@molecules/image-link/image-link.twig" with {
+      link_url: '/',
+      img_src: img_directory ~ 'Otuska_Logo--dark.svg',
+      img_alt: 'SoVM Logo'
+    } %}
+  </div>
+
+  <div {{ bem('logo', ['brand-logo'], footer__base_class) }}>
+    {% include "@molecules/image-link/image-link.twig" with {
+      link_url: '//www.otsuka-us.com',
+      img_src: img_directory ~ 'Otuska_Logo--dark.svg',
+      img_alt: 'Otuska Logo',
+      link_attributes: {'target': '_blank'}
+    } %}
+  </div>
+
+</div>

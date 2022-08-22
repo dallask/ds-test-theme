@@ -1,0 +1,76 @@
+{{ attach_library('otsuka_design_system2022/organisms.paragraph-wrapper-carousel') }}
+
+{% set slider_quotes__base_class = 'paragraph-wrapper-carousel' %}
+<div {{ bem(slider_quotes__base_class) }}>
+  {% if bg_type %}
+    <div class="video-bg">
+        {% if bg_type == 'video' %}
+            <video id="heroVideoMobile"
+                   class="hero-video-mobile"
+                   muted
+                   width="100%"
+                   height="auto"
+                   preload="auto"
+                   autoplay="autoplay"
+                   loop="loop"
+                   poster="{{ field_image_url_mobile }}">
+                <source src="{{ field_otsk_video_background }}"
+                        type="video/mp4">
+            </video>
+            <video id="heroVideoDesktop"
+                   class="hero-video-desktop"
+                   muted
+                   width="100%"
+                   height="auto"
+                   preload="auto"
+                   autoplay="autoplay"
+                   loop="loop"
+                   poster="{{ field_image_url_desktop }}">
+                <source src="{{ field_otsk_video_background }}"
+                        type="video/mp4">
+            </video>
+        {% endif %}
+        {% if bg_type == 'image' %}
+            <img src="{{ field_otsk_video_background }}"/>
+        {% endif %}
+    </div>
+  {% endif %}
+    {% if carousel.type == 'bootstrap' %}
+        {% include '@bootstrap/components/carousel/carousel.twig' with {
+            content: carousel.items
+        } %}
+    {% else %}
+        <div class="paragraph-carousel"
+             data-slidestoshow="{{ carousel.slidesToShow }}"
+             data-slidestoscroll="{{ carousel.slidesToScroll }}"
+             data-autoplay="{{ carousel.autoplay }}"
+             data-autoplayspeed="{{ carousel.autoplaySpeed }}"
+             data-speed="{{ carousel.speed }}"
+             data-centermode="{{ carousel.centerMode }}"
+             data-centerpadding="{{ carousel.centerPadding }}"
+             data-dots="{{ carousel.dots }}"
+             data-infinite="{{ carousel.infinite }}"
+             data-pauseondotshover="{{ carousel.pauseOnDotsHover }}"
+             data-variablewidth="{{ carousel.variableWidth }}"
+             data-adaptiveheight="{{ carousel.adaptiveHeight }}"
+             data-tablet-arrows="{{ carousel.tablet_arrows }}"
+             data-tablet-centermode="{{ carousel.tablet_centerMode }}"
+             data-tablet-centerpadding="{{ carousel.tablet_centerPadding }}"
+             data-tablet-slidestoshow="{{ carousel.tablet_slidesToShow }}"
+             data-mobile-arrows="{{ carousel.mobile_arrows }}"
+             data-mobile-centermode="{{ carousel.mobile_centerMode }}"
+             data-mobile-centerpadding="{{ carousel.mobile_centerPadding }}"
+             data-mobile-slidestoshow="{{ carousel.mobile_slidesToShow }}"
+        >
+            {% for item in carousel.items %}
+                {% include '@organisms/paragraphs/paragraph-text/text/paragraph-text.twig' with {
+                    field_title: item.field_otsk_ds_title,
+                    field_text: item.field_otsk_ds_text,
+                    field_custom_class: item.field_otsk_ds_paragraph_class,
+                    field_image: item.field_otsk_ds_image,
+                    field_image_mobile: item.field_otsk_ds_image_mobile,
+                } %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

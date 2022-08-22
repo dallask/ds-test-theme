@@ -1,0 +1,18 @@
+{% set ul_base_class = menu_class %}
+{% set ul_modifiers = menu_modifiers %}
+{% set ul_blockname = menu_blockname %}
+{% set ul_extra = menu_extra %}
+
+{# List #}
+{% extends "@atoms/lists/ul.twig" %}
+  {% block list_content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {% for item in items %}
+      {% include "@components/menu/abstract/_menu-item.twig" with {
+        li_base_class: item_base_class,
+        li_modifiers: item_modifiers,
+        li_blockname: item_blockname,
+      } %}
+    {% endfor %}
+  {% endblock %}

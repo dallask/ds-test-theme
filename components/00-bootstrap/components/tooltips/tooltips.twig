@@ -1,0 +1,29 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.popovers') }}
+
+{% set tooltips_base_class = tooltips_base_class|default('popovers') %}
+
+{% set tooltips_attributes = {
+  class: bem(
+    tooltips_base_class,
+    tooltips_modifiers,
+    tooltips_blockname,
+    [
+      'popovers',
+      classes|join(' '),
+    ]
+  ),
+}|merge(tooltips_attributes|default({
+  type: 'button',
+  'data-bs-toggle': 'tooltip',
+  'data-bs-placement': position,
+  title: content.title,
+})) %}
+
+{% block content %}
+  {% include "@bootstrap/components/buttons/button.twig" with {
+    button_content: content.button_title,
+    button_attributes: tooltips_attributes
+  } %}
+{% endblock %}
+
+

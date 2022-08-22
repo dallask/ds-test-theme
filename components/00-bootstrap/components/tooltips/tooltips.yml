@@ -1,0 +1,13 @@
+content:
+  button_title: 'Hover to view tooltip'
+  title: 'Tooltip title'
+position:
+  - left
+  - top
+  - right
+  - bottom
+classes:
+  - 'tooltip-button'
+  - 'btn'
+  - 'btn-lg'
+  - 'btn-danger'

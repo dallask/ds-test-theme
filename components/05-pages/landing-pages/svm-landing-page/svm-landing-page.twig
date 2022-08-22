@@ -1,0 +1,55 @@
+{{ attach_library('otsuka_design_system2022/pages.svm-landing-page') }}
+
+{% set page_layout_modifier = 'full' %}
+<div class="svm-landing-page">
+  {% embed "@templates/full-width.twig" %}
+    {% block page_header %}
+      {% include "@organisms/header/flexible-header.twig" %}
+    {% endblock %}
+    {% block page_content %}
+      <section class="row position-relative">
+        {% embed "@organisms/paragraphs/paragraph-wrapper/container/paragraph-wrapper-container.twig" %}
+          {% set bg_type = 'video' %}
+          {% set field_image_url_mobile = 'https://svm15186.dev.oapi.com/sites/g/files/qhldwo4906/themes/site/themes/custom/sovm/images/video/mobile_thumbnail_1_HERO.jpg' %}
+          {% set field_otsk_video_background = 'https://svm15186.dev.oapi.com/sites/g/files/qhldwo4906/themes/site/themes/custom/sovm/video/SoVM_Sizzle_15_B_9x16_20220321_GENERIC_xs_HOMEPAGE_MOBILE_1.mp4' %}
+          {% block content %}
+            <div class="container  position-relative text-center text-white py-6">
+              {% include "@molecules/content-with-title/content-with-title.twig" with {
+                title: 'Every mind is valuable.<br>realize the value of yours.',
+                content: 'The Society of Valued Minds is building a community of minds living boldly with mental health conditions.',
+              } %}
+            </div>
+          {% endblock %}
+        {% endembed %}
+      </section>
+      <section class="row position-relative bg-blue-gradient">
+        <div class="container  position-relative text-center ">
+          {% include "@molecules/content-with-title/content-with-title.twig" with {
+            title: 'express yourself.<br>fight mental health stigma.',
+            content: 'Self-care isn’t taboo, but mental health conditions still are. We’re here to share the truth - every single mind is endlessly valuable, and self-expression is essential for our mental health.',
+          } %}
+          {% if page.image_the_world_is_better %}
+            <div class="container position-relative">
+              {{ page.image_the_world_is_better }}
+            </div>
+          {% endif %}
+          {% embed "@organisms/paragraphs/paragraph-wrapper/card/paragraph-wrapper-card.twig" %}
+            {% set layout = 'cards' %}
+            {% set items = [{
+              field_otsk_ds_text:'we all have different mental health struggles.'
+            },{
+              field_otsk_ds_text:'we all express ourselves in different ways.'
+            },{
+              field_otsk_ds_text:'we’re here to show the world the value of every mind.'
+            }] %}
+          {% endembed %}
+        </section>
+        <section class="row position-relative">
+        </section>
+      {% endblock %}
+      {% block page_footer %}
+        {% include "@organisms/footer/flexible-footer.twig" %}
+        {% include "@organisms/block/eu_cookie_compliance_popup_info/eu_cookie_compliance_popup_info.twig" %}
+      {% endblock %}
+    {% endembed %}
+  </div>

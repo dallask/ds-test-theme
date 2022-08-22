@@ -1,0 +1,27 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModalDs1">
+  {{ launch_button.text }}
+</button>
+
+<!-- Modal -->
+<div class="ds1 modal fade" id="exampleModalDs1" tabindex="-1"
+     aria-labelledby="exampleModalDs1Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"
+            id="exampleModalDs1Label">{{ content.title }}</h4>
+      </div>
+      <div class="modal-body">
+        {{ content.body }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">{{ close_button.text }}</button>
+        <button type="button" class="btn btn-primary"
+                data-bs-dismiss="modal">{{ close_button.text2 }}</button>
+      </div>
+    </div>
+  </div>
+</div>

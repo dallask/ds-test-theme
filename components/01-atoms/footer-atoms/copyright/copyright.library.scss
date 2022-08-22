@@ -1,0 +1,11 @@
+
+
+.footer-a {
+  &__copyright {
+    font-size: fontSize(xs);
+    text-align: center;
+    @include media-breakpoint-up(md) {
+      text-align: left;
+    }
+  }
+}

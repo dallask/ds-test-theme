@@ -1,0 +1,20 @@
+content:
+  title: '<h4 class="modal-title">Echo Three</h4>'
+  body: "<p>And I'm sure Skywalker is with them. Set your course for the Hoth system. General Veers, prepare you men. Groups seven and ten will stay behind to fly the speeders. As soon as each transport is loaded, evacuation control will give clearance for immediate launch. Right, sir. Okay, that's it.</p>
+    <p>I trusted them to fix it. It's not my fault! They'll be in range of our tractor beam in moments, lord. Did your men deactivate the hyperdrive on the Millennium Falcon? Yes, my lord. Good. Prepare the boarding party and set for your weapons for stun. Yes, my lord.</p>
+    <p>We go way back, Lando and me. Who's worried? Oh. No one to meet us. I don't like this.</p>
+    <p>She doesn't know where he is. I don't know where he is. Nobody knows where he is. What do you mean, nobody knows? Well, uh, you see.</p>"
+close_button:
+  text: Close modal
+header: true
+footer: true
+scrollable: false
+centered: false
+size:
+  - sm
+  - lg
+  - xl
+classes:
+  - 'fade'
+attributes:
+  'id': 'exampleModal'

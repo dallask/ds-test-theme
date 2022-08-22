@@ -1,0 +1,228 @@
+<Meta title="Docs/How to create Component"/>
+
+# How to create component with DS 2.0
+
+## Component creation steps
+
+Any of your new components MUST inherit (extend) one of abstract or one of the
+children components that have already inherited (extended) one of the abstract
+components in turn.
+
+1. Determine what type of component you are going to create (block, layout, paragraph, menu, etc.)
+1. Create a separate subfolder with the unique name in the appropriate folder inside  components/06-components folder
+1. Create next files inside the component folder:
+    - `[Component_name].stories.jsx`
+    - `README.md`
+    - `[component_name].yml`
+    - `[component_name].twig`
+    - `_[component_name]-[part-name].scss` (optional)
+    - `[component_name].scss` (optional)
+    - `[component_name].js` (optional)
+1. Fill the `[Component_name].stories.jsx` with the certain component
+structure/information/controls.
+Use any existing component in the `components/06-components` as an example
+
+1. If you create abstract component, fill all component controls from scratch.
+If you inherit an existing component, just use controls from the parent and add/fix new if it needed
+
+1. Fill the component documentation in the `README.md` file
+
+1. Create the component library inside the `*.libraries.yml` file
+
+1. Attach your component library inside the `[component_name].twig` file
+by means of `{{ attach_library('[theme-name]/[component-library-name]') }}` or
+by means of **on-demand loading** feature
+
+1. Add SCSS and JS code if it needed (for JS using the Drupal behaviors
+approach is mandatory. Behavior name should be unique)
+
+1. Add twig debug in the template
+
+1. Run (or restart) storybook with the “npm run storybook” command in the theme folder (Make sure that storybook runs without the issues)
+
+1. Check that your component appears in the Storybook UI
+
+1. Check all component controls to make sure that they really work as expected
+
+1. Check the component `Docs` tab
+
+1. Run build with the `npm run build` command in the theme folder
+(Make sure that build runs without the issues)
+
+1. Run build with the `npm run webpack` command in the theme folder
+(Make sure that webpack runs without the issues)
+
+1. Place your component in the appropriate Drupal template
+
+1. Check that your component appears in Drupal and looks as expected
+
+## Component extending
+There are several abstract components in the folder `components/06-components`
+for each part of the Drupal we use: layout, menu, block, paragraph.
+[<img src="/docs/components/components-abstract.png" width="320"/>](/docs/components/components-abstract.png)
+
+Any other component should inherit (extend) one of the abstract components or
+one of the children components that have already inherited (extended)
+one of the abstract components in turn.
+[<img src="/docs/components/components-extends.png" width="100%"/>](/docs/components/components-extends.png)
+
+Children components should extend parental template with the `extends`
+directive in twig template and should inherit parental Controls by means of
+`import` directive and `argTypes` property of parental story.
+As an example, you can use any of children components in the
+`components/06-components/[component-type]` folders.
+[<img src="/docs/components/components-parent-import.png" width="100%"/>](/docs/components/components-parent-import.png)
+
+Children paragraph components also inherit parental behaviors.
+And most of them should use **ONLY** parental behaviors.
+However, if you need some extra behaviors inside your child component,
+you can add it in the child template inside the block declaration.
+
+Any components except abstract are children.
+
+## Component Paragraphs twig template suggestions
+
+There is a special paragraph behavior plugin (Custom twig template suggestions
+`custom_twig_template_suggestions_paragraph`) that provided the possibility to
+add the extra twig template suggestions to any paragraph that uses this behavior.
+
+This feature works through `hook_theme_suggestions_alter()` and allows you to
+create several different paragraphs by means of using single one (e.g. Wrapper)
+without the necessity to create a separate paragraph type.
+
+For example wrapper paragraph has a template suggestion:
+
+`paragraph--otsk-ds-wrapper.html.twig`
+
+If you add the word `carousel` to the wrapper paragraph behavior
+`custom_twig_template_suggestions_paragraph` you will be able to create
+a separate template with the name `paragraph--otsk-ds-wrapper--carousel.html.twig`
+for this certain paragraph.
+
+You can find several paragraphs that use such an approach in the current theme
+`[theme_name]/templates/paragraphs` folder:
+```
+paragraph--otsk-ds-wrapper--card.html.twig
+paragraph--otsk-ds-wrapper--complex1.html.twig
+paragraph--otsk-ds-wrapper--complex2.html.twig
+paragraph--otsk-ds-wrapper--cta.html.twig
+```
+
+## Component twig debug in Drupal
+
+The default Drupal twig debug information will be available only in the Drupal
+entity, but not in your nested components (atoms, molecules, etc.).
+So, it would be totally difficult to see what exact atom or whatever
+is used inside the paragraph or block.
+
+There is a possibility to see what exact template is used inside the Drupal
+entity. For example, you can see twig debug information inside any of
+components in admin mode on Drupal.
+
+To use this feature, just add the next string inside your component somewhere in block declaration:
+
+`{% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}`
+
+It will add the next information about certain twig template path:
+
+```
+<!-- THEME STORYBOOK DEBUG -->
+<!-- OUTPUT from '@components/paragraph/wrapper-accordion/accordion.twig' -->
+```
+
+This functionality is built on `hook_preprocess()` in `*.theme` file and
+depends on the global twig debug option that is set in the twig config for Drupal
+[<img src="/docs/components/components-twig-debug.png" width="320"/>](/docs/components/components-twig-debug.png)
+
+This preprocess places the next: `\Drupal::service('twig')->isDebug()`
+in the twig_debug_on global variable.
+
+## Best practices
+
+### **DO**
+- Extend existing abstract or exact twig templates
+
+- Define the default values for all twig variables inside the component
+
+- Place component SCSS into a separated component-related SCSS file
+
+- Use BEM approach for style encapsulation to avoid CSS overriding
+
+- Use bootstrap default mixins and variables as often as you can
+
+- Store all images for the components in `[theme_name]/images` folder
+
+- Keep most of the Drupal default wrappers for the fields, blocks, paragraphs, etc.
+
+- Each component in Storybook **MUST** have its own folder and its
+own `*.story.js` file (the same for the component variants)
+
+- Avoid placing complex logic inside the twig template
+
+- Store the paragraph's extra settings in behaviors or twig variables
+
+- After creating, deleting, refactoring, replacing, renaming components
+run `npm run storybook`, `npm run build`, `npm run webpack`
+to make sure that the integrity of the system is maintained
+
+- After creating, deleting, refactoring, replacing, renaming components
+fix the paths in `*.library.yml` file and in all dependent components
+
+- Avoid using `import` directive in SCSS files
+(it dramatically slows down the CSS building process)
+
+- Wrap all fields inside your templates with the next construction:
+```
+{% block field_name %}
+  {% if content.field_name %}
+    {{ content.field_name }}
+  {% endif %}
+{% endblock %}
+```
+to make your template extendible and field optional.
+
+- Store all your components inside components/06-components folder in
+accordance to Drupal entity types structure (block, paragraph, menu, layout)
+to be ease of use
+
+- Use twig namespaces inside your templates
+(e.g.` @components/paragraph/abstract/paragraph.twig`)
+(https://www.drupal.org/docs/contributed-modules/components/understanding-twig-namespaces)
+
+- Use JS webpack aliases for `import` directives instead of absolute or
+relative paths (e.g. ‘import accordionItem from
+`"@components/paragraph/wrapper-accordion/accordion-item.twig";`)
+(https://www.npmjs.com/package/babel-plugin-webpack-alias)
+
+- Use Bootstrap components from storybook or from the original Bootstrap
+site in most cases (same for tags, structures, classes, etc.)
+
+### **DO NOT**
+- Create block, paragraph, menu, layout, etc. from scratch without extending
+- Decompose basic Drupal fields: link, image, file, etc.
+- Use global CSS selectors, or selectors with common names
+- Place components SCSS into one file or into global.scss
+- Use custom mixins and variables as often as you can
+- Store your images for the components wherever you want
+- Remove all Drupal wrappers from fields, blocks, paragraphs, etc.
+- Include several components or component variants inside the same folder
+and the same *.story.js file
+- Make import SCSS files inside the *.story.js files (all SCSS will be
+imported automatically. All SCSS, except those have the prefix “_”,
+will be built into the dist folder)
+- Place a lot of logic inside the twig template
+- Store most of the paragraph's extra settings inside the behaviors
+- Store the paragraph's extra settings in fields
+- Delete, replace, edit, refactor, rename any component or file you want
+- Store your components wherever you want
+- Create deep nesting (extends) for children components
+- Use a custom html structure, classes, components without using Bootstrap
+
+## References
+- https://storybook.js.org/docs/react/writing-stories/introduction
+- https://docs.emulsify.info/emulsify-drupal/emulsify-drupal/basic-usage/writing-stories
+- https://docs.emulsify.info/emulsify-drupal/emulsify-drupal/advanced-usage/3rd-party-libraries
+- https://docs.emulsify.info/supporting-projects/webpack-and-build
+- https://twig.symfony.com/doc/3.x/tags/extends.html
+- https://twig.symfony.com/doc/3.x/tags/include.html
+- https://stackoverflow.com/questions/40526990/difference-between-include-extends-use-macro-embed-in-twig

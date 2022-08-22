@@ -1,0 +1,99 @@
+
+
+/**
+  Based on https://github.com/OAPI-Commercial-IT/otsk-drupal/blob/drupal9_dev/docroot/themes/custom/otsuka_design_system_theme/assets/src/style/node/node.ods-article.scss
+  Equivalencies (node.ods-article.scss = _card.ds1.scss):
+
+  .node-type-ods-article = .card
+  .teaser-container = &.grid__item
+
+  .news-icon = ???
+  .article-img = .image
+
+  .article-content = .card__content
+
+  .article-title = .card__heading
+  .time-source = .card__subheading
+  .article-body = .card__body
+   */
+.ds1 {
+  .card {
+    font-family: fontFamily(body);
+
+    &.grid__item {
+      .header {
+        width: 100%;
+      }
+
+      .image {
+        float: right;
+        max-width: 275px;
+        margin-left: space(small);
+        @include media-breakpoint-down(sm) {
+          float: none;
+          max-width: 100%;
+          margin-bottom: space(large);
+          margin-left: 0;
+        }
+      }
+
+      .card__subheading {
+        font-family: fontFamily(body);
+        display: flex;
+        margin: space(large) 0 space(small) 0;
+        padding: space(small) 0;
+        line-height: 1.25rem;
+        font-size: fontSize(lg);
+        @include media-breakpoint-down(sm) {
+          flex-wrap: wrap;
+        }
+
+        .article-time {
+          padding: 0 space(small) 0 0;
+
+          @include media-breakpoint-down(sm) {
+            flex-basis: 100%;
+          }
+        }
+
+        .article-source {
+          padding: 0 0 0 space(small);
+          border-left: 2px solid $gray-400;
+
+          @include media-breakpoint-down(sm) {
+            border-left: none;
+            flex-basis: 100%;
+            padding: space(medium) 0 0 0;
+          }
+        }
+      }
+
+      .news-icon, .image {
+        background-image: url("/images/news.png");
+        height: 75px;
+        min-width: 75px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .card__link {
+        color: clr('text-inverse') !important;
+        background-color: clr(blue) !important;
+        display: inline-block;
+        font-family: fontFamily(body);
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: space(half-medium) space(medium);
+        font-size: $font-size-base;
+        line-height: 1;
+        border-radius: space(half-large);
+        margin: space(large) 0;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        text-decoration: none;
+      }
+    }
+  }
+}

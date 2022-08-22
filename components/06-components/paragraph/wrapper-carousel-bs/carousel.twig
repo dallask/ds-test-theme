@@ -1,0 +1,68 @@
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/paragraph.carousel-bs') }}
+
+    {% block field_paragraph %}
+      {% if content.field_title_format|render %}
+        {% block field_title_format %}
+          <h2>
+            {{ content.field_title_format }}
+          </h2>
+        {% endblock %}
+      {% endif %}
+
+      <div {{ bem(
+        paragraph_base_class ~ '-paragraphs',
+        [],
+        paragraph_blockname,
+        [
+          'carousel-bs',
+          'carousel',
+          'carousel-dark',
+          'slide'
+        ]
+      ) }}
+        id="carousel{{ paragraph.id() }}"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          {% for key, item in content.field_paragraph if key|first != '#' %}
+            <button type="button" data-bs-target="#carousel{{ paragraph.id() }}"
+                    data-bs-slide-to="{{ loop.index0 }}"
+              {% if loop.first %}
+                class="active"
+                aria-current="true"
+              {% endif %}
+                    aria-label="Slide {{ loop.index }}"></button>
+          {% endfor %}
+        </div>
+
+        <div class="carousel-inner">
+          {% for key, item in content.field_paragraph if key|first != '#' %}
+            <div class="carousel-item {{ loop.first ? 'active' : '' }}">
+              {% if content.field_paragraph[key]['#paragraph'].field_paragraph.storibook_content %}
+                {{ content.field_paragraph[key]['#paragraph'].field_paragraph.storibook_content }}
+              {% else %}
+                {{ content.field_paragraph[key]|render }}
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#carousel{{ paragraph.id() }}"
+                data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">{{ ('Previous')|t }}</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#carousel{{ paragraph.id() }}"
+                data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">{{ ('Next')|t }}</span>
+        </button>
+      </div>
+    {% endblock %}
+  {% endblock %}

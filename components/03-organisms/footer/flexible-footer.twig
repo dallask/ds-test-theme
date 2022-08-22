@@ -1,0 +1,106 @@
+{{ attach_library('otsuka_design_system2022/organisms.flexible-footer') }}
+
+{% block page_footer %}
+  {% set footer__base_class = footer__base_class|default('flexible-footer') %}
+  <footer {{ bem(footer__base_class, [], [], footer__additional_class) }}
+    role="contentinfo">
+    {% if footer_with_container %}
+    <div class="container">
+      {% endif %}
+      {% if page.first_middle_first or page.first_middle_second or page.first_middle_third or page.first_middle_fourth %}
+        <div class="row">
+          {% if page.first_middle_first %}
+            <div class="col">
+              {{ page.first_middle_first }}
+            </div>
+          {% endif %}
+
+          {% if page.first_middle_second %}
+            <div class="col">
+              {{ page.first_middle_second }}
+            </div>
+          {% endif %}
+
+          {% if page.first_middle_third %}
+            <div class="col">
+              {{ page.first_middle_third }}
+            </div>
+          {% endif %}
+
+          {% if page.first_middle_fourth %}
+            <div class="col">
+              {{ page.first_middle_fourth }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      {% if page.second_middle_first or page.second_middle_last %}
+        <div class="row">
+          {% if page.second_middle_first %}
+            <div class="col">
+              {{ page.second_middle_first }}
+            </div>
+          {% endif %}
+
+          {% if page.second_middle_last %}
+            <div class="col">
+              {{ page.second_middle_last }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if page.third_middle %}
+        <div class="pb-5 pt-3">
+          {{ page.third_middle }}
+        </div>
+      {% endif %}
+
+      {% if page.fourth_middle_first or page.fourth_middle_last %}
+        <div class="row">
+          {% if page.fourth_middle_first %}
+            <div class="col">
+              {{ page.fourth_middle_first }}
+            </div>
+          {% endif %}
+
+          {% if page.fourth_middle_last %}
+            <div class="col d-flex justify-content-end gap-1">
+              {{ page.fourth_middle_last }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if page.fifth_middle_first or page.fifth_middle_second or page.fifth_middle_third or page.fifth_middle_fourth %}
+        <div class="row">
+          {% if page.fifth_middle_first %}
+            <div class="col">
+              {{ page.fifth_middle_first }}
+            </div>
+          {% endif %}
+
+          {% if page.fifth_middle_second %}
+            <div class="col">
+              {{ page.fifth_middle_second }}
+            </div>
+          {% endif %}
+
+          {% if page.fifth_middle_third %}
+            <div class="col">
+              {{ page.fifth_middle_third }}
+            </div>
+          {% endif %}
+
+          {% if page.fifth_middle_fourth %}
+            <div class="col">
+              {{ page.fifth_middle_fourth }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      {% if footer_with_container %}
+    </div>
+    {% endif %}
+  </footer>
+{% endblock %}

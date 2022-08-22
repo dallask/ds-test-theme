@@ -1,0 +1,17 @@
+.copyright-wrapper {
+  font-size: fontSize(sm);
+  color: clr('text');
+
+  @include media-breakpoint-up(lg) {
+    font-size: fontSize(xxs);
+    width: 275px;
+    margin-left: space(half-small);
+    display: flex;
+  }
+}
+
+.copyright-rights {
+  @include media-breakpoint-up(lg) {
+    margin-left: auto;
+  }
+}

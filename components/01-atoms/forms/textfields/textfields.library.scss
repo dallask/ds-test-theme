@@ -1,0 +1,49 @@
+
+
+.form-item {
+  color: clr(text);
+  margin-bottom: 1em;
+  max-width: 32em;
+
+  @include clearfix;
+}
+
+.form-item__label {
+  display: block;
+  font-weight: 600;
+
+  @include media-breakpoint-up(xs) {
+    display: block;
+    margin-right: 2%;
+    padding: space(small) 0;
+  }
+}
+
+.form-item__textfield {
+  border: 1px solid clr(highlight-high);
+  padding: space(small);
+  max-width: 100%;
+
+  &:focus {
+    border-color: clr(accent-high);
+  }
+
+  &::placeholder {
+    color: clr(highlight);
+  }
+}
+
+.form-item__description {
+  margin-top: space(half-small);
+}
+
+.form-fieldset {
+  border: none;
+  margin-bottom: space(extra-large);
+  padding: 0;
+
+  .form-item {
+    margin-left: space(medium);
+    max-width: 31em;
+  }
+}

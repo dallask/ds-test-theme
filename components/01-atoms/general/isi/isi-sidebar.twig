@@ -1,0 +1,27 @@
+{#
+/*
+* @file:  block--pharma-isi.twig.html
+* @description: ISI block twig template
+*
+*/
+#}
+{{ attach_library('otsuka_design_system2022/atoms.isi-sidebar') }}
+
+
+<a id="isi-top"></a>
+
+<section id="inline-isi-wrapper" class="section isi-section isi-sidebar">
+  <div class="isi isi-block">
+    <div class="isi-inline-title-wrap">
+      <div class="isi-block-title">
+        {{ block_title }}
+      </div>
+    </div>
+    <div data-simplebar
+         data-simplebar-scrollbar-max-size="78"
+         class="isi-inline-inner-wrap"
+    >
+      {{ block_markup }}
+    </div>
+  </div>
+</section>

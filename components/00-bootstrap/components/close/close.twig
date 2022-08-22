@@ -1,0 +1,20 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.close') }}
+
+{% set close_base_class = close_base_class|default('btn-close') %}
+
+{% set close_attributes = {} %}
+
+{% if disabled %}
+  {% set close_attributes = close_attributes|merge({'disabled': 'disabled'}) %}
+{% endif %}
+
+{% include "@bootstrap/components/buttons/button.twig" with {
+  button_classes: [
+    close_base_class,
+    'btn-close-' ~ variant,
+  ],
+  button_attributes: {
+    'type': 'button',
+    'aria-label': "Close",
+  }|merge(close_attributes|default({}))
+} %}

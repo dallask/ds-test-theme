@@ -1,0 +1,10 @@
+items:
+  - field_otsk_ds_title: 'Neuroscience'
+    field_otsk_ds_text: '<p>Our driving philosophy at Otsuka is to serve those with unmet medical needs, and that couldn’t be more true than in our dedication to the central nervous system (CNS) space. In our 30 years of experience working in this therapeutic area, we continue to innovate and defy limitation by taking risks to overcome the complexities of treating mental health. We respect the value within every mind and are committed to making a difference in the lives of patients living with schizophrenia, major depressive disorder, bipolar disorder, and other CNS conditions.</p>'
+    field_otsk_ds_image: '250x250.png'
+  - field_otsk_ds_title: 'Nephrology'
+    field_otsk_ds_text: '<p>When Otsuka saw a need for clinical expertise and research in the nephrology space, we decided to lead the way. For more than 20 years, we have been bringing our research and expertise to this therapeutic area. We have focused on developing novel drugs in areas of unmet need, such as autosomal dominant polycystic kidney disease and hyponatremia, that have changed the treatment landscape. Our long-term perseverance has led to major breakthroughs, giving patients renewed hope and clinicians more options than ever before.</p>'
+    field_otsk_ds_image: '250x250.png'
+  - field_otsk_ds_title: 'Digital Innovation'
+    field_otsk_ds_text: '<p>Digital technology has not only changed the world we live in, but it is also changing the face of healthcare. Otsuka is at the forefront of this transformative juncture in medicine, creating novel solutions that help address the challenges of those living with serious mental illness. We believe our investment and leadership in this therapeutic area will revolutionize patient care as we know it. Patients will be able to engage and communicate with their care teams in new ways, and clinicians will have data-driven insights that may help inform treatment decisions.</p>'
+    field_otsk_ds_image: '250x250.png'

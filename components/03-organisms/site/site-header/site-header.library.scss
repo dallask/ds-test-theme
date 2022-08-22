@@ -1,0 +1,24 @@
+
+
+.header {
+  margin-bottom: 64px; //NONSTANDARD VAR
+
+  &__inner {
+    @include wrapper;
+
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__primary {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: space(medium) 0;
+  }
+
+  &__branding {
+    margin-right: space(medium);
+    max-width: 300px;
+  }
+}

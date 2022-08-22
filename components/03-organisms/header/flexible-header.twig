@@ -1,0 +1,76 @@
+{{ attach_library('otsuka_design_system2022/organisms.flexible-header') }}
+
+{% set flexible_header__base_class = footer__base_class|default('flexible-header') %}
+<header {{ bem(flexible_header__base_class, [], '', [flexible_header__background_color]) }} {% if(menu_behavior) %} data-menu-behavior="{{ menu_behavior }}" {% endif %} {% if(menu_overflow) %} data-menu-overflow="{{ menu_overflow }}" {% endif %}>
+  {% if header_with_container %}
+  <div class="container">
+    {% endif %}
+    {% if page.header_top %}
+      {{ page.header_top }}
+    {% endif %}
+
+    {% if page.header_middle_full %}
+      {{ page.header_middle_full }}
+    {% endif %}
+
+    <div {{ bem('b', [], flexible_header__base_class, ["header-middle"]) }}>
+      {% if page.header_middle_left %}
+        <div class="col-40 col-md-20 col-lg-15">
+          {{ page.header_middle_left }}
+        </div>
+      {% endif %}
+
+      {% if page.header_middle_right %}
+        <div class="col-10 col-md-40 col-lg-45 justify-content-end">
+          <div class="d-none d-md-block">
+            {{ page.header_middle_right }}
+          </div>
+          <div class="d-md-none">
+            <div data-bs-toggle="modal"
+                 data-bs-target="#flexibleHeaderMobileModal">
+              {% include "@atoms/images/icons/_icon.twig" with {
+                icon_base_class: "icon",
+                icon_blockname: "menu",
+                icon_name: "menu--dark"
+              } %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if page.header_bottom %}
+      {{ page.header_bottom }}
+    {% endif %}
+    {% if header_with_container %}
+  </div>
+  {% endif %}
+</header>
+
+{% set header_mobile_modal_class = header_mobile_modal_class|default('modal fade') %}
+{% set additional_header_mobile_modal_attributes = {
+  class: bem(
+    header_mobile_modal_class,
+    header_mobile_modal_modifiers,
+    header_mobile_modal_blockname,
+    [page.header_mobile.classes|join(' ')]|merge([flexible_header__mobile_background_color])
+  ),
+} %}
+
+{% if page.header_mobile %}
+  <div {{ add_attributes(additional_header_mobile_modal_attributes) }}
+    id="flexibleHeaderMobileModal" tabindex="-1"
+    aria-labelledby="flexibleHeaderMobileModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ page.header_mobile.body }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

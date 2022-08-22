@@ -1,0 +1,31 @@
+{% set footer__base_class = 'footer' %}
+
+<div {{ bem('email-subscription', [], footer__base_class) }}>
+
+  <div>
+    {{ email_subscription_info }}
+  </div>
+
+  <div>
+    <form action="/" method="post" accept-charset="UTF-8">
+      <span>
+        {% include "@atoms/forms/input-extended.twig" with {
+          "attr": {
+            "placeholder": placeholder,
+            "name": name,
+            "type": "text"
+          },
+        } %}
+      </span>
+      <span>
+        {% include "@atoms/forms/submit-btn-extended.twig" with {
+          "attr": {
+            "value": submit_btn_value
+          },
+        } %}
+      </span>
+    </form>
+  </div>
+
+</div>
+

@@ -1,0 +1,66 @@
+@import './01-variables';
+
+@function rem-or-percent($unit) {
+  @if unit($unit) == 'px' {
+    @return math.div($unit, $font-size-base) * 1rem;
+  }
+
+  @return $unit;
+
+  @warn "Expected argument $unit to be of type `% or px`, instead received: `#{unit($unit)}`";
+}
+
+@function file($file, $folder: 'webp', $nesting-level: 1) {
+  $default-nesting: '/';
+
+  @if $nesting-level>0 {
+    $default-nesting: '';
+
+    @for $i from 1 through $nesting-level {
+      $default-nesting: '../' + $default-nesting;
+    }
+  }
+
+  @return url($default-nesting + $folder + '/' + $file);
+}
+
+///////////
+// Usage //
+///////////
+// This color function makes it easy for you to call a color by it's functional
+// name anywhere you need.
+// E.g. to use the `text` color, you type: `color: clr(text);`
+//
+// How it works:
+// This function works in conjunction with the dynamic css custom properties
+// declarations below. The item called in the function is prefixed with
+// `var(--c-` to call the custom property for that color.
+// E.g. `color: clr(text);` will return `color: var(--c-text);`
+// Note: (The `--c-` is added via the `@each` loops below)
+@function clr($colorChoice) {
+  @return var(--c-#{'' + $colorChoice});
+}
+
+@function space($spacingChoice, $negative: false) {
+  @return var(--s-#{if($negative, 'n-', '')}#{'' + $spacingChoice});
+}
+
+@function fontSize($fontSizingChoice) {
+  @return var(--f-s-#{'' + $fontSizingChoice});
+}
+
+@function fontFamily($fontFamilyChoice) {
+  @return var(--f-f-#{'' + $fontFamilyChoice});
+}
+
+@function lineHeight($LineHeightChoice) {
+  @return var(--l-h-#{'' + $LineHeightChoice});
+}
+
+@function transitionSpeed($transitionSpeedChoice) {
+  @return var(--t-s-#{'' + $transitionSpeedChoice});
+}
+
+@function variable($variableChoice) {
+  @return var(--v-#{'' + $variableChoice});
+}

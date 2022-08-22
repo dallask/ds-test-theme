@@ -1,0 +1,11 @@
+{% set paragraph_blockname = paragraph_blockname|default('accordion-item') %}
+{% set paragraph_container_class = paragraph_container_class|default('container-full') %}
+
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {% block field_paragraph %}
+      {{ content.field_paragraph }}
+    {% endblock %}
+  {% endblock %}

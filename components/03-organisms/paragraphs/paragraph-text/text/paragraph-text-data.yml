@@ -1,0 +1,7 @@
+field_type: 'type-text'
+field_custom_class: 'paragraph-text-custom'
+field_image: '480x300.png'
+field_image_mobile: '250x250.png'
+field_title: '<h2>Paragraph Text</h2>'
+field_text: '<p>Praesent in purus semper, feugiat dolor dictum, aliquet massa. Cras fringilla sollicitudin sapien, non sollicitudin velit lacinia id. Curabitur dolor lorem, suscipit nec venenatis in, tincidunt ac mi. Aliquam viverra quam eget pulvinar dapibus. Vivamus vestibulum erat sit amet dapibus elementum. Etiam gravida gravida convallis. Nullam ac nisl nulla. Vestibulum congue mi ac maximus dapibus. Nunc pellentesque ex vitae justo pulvinar, vitae laoreet massa fermentum. Vivamus dapibus risus in nibh molestie, nec eleifend neque maximus. Nulla in volutpat justo. Donec fringilla diam eu turpis suscipit efficitur. Nullam sed rutrum leo. Nullam ornare vestibulum metus vel rutrum. Duis eu augue consequat, cursus turpis quis, dignissim ante. Curabitur consectetur vestibulum consectetur.</p>'
+field_link: '<a href="#">Go to Story</a>'

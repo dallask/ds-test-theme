@@ -1,0 +1,15 @@
+
+
+.svm-landing-page {
+    .bg-light{
+        background-color: red;
+    }
+    .logo {
+        &__image {
+            max-width: 120px;
+        }
+    }
+    .bg-blue-gradient {
+        background: linear-gradient(191.1deg,#6eebfa 10.04%,#8980ff 91.8%);
+    }
+}

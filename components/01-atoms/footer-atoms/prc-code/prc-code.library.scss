@@ -1,0 +1,10 @@
+
+
+.prc-code {
+  font-size: fontSize(sm);
+  color: clr('text');
+
+  @include media-breakpoint-up(lg) {
+    font-size: fontSize(xxs);
+  }
+}

@@ -1,0 +1,15 @@
+attributes:
+  id: 'block-test'
+  role: 'navigation'
+  aria-labelledby: 'block-test'
+  class:
+    - 'contextual-region'
+    - 'block'
+    - 'contextual-region'
+    - 'block-content'
+    - 'block-content-basic'
+title_attributes:
+  class: 'block-test'
+  id: 'block-test'
+label: 'Block Drupal Wrapper'
+id: 'block-test'

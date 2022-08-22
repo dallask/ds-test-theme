@@ -1,0 +1,696 @@
+@import './01-variables';
+@import './02-breakpoints';
+
+/*
+ * General Mixins (put specific ones in component files where applicable)
+*/
+
+/* Mixin - Clearfix.
+ * Adds clearfix based on http://bourbon.io/docs/#clearfix
+ * use example =   @include cleafix
+*/
+
+@mixin body-copy {
+  font-family: fontFamily(body);
+  font-size: $font-size-base;
+  line-height: 1.6;
+}
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+$outer-container-break: $small;
+
+/// Mixin - Wrapper
+/// Outer container mixin for large screens
+@mixin wrapper(
+  $container-max-width: $max-width,
+  $outer-container-break: $small,
+  $v-margin: 0,
+  $v-padding: 0,
+  $h-padding: space(medium),
+  $h-padding-large: $h-padding
+) {
+  max-width: #{$container-max-width};
+  width: 100%;
+  margin: #{$v-margin} auto;
+  padding: #{$v-padding} #{$h-padding};
+
+  @include breakpoint($outer-container-break) {
+    padding: #{$v-padding} #{$h-padding-large};
+  }
+
+  @include breakpoint($container-max-width) {
+    padding-left: calc(
+      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+    );
+    padding-right: calc(
+      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+    );
+  }
+}
+
+// Mixin - Standard Margin
+@mixin margin {
+  margin-bottom: space(medium);
+}
+
+@mixin no-bottom {
+  margin-bottom: 0;
+}
+
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin no-button-styles {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/*
+ * Use this on the outer wrapper of page-level elements.
+ * It ensures consistent spacing between elements on the page.
+ */
+@mixin space-stack-page {
+  margin-bottom: space(extra-large);
+}
+
+
+@mixin disable-highlight {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin x-linear-gradient($from, $to) {
+  background-image: -moz-linear-gradient(top, $from 5%, $to 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(5%, $from), color-stop(100%, $to));
+  background-image: -webkit-linear-gradient(top, $from 5%, $to 100%);
+  background-image: -o-linear-gradient(top, $from 5%, $to 100%);
+  background-image: -ms-linear-gradient(top, $from 5%, $to 100%);
+  background-image: linear-gradient(to bottom, $from 5%, $to 100%);
+}
+
+// @description change default value of $nesting-level to 3
+// if you want enable img url() on storybook side.
+// You have to also disable script inside storybook.js file - function generateFakeUrl()
+
+@mixin webp-background($img,
+                       $type: '.png') {
+  .no-js &, .no-webp & {
+    background-image: url('../dist/img/#{$img}#{$type}');
+  }
+
+  .webp & {
+    background-image: url('../dist/img/#{$img}.webp');
+  }
+}
+
+@mixin retina-image($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+@mixin rootVars() {
+  :root {
+    // Create custom properties for svm colors
+    @each $name, $color in $svmColors {
+      --c-#{"" + $name}: #{$color};
+    }
+
+    // Create custom properties for default colors
+    @each $name, $color in $defaultColors {
+      --c-#{"" + $name}: #{$color};
+    }
+
+    // Create custom properties for dark colors, an duse them if the user's OS has dark mode enabled
+    // @media (prefers-color-scheme: dark) {
+    //   @each $name, $color in $darkColors {
+    //     --c-#{"" + $name}: #{$color};
+    //   }
+    // }
+
+    // Use the default color scheme for the "Default Theme" section of the
+    // component library regardless of OS setting.
+    // This is required to show the correct colors in the component library at all times
+    [data-theme='default'] {
+      @each $name, $color in $defaultColors {
+        --c-#{"" + $name}: #{$color};
+      }
+    }
+
+    [data-theme='sozosei-foundation'] {
+      @each $name, $color in $sozoseiFoundationColors {
+        --c-#{"" + $name}: #{$color};
+      }
+    }
+
+    // >>>
+    // Implement Later think as not just like dark think as dark-default, dark-sozosei-foundation
+    // >>>
+    // Use the dark color scheme for the "Dark Theme" section of the  component
+    // library regardless of OS setting.
+    // This is required to show the correct colors in the component library at all times
+    // [data-theme='dark'] {
+    //   @each $name, $color in $darkColors {
+    //     --c-#{"" + $name}: #{$color};
+    //   }
+    // }
+
+    @each $index, $value in $defaultVariables {
+      --v-#{"" + $index}: #{$value};
+    }
+
+    @each $index, $value in $defaultSpacing {
+      --s-#{"" + $index}: #{$value};
+    }
+
+    @each $index, $value in $defaultSpacing {
+      --s-n-#{"" + $index}: #{$value * -1};
+    }
+
+    @each $index, $value in $defaultFontSizing {
+      --f-s-#{"" + $index}: #{$value};
+    }
+
+    @each $index, $value in $defaultFontFamily {
+      --f-f-#{"" + $index}: #{$value};
+    }
+
+    @each $index, $value in $defaultLineHeight {
+      --l-h-#{"" + $index}: #{$value};
+    }
+
+    @each $index, $value in $defaultTransitionSpeed {
+      --t-s-#{"" + $index}: #{$value};
+    }
+
+    [data-theme='default'] {
+      @each $index, $value in $defaultVariables {
+        --v-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $defaultSpacing {
+        --s-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $defaultSpacing {
+        --s-n-#{"" + $index}: #{$value * -1};
+      }
+
+      @each $index, $value in $defaultFontSizing {
+        --f-s-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $defaultFontFamily {
+        --f-f-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $defaultLineHeight {
+        --l-h-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $defaultTransitionSpeed {
+        --t-s-#{"" + $index}: #{$value};
+      }
+    }
+
+    [data-theme='sozosei-foundation'] {
+      @each $index, $value in $sozoseiFoundationVariables {
+        --v-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $sozoseiFoundationSpacing {
+        --s-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $sozoseiFoundationSpacing {
+        --s-n-#{"" + $index}: #{$value * -1};
+      }
+
+      @each $index, $value in $sozoseiFoundationFontSizing {
+        --f-s-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $sozoseiFoundationFontFamily {
+        --f-f-#{"" + $index}: #{$value};
+      }
+
+      @each $index, $value in $sozoseiFoundationTransitionSpeed {
+        --t-s-#{"" + $index}: #{$value};
+      }
+    }
+  }
+}
+
+@mixin link {
+  color: clr(accent);
+
+  &:hover {
+    color: clr(accent-high);
+  }
+}
+
+@mixin link-wrapper($background, $color) {
+  .link-wrapper {
+    background: $background;
+    border-radius: 20.5px;
+    border: 1px solid $color;
+    padding: 10px 20px;
+    position: relative;
+
+    &:hover {
+      background: $color;
+      border-color: $background;
+
+      a {
+        color: $background;
+      }
+    }
+
+    a {
+      font-family: fontFamily(body);
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      margin: 8px auto;
+      text-decoration: none;
+      color: $color;
+
+      &::after {
+        content: '\25BA';
+        position: absolute;
+        right: 20px;
+      }
+    }
+  }
+}
+
+
+@mixin join-us {
+  display: block;
+  padding: space(medium) space(half-small) space(medium) space(extra-extra-extra-large);
+  opacity: 0.9;
+  font-weight: bold;
+  border-radius: 100px;
+  border: 2px solid $black;
+  text-transform: uppercase;
+  font-family: fontFamily(body);
+  text-decoration: none;
+  width: 140px;
+  color: clr(black);
+  font-size: $font-size-base;
+  line-height: $font-size-base;
+  letter-spacing: 0.05em;
+  background: url('#{$images-path}/icons/instagram-black.svg') no-repeat 22px 12px transparent;
+
+  &:hover {
+    background-color: clr(purple);
+    font-style: normal;
+  }
+
+  @include media-breakpoint-up(md) {
+    border-color: clr(text-inverse);
+    color: clr(text-inverse);
+    padding: space(medium) 0 space(medium) space(extra-extra-extra-large);
+    width: 142px;
+    font-size: $font-size-base;
+    letter-spacing: 0.05em;
+    text-align: left;
+    background: url('#{$images-path}/icons/instagram-white.svg') no-repeat 22px 13px;
+  }
+}
+
+@mixin heading-xl(
+  $font-family: fontFamily(headline),
+  $font-size: $h1-font-size,
+  $line-height: 1.4,
+  $color: $color-heading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 700,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+$color-heading: clr(accent);
+
+@mixin heading-large(
+  $font-family: fontFamily(headline),
+  $font-size: $h2-font-size,
+  $line-height: 1.4,
+  $color: $color-heading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 700,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-medium(
+  $font-family: fontFamily(headline),
+  $font-size: $h3-font-size,
+  $line-height: 1.6,
+  $color: $color-heading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 700,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-small(
+  $font-family: fontFamily(headline),
+  $font-size: $h4-font-size,
+  $line-height: 1.6,
+  $color: $color-heading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-xs(
+  $font-family: fontFamily(headline),
+  $font-size: $h5-font-size,
+  $line-height: 2,
+  $color: $color-heading,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 600,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-xl-ds1(
+  $font-family: fontFamily(headline), // @TODO it's not the data-theme way
+  $font-size: $h2-font-size,
+  $line-height: 1.2,
+  $color: clr('accent-high'),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 100,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-large-ds1(
+  $font-family: fontFamily(headline), // @TODO it's not the data-theme way
+  $font-size: $h3-font-size,
+  $line-height: 1.2,
+  $color: clr('accent-high'),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 100,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-medium-ds1(
+  $font-family: fontFamily(headline), // @TODO it's not the data-theme way
+  $font-size: $h4-font-size,
+  $line-height: 1.2,
+  $color: clr('accent-high'),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 100,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+@mixin heading-small-ds1(
+  $font-family: fontFamily(body),
+  $font-size: $h5-font-size,
+  $line-height: 1.2,
+  $color: clr('accent-high'),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 100,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+}
+
+@mixin heading-xs-ds1(
+  $font-family: fontFamily(headline), // @TODO it's not the data-theme way
+  $font-size: fontSize(m),
+  $line-height: 1.2,
+  $color: clr('accent-high'),
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-weight: 100,
+  $margin: 0 0 space(small)
+) {
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: $margin;
+  width: auto;
+
+  &__link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+/* Create a mixin for paragraph styles that can be implemented
+ * in components with other classnames.
+*/
+@mixin paragraph($margin: 0 0 space(medium)) {
+  margin: $margin;
+}
+
+// Mixin to define colors for one or more schemes.
+// Simply pass the color scheme to the mixin to get the colors defined in the map.
+// e.g. @include buttonColors(default) will get all of the colors defined in the "default" section.
+@mixin buttonColors(
+  $scheme,
+  $pallate: map-get($button-colors, $scheme),
+  $map: $button-colors
+) {
+  color: map-get($pallate, text);
+  background-color: map-get($pallate, bg);
+
+  &:visited {
+    color: map-get($pallate, text);
+  }
+
+  &:hover {
+    color: map-get($pallate, text-hover);
+    background-color: map-get($pallate, bg-hover);
+  }
+}
+
+// The button-base mixin contains styles that apply to all buttons
+// regardless of color or size.
+@mixin button-base {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+// Button color variations
+// Note how we include dark mode options for each
+@mixin button-color-primary {
+  @include buttonColors(primary);
+
+  @media (prefers-color-scheme: dark) {
+    @include buttonColors(primary-dark);
+  }
+}
+
+@mixin button-color-secondary {
+  @include buttonColors(secondary);
+
+  @media (prefers-color-scheme: dark) {
+    @include buttonColors(secondary-dark);
+  }
+}
+
+// Button size variations
+@mixin button-medium {
+  line-height: 1.4;
+  padding: space(small) space(medium);
+}
+
+@mixin button-large {
+  line-height: 2;
+  padding: space(medium) space(extra-large);
+}
+

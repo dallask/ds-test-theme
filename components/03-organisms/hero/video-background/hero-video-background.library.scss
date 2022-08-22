@@ -1,0 +1,70 @@
+
+
+.hero {
+  &__content {
+    z-index: 1;
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: relative;
+
+    & > video {
+      object-fit: cover;
+    }
+
+    &--full-width-height {
+
+      > video {
+        width: 100vw;
+        height: 600px;
+      }
+    }
+
+    @each $size in [100, 300, 500] {
+      &--full-width-#{$size} {
+        height: #{$size}px;
+
+        > video {
+          width: 100vw;
+          height: #{$size}px;
+          max-height: 600px;
+        }
+      }
+    }
+
+    &--center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--center-horizontaly {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    &--center-vertically {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    @each $size in [8, 16, 32, 64] {
+      &--all-#{$size}px {
+        padding: #{$size}px;
+      }
+
+      &--h-#{$size}px {
+        padding-left: #{$size}px;
+        padding-right: #{$size}px;
+      }
+
+      &--v-#{$size}px {
+        padding-top: #{$size}px;
+        padding-bottom: #{$size}px;
+      }
+    }
+  }
+}

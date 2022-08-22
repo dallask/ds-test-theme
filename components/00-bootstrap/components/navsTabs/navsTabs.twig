@@ -1,0 +1,48 @@
+{{ attach_library('otsuka_design_system2022/bootstrap.nav') }}
+
+{% set navsTabs_base_class = navsTabs_base_class|default('nav') %}
+
+{% set navsTabs_attributes = {
+  class: bem(
+    navsTabs_base_class,
+    navsTabs_modifiers,
+    navsTabs_blockname,
+    [
+      'nav',
+      'nav-' ~ type,
+      fill ? 'nav-fill' : '',
+      justified ? 'nav-justified' : '',
+      justify_content,
+      direction,
+      classes|join(' '),
+    ]
+  ),
+}|merge(navsTabs_attributes|default({})) %}
+
+<ul {{ add_attributes(navsTabs_attributes) }}>
+  {% block content %}
+    {% for item in content %}
+      {% set list_item_content %}
+        {% include "@atoms/links/link/link.twig" with {
+          "link_content": item.content,
+          "link_url": item.link,
+          "link_base_class": 'link',
+          "link_modifiers": []|merge(item.active ? ['active'] : []),
+          "link_blockname": 'nav',
+          "link_extra": [
+            'nav-link'
+          ]|merge(item.active ? ['active'] : []),
+          "link_attributes": item.attributes|default({})|merge(item.disabled ? {'disabled': 'disabled'} : {})|merge(item.active ? {'aria-current': 'page'} : {})
+        } %}
+      {% endset %}
+      {% include "@atoms/lists/_list-item.twig" with {
+        list_item_content: list_item_content,
+        li_base_class: 'item',
+        li_blockname: 'nav',
+        li_extra: [
+          'nav-item'
+        ],
+      } %}
+    {% endfor %}
+  {% endblock %}
+</ul>

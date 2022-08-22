@@ -1,0 +1,24 @@
+{{ attach_library('otsuka_design_system2022/organisms.hero-image-background') }}
+
+{% set base_class = 'image-background' %}
+
+{% set hero_bg_image_mobile = hero_bg_image_mobile|default('/640x360.png') %}
+{% set hero_bg_image_desktop = hero_bg_image_desktop|default('/1920x1080.png') %}
+
+{% set bg_class = 'bg-class' %}
+
+<style>
+  .{{base_class}}__{{bg_class}} {
+    background-image: url({{hero_bg_image_desktop}});
+  }
+
+  @media (max-width: 640px) {
+    .{{base_class}}__{{bg_class}} {
+      background-image: url({{ hero_bg_image_mobile }});
+    }
+  }
+</style>
+
+<div {{ bem(bg_class, ['full-bleed'], base_class) }}>
+    {{ content }}
+</div>

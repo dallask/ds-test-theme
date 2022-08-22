@@ -1,0 +1,82 @@
+
+
+.scroll--slider {
+  width: 100%;
+
+  &--slides {
+    width: 100%;
+  }
+
+  &--slide {
+    height: 100vh;
+    width: 100%;
+  }
+
+  &--effect {
+    &--display {
+      &--show {
+        display: none;
+      }
+
+      &--hide {
+        display: block;
+      }
+    }
+
+    &--opacity {
+      &--show {
+        opacity: 0;
+      }
+
+      &--hide {
+        opacity: 1;
+      }
+    }
+
+    &--height {
+      &--show {
+        overflow: hidden;
+        height: 0;
+      }
+
+      &--hide {
+        overflow: hidden;
+        height: 100%;
+      }
+    }
+
+    &--weight {
+      &--show {
+        overflow: hidden;
+        width: 0;
+      }
+
+      &--hide {
+        overflow: hidden;
+        width: 100%;
+      }
+    }
+
+    &--move {
+      &--wr {
+        overflow: hidden;
+      }
+
+      &--left {
+        transform: translate(100%, 0);
+      }
+
+      &--up {
+        transform: translate(0, 100%);
+      }
+
+      &--right {
+        transform: translate(-100%, 0);
+      }
+
+      &--down {
+        transform: translate(0, -100%);
+      }
+    }
+  }
+}

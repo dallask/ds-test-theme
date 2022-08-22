@@ -1,0 +1,20 @@
+{% extends "@components/paragraph/abstract/paragraph.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/paragraph.carousel') }}
+
+    {% block field_paragraph %}
+      {% if content.field_title_format|render %}
+        {% block field_title_format %}
+          <h2>
+            {{ content.field_title_format }}
+          </h2>
+        {% endblock %}
+      {% endif %}
+
+      <div {{ bem(paragraph_base_class ~ '-paragraphs', [], paragraph_blockname) }}>
+        {{ content.field_paragraph }}
+      </div>
+    {% endblock %}
+  {% endblock %}

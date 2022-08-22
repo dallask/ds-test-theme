@@ -1,0 +1,16 @@
+# Breakpoints - change based on site need
+otsuka_design_system2022.small:
+  label: small
+  mediaQuery: 'all and (min-width: 25em)'
+otsuka_design_system2022.small-med:
+  label: small-med
+  mediaQuery: 'all and (min-width: 26em)'
+otsuka_design_system2022.small-large:
+  label: small-large
+  mediaQuery: 'all and (min-width: 41em)'
+otsuka_design_system2022.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 48em)'
+otsuka_design_system2022.large:
+  label: large
+  mediaQuery: 'all and (min-width: 61.25em)'

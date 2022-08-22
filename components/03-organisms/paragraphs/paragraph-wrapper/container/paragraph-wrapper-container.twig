@@ -1,0 +1,53 @@
+<div class="paragraph-text-wrapper {{ field_type }}">
+  {% if bg_type %}
+    <div class="video-bg">
+        {% if bg_type == 'video' %}
+            <video id="heroVideoMobile"
+                   class="hero-video-mobile"
+                   muted
+                   width="100%"
+                   height="auto"
+                   preload="auto"
+                   autoplay="autoplay"
+                   loop="loop"
+                   poster="{{ field_image_url_mobile }}">
+                <source src="{{ field_otsk_video_background }}"
+                        type="video/mp4">
+            </video>
+            <video id="heroVideoDesktop"
+                   class="hero-video-desktop"
+                   muted
+                   width="100%"
+                   height="auto"
+                   preload="auto"
+                   autoplay="autoplay"
+                   loop="loop"
+                   poster="{{ field_image_url_desktop }}">
+                <source src="{{ field_otsk_video_background }}"
+                        type="video/mp4">
+            </video>
+        {% endif %}
+        {% if bg_type == 'image' %}
+            <img src="{{ field_otsk_video_background }}"/>
+        {% endif %}
+
+    </div>
+  {% endif %}
+
+    {% block content %}
+        <div class="row">
+            {% for item in items %}
+                <div class="{{ item.field_col_class }}">
+                    {% include '@organisms/paragraphs/paragraph-text/text/paragraph-text.twig' with {
+                      field_title: item.field_otsk_ds_title,
+                      field_text: item.field_otsk_ds_text,
+                      field_custom_class: item.field_otsk_ds_paragraph_class,
+                      field_image: item.field_otsk_ds_image,
+                      field_image_mobile: item.field_otsk_ds_image_mobile,
+                      field_link: item.field_otsk_ds_link
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
+</div>

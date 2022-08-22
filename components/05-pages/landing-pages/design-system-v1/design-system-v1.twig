@@ -1,0 +1,27 @@
+{{ attach_library('otsuka_design_system2022/pages.design-system-v1') }}
+
+{% set page_layout_modifier = 'full' %}
+
+{% embed "@templates/full-width.twig" %}
+  {% block page_header %}
+    {% include "@organisms/header/flexible-header.twig" %}
+    {% include "@molecules/wrapper/modal/modal.twig" %}
+  {% endblock %}
+  {% block page_content %}
+    <br>
+    {% include "@atoms/text/headings/_heading.twig" with {
+      heading_level: '2',
+      heading: 'Page Intro',
+    } %}
+    {% include "@atoms/text/text/01-paragraph.twig" with {
+      paragraph_content: 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.',
+    } %}
+    {% include "@molecules/wrapper/modal/modal-trigger.twig" with {
+      link_content: 'Open the Test Modal'
+    } %}
+  {% endblock %}
+  {% block page_footer %}
+    {% include "@organisms/footer/flexible-footer.twig" %}
+    {% include "@organisms/block/eu_cookie_compliance_popup_info/eu_cookie_compliance_popup_info.twig" %}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,39 @@
+{% set paragraph_base_class = paragraph_base_class|default('modal') %}
+
+{% extends "@components/paragraph/wrapper/wrapper.twig" %}
+  {% block content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {{ attach_library('otsuka_design_system2022/paragraph.modal') }}
+
+    {% set title %}
+      {% if content.field_otsk_ds_wrapper_title %}
+        {% set modal_header = true %}
+        {% block field_otsk_ds_wrapper_title %}
+          <h5>
+            {{ content.field_otsk_ds_wrapper_title }}
+          </h5>
+        {% endblock %}
+      {% endif %}
+    {% endset %}
+
+    {% set body %}
+      {% if content.field_otsk_ds_paragraphs %}
+        {% block field_otsk_ds_paragraphs %}
+          {{ content.field_otsk_ds_paragraphs }}
+        {% endblock %}
+      {% endif %}
+    {% endset %}
+
+    {% include "@bootstrap/components/modal/modal.twig" with {
+      modal_header: modal_header,
+      modal_content: {
+        title: title,
+        body: body
+      },
+      modal_size: 'xl',
+      modal_attributes: {
+        id: 'customModal' ~ paragraph.id()
+      },
+    } %}
+  {% endblock %}

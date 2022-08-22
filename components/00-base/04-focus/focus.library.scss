@@ -1,0 +1,121 @@
+
+
+@mixin no-focus {
+  *:focus {
+    outline-style: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@keyframes blink {
+  from {
+    background-color: transparentize($color-outline, 0.5);
+    outline: 0.2rem solid $color-outline;
+  }
+
+  to {
+    background-color: transparent;
+    outline-color: transparent;
+  }
+}
+
+body {
+  *,
+  .btn,
+  .btn-primary,
+  input[type="submit"] {
+    &:focus {
+      outline: none;
+      outline-offset: 0;
+      box-shadow: 0 0 0 0.2rem $color-outline;
+    }
+  }
+
+  // Links and buttons.
+  a.visually-hidden,
+  .card-additional-files a {
+    &:focus {
+      outline: 0.2rem solid $color-outline;
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+  }
+
+  // Modal
+  .modal.fade {
+    outline: none;
+    box-shadow: none;
+  }
+
+  // Input fields.
+  .webform-submission-form {
+    .form-item {
+      &.js-form-type-textfield,
+      &.js-form-type-email,
+      &.js-form-type-tel {
+        input {
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    &.webform-submission-provide-feedback-form {
+      .form-item {
+        &.form-item-email-address {
+          input {
+            &:focus {
+              outline: 0.2rem solid $color-outline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.user-is-tabbing {
+    // Checkboxes and radio buttons.
+    input[type="radio"],
+    input[type="checkbox"] {
+      &:focus {
+        & + label {
+          &::before {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem $color-outline;
+          }
+        }
+      }
+    }
+
+    // Carousel
+    .carousel {
+      .carousel-control-prev,
+      .carousel-control-next {
+        &:focus {
+          opacity: 1;
+          animation-name: blink;
+          animation-duration: 1s;
+          outline-style: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  // Disable focus state on mobile devices.
+  &:not(.user-is-tabbing) {
+    @media (hover: none) and (pointer: coarse) {
+      @include no-focus;
+    }
+
+    @include large {
+      @include no-focus;
+    }
+  }
+
+  &.user-is-clicking {
+    @include no-focus;
+  }
+}

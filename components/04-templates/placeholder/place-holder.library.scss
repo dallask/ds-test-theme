@@ -1,0 +1,17 @@
+
+
+.place-holder {
+  color: clr(gray-light);
+  border: 4px dashed clr(gray-light);
+  padding: space(extra-extra-extra-large);
+
+  &__content {
+    font-size: fontSize(xxl);
+    line-height: fontSize(xl);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}

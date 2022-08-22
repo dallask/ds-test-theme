@@ -1,0 +1,15 @@
+.menu {
+  &__main-menu {
+    .dropdown-menu,
+    .dropdown-menu.show {
+      .nav-link {
+        color: $black;
+
+        &:hover {
+          color: $gray-600;
+        }
+      }
+    }
+  }
+}
+

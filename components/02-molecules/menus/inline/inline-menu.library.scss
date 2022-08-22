@@ -1,0 +1,28 @@
+
+
+.inline-menu {
+  @include list-reset;
+}
+
+.inline-menu__item {
+  margin: 0 space(medium) space(small) 0;
+
+  @include large {
+    display: inline;
+    margin-bottom: space(medium);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.inline-menu__link {
+  @include link;
+
+  font-size: fontSize(xs);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

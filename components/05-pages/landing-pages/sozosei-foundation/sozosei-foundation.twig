@@ -1,0 +1,107 @@
+{{ attach_library('otsuka_design_system2022/pages.sozosei-foundation') }}
+
+{% set page_layout_modifier = 'full' %}
+<div class="sozosei-foundation-page">
+  {% embed "@templates/full-width.twig" %}
+    {% block page_header %}{% endblock %}
+    {% block page_content %}
+      {% embed "@organisms/paragraphs/paragraph-wrapper/container/paragraph-wrapper-container.twig" %}
+        {% set bg_type = 'image' %}
+        {% set field_otsk_video_background = 'custom/sozoseifoundation/home_banner.png' %}
+
+        {% block content %}
+          {% include "@organisms/header/flexible-header.twig" %}
+          <div class="container">
+            <div class="row">
+              <div class="flex pb-5 pt-5 text-center">
+                {% include "@atoms/text/headings/_heading.twig" with {
+                  heading_additional_classes: ['pt-5'],
+                  heading_level: '2',
+                  heading: '<b>Sozosei</b> (Sō-zō-say)<b>: Creativity</b>',
+                } %}
+
+                {% include "@atoms/text/headings/_heading.twig" with {
+                  heading_additional_classes: ['pt-4'],
+                  heading_level: '5',
+                  heading: 'A catalyst for ideas that nurture<br>creative solutions for healthier communities.',
+                } %}
+              </div>
+              {% include "@atoms/text/text/01-paragraph.twig" with {
+                paragraph_content: 'The Sozosei Foundation was established in 2019 as a philanthropic arm of Otsuka. The name Sozosei means “creativity” in Japanese. Our Japanese heritage is manifest in the Foundation’s fundamental values and day-to-day operations. We are guided by a spirit of “Jissho,” or “proof through execution,” as we employ our unique assets and skills to contribute to the well-being of patients, families, providers, and each other. Thanks to Otsuka, we are able to fuse a profound understanding of the healthcare landscape with an equally profound sense of corporate social responsibility to advance our goal of building healthier communities.',
+              } %}
+
+              {% include "@atoms/text/text/01-paragraph.twig" with {
+                paragraph_content: 'The Foundation’s primary focus is to eliminate the use of jail and prisons for the diagnosis and treatment of mental illness. In addition to our primary focus on the <a href="/program-areas#decriminalizing-mental">decriminalization of mental illness</a>, the Sozosei Foundation also supports efforts to build <a href="/program-areas#resilient-communities">resilient, healthy, and vibrant communities</a> in Stockton, California; City of Baltimore, Maryland; and Camden, Newark, Patterson, and Trenton, New Jersey, and engages in <a href="/program-areas#disaster-philanthropy">disaster relief and recovery</a> in places where Otsuka has a presence globally.',
+              } %}
+            </div>
+          </div>
+        {% endblock %}
+      {% endembed %}
+      <div class="bg-success bg-opacity-25 pt-4 pb-4">
+        <div class="container">
+          {% include "@atoms/text/headings/_heading.twig" with {
+            heading_additional_classes: ['text-center', 'pb-3'],
+            heading_level: '4',
+            heading: 'Our Philosophy Focuses Us',
+          } %}
+          {% include "@atoms/text/text/01-paragraph.twig" with {
+            paragraph_content: 'Three principles shape the ethos of our philanthropy. To ensure that our giving is meaningful and effective, initiatives must live up to these principles:',
+          } %}
+
+
+          <div class="row">
+            <div class="col-sm">
+              {% include "@atoms/text/text/01-paragraph.twig" with {
+                paragraph_content: '<b>1. Community-driven,</b> using a racial equity lens to ensure programs and policies are developed by and for the people they seek to support;',
+              } %}
+            </div>
+
+            <div class="col-sm">
+              {% include "@atoms/text/text/01-paragraph.twig" with {
+                paragraph_content: '<b>2. Original,</b> taking an innovative and data-driven approach toward problem solving',
+              } %}
+            </div>
+
+            <div class="col-sm">
+              {% include "@atoms/text/text/01-paragraph.twig" with {
+                paragraph_content: '<b>3. Sustainable,</b> cultivating the circumstances and motivation necessary for long-term, self-supported success.',
+              } %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% embed "@organisms/paragraphs/paragraph-wrapper/container/paragraph-wrapper-container.twig" %}
+        {% set bg_type = 'image' %}
+        {% set field_otsk_video_background = 'custom/sozoseifoundation/annual_summit.png' %}
+
+        {% block content %}
+          <div class="container">
+            <div class="row">
+
+              <div class="col-sm col-md-40">
+                {% include "@atoms/text/headings/_heading.twig" with {
+                  heading_level: '5',
+                  heading: 'Save the date!',
+                } %}
+                <br>
+                {% include "@atoms/text/text/01-paragraph.twig" with {
+                  paragraph_content: 'The 3rd Annual Summit to Decriminalize Mental Illness will be held December 5–7, 2022 in Philadelphia, PA.',
+                } %}
+              </div>
+
+              <div class="col-sm col-md-20">
+                {% include "@atoms/buttons/twig/button.twig" with {
+                  button_content: 'LEARN MORE',
+                } %}
+              </div>
+            </div>
+          </div>
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+    {% block page_footer %}
+      {% include "@organisms/footer/flexible-footer.twig" %}
+      {% include "@organisms/block/eu_cookie_compliance_popup_info/eu_cookie_compliance_popup_info.twig" %}
+    {% endblock %}
+  {% endembed %}
+</div>

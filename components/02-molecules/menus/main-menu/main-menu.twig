@@ -1,0 +1,29 @@
+{{ attach_library('emulsify/main-menu') }}
+{{ attach_library('otsuka_design_system2022/molecules.main-menu') }}
+
+{% set base_toggle_class = base_toggle_class|default('toggle-expand') %}
+{# The wrapper is not a nav tag because it is already included in
+core/themes/stable9/templates/block/block--system-menu-block.html.twig.
+Otherwise, it would affect functionality in flexible-header-overflow.js #}
+<div>
+  <a href="#" id="toggle-expand" {{ bem(base_toggle_class) }}>
+    <span {{ bem('open', [], base_toggle_class) }}>
+      {% include "@atoms/images/icons/_icon.twig" with {
+        icon_base_class: "icon",
+        icon_blockname: "toggle-expand",
+        icon_name: "menu--dark",
+      } %}
+      <span {{ bem('text', [], base_toggle_class) }}>Main Menu</span>
+    </span>
+    <span {{ bem('close', [], base_toggle_class) }}>
+      <span {{ bem('text', [], base_toggle_class) }}>Close</span>
+    </span>
+  </a>
+  <div id="main-nav" {{ bem('main-nav') }}>
+    {% include "@molecules/menus/_menu.twig" with {
+      menu_class: "main-menu",
+      menu_extra: ["menu"],
+      items: menu_items,
+    } %}
+  </div>
+</div>

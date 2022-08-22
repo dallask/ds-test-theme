@@ -1,0 +1,12 @@
+{% set wrapper_tag = wrapper_tag|default('footer') %}
+{% set footer_content = footer_content|default('Footer Content') %}
+
+{% extends "@components/layout/abstract/wrapper.twig" %}
+
+  {% block wrapper_content %}
+    {% include "@components/global/_twig_debug.twig" with { component_debug_path: _self} %}
+
+    {% block footer_content %}
+      {{ footer_content }}
+    {% endblock %}
+  {% endblock %}

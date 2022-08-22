@@ -1,0 +1,11 @@
+{{ attach_library('otsuka_design_system2022/organisms.paragraph-text-reference') }}
+
+<div class="paragraph-text-reference-wrapper {{ field_type }} {{ layout.layout }} {{ layout.image_position }} {{ field_custom_class }}">
+  <div class="content">
+    {% block text %}
+      {% if field_text|default(null) %}
+        <div class="text-wrapper">{{ field_text }}</div>
+      {% endif %}
+    {% endblock %}
+  </div>
+</div>

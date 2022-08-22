@@ -1,0 +1,32 @@
+
+
+#root {
+  filter: none;
+}
+
+.scroll--slider {
+  &--slides > * {
+    background-color: #b0fadd;
+
+    &:nth-child(2) {
+      background-color: #98f6f6;
+    }
+
+    &:nth-child(3) {
+      background-color: #93a5f8;
+    }
+
+    &:nth-child(4) {
+      background-color: #c5a3f8;
+    }
+
+    &:nth-child(5) {
+      background-color: #ffb0f7;
+    }
+  }
+
+  &--slide {
+    padding: 50px;
+
+  }
+}

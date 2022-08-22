@@ -1,0 +1,27 @@
+{{ attach_library('otsuka_design_system2022/organisms.hero-video-background') }}
+
+{% set hero_base_class = hero_base_class|default('hero') %}
+
+{% set hero_sizing_modifier = hero_sizing_modifier %}
+{% set hero_placement_modifier = hero_placement_modifier %}
+{% set hero_padding_modifier = hero_padding_modifier %}
+{% set hero_modifiers = [hero_sizing_modifier, hero_placement_modifier, hero_padding_modifier] %}
+
+{% set hero_video_source = hero_video_source|default('/sample-27438-2560-1440.mp4') %}
+{% set hero_video_poster = hero_video_poster|default('/1920x1080.png') %}
+
+<div {{ bem('wrapper', hero_modifiers, hero_base_class) }}>
+    <video playsinline autoplay muted loop poster="{{ hero_video_poster }}">
+        <source src="{{ hero_video_source }}" type="video/mp4">
+        {# <source src="polina.webm" type="video/webm"> #}
+    </video>
+   {% if place_holder %}
+     <div {{ bem('content', [], hero_base_class) }}>
+       {% block place_holder %}
+         {% include "@templates/placeholder/place-holder.twig" with {
+           "place_holder": place_holder,
+         } %}
+       {% endblock %}
+     </div>
+   {% endif %}
+</div>

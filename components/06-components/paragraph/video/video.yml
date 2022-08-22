@@ -1,0 +1,6 @@
+content:
+  field_video: '
+  <video controls="controls" autoplay="autoplay" loop="loop" muted="muted" width="640" height="auto">
+      <source src="/sample-27438-2560-1440.mp4" type="video/mp4">
+  </video>
+  '
