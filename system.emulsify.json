@@ -35,36 +35,9 @@
         {
           "name": "base",
           "directory": "./components/00-base"
-        },
-        {
-          "name": "atoms",
-          "directory": "./components/01-atoms"
-        },
-        {
-          "name": "molecules",
-          "directory": "./components/02-molecules"
-        },
-        {
-          "name": "organisms",
-          "directory": "./components/03-organisms"
-        },
-        {
-          "name": "templates",
-          "directory": "./components/04-templates"
-        },
-        {
-          "name": "pages",
-          "directory": "./components/05-pages"
         }
       ],
-      "directories": [
-        {
-          "name": "template-components",
-          "path": "./components/04-templates",
-          "destinationPath": "./components/04-templates",
-          "description": "Contains default templates and layouts that are required"
-        }
-      ],
+      "directories": [],
       "files": [],
       "components": [
         {
