@@ -65,14 +65,7 @@
           "description": "Contains default templates and layouts that are required"
         }
       ],
-      "files": [
-        {
-          "name": "style",
-          "path": "./components/style.scss",
-          "destinationPath": "./components/style.scss",
-          "description": "Primary style scss file"
-        }
-      ],
+      "files": [],
       "components": [
         {
           "name": "01-colors",
