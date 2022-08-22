@@ -76,13 +76,11 @@
       "components": [
         {
           "name": "01-colors",
-          "structure": "base",
-          "required": true
+          "structure": "base"
         },
         {
           "name": "buttons",
-          "structure": "atoms",
-          "required": true
+          "structure": "atoms"
         },
         {
           "name": "card",
